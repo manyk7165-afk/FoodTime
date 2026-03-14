@@ -22,7 +22,7 @@
       --glass: rgba(255,255,255,0.07);
       --glass-strong: rgba(255,255,255,0.09);
       --border: rgba(255,255,255,0.12);
-      --shadow: 0 24px 60px rgba(0,0,0,0.30);
+      --shadow: 0 20px 50px rgba(0,0,0,0.28);
       --button: linear-gradient(135deg, #18b7ff 0%, #7b61ff 100%);
     }
 
@@ -40,86 +40,79 @@
         radial-gradient(circle at 72% 58%, rgba(255, 140, 0, 0.06), transparent 18%),
         linear-gradient(135deg, #040506 0%, #090811 24%, #140914 50%, #0a1020 76%, #040506 100%);
       color: var(--text);
-      padding: 28px;
+      padding: 24px;
     }
 
     .page {
-      max-width: 1680px;
+      max-width: 1500px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 20px;
     }
 
     .hero {
       background: var(--glass);
       border: 1px solid var(--border);
       backdrop-filter: blur(22px);
-      border-radius: 32px;
-      padding: 24px;
+      border-radius: 28px;
+      padding: 18px;
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
     .hero-top {
       display: grid;
-      grid-template-columns: 230px 1fr 340px;
-      gap: 20px;
+      grid-template-columns: 210px 1fr 320px;
+      gap: 18px;
       align-items: stretch;
     }
 
     .brand-box,
     .hero-main,
+    .schedule-card,
     .contact-card,
-    .schedule-card {
+    .slider-card {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.10);
       backdrop-filter: blur(22px);
-      border-radius: 26px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+      border-radius: 24px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.16);
     }
 
     .brand-box {
-      padding: 24px 18px;
+      padding: 20px 16px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      min-height: 260px;
+      min-height: 200px;
     }
 
     .brand-title {
       font-family: 'Unbounded', sans-serif;
-      font-size: 28px;
-      line-height: 1.15;
+      font-size: 26px;
+      line-height: 1.12;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      text-shadow: 0 0 28px rgba(255,255,255,0.08);
+      text-shadow: 0 0 20px rgba(255,255,255,0.08);
     }
 
     .brand-subtitle {
-      margin-top: 12px;
-      font-size: 11px;
-      letter-spacing: 0.24em;
+      margin-top: 10px;
+      font-size: 10px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.50);
     }
 
     .hero-main {
-      padding: 30px;
-      min-height: 260px;
+      padding: 22px 24px;
+      min-height: 200px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-    }
-
-    .hero-main h1 {
-      font-size: 46px;
-      line-height: 1.04;
-      margin-bottom: 16px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
     }
 
     .hero-description {
@@ -127,13 +120,13 @@
       flex-direction: column;
       gap: 10px;
       max-width: 760px;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
     .hero-description p {
       color: var(--muted);
-      line-height: 1.72;
-      font-size: 16px;
+      line-height: 1.68;
+      font-size: 15px;
     }
 
     .hero-buttons {
@@ -147,14 +140,14 @@
       align-items: center;
       justify-content: center;
       min-width: 138px;
-      padding: 14px 18px;
+      padding: 13px 18px;
       border-radius: 16px;
       text-decoration: none;
       color: white;
       font-weight: 800;
       font-size: 16px;
       background: var(--button);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.20);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.20);
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
@@ -163,32 +156,24 @@
       opacity: 0.96;
     }
 
-    .right-stack {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      gap: 14px;
-      min-height: 260px;
-    }
-
-    .contact-card,
     .schedule-card {
       padding: 18px;
+      min-height: 200px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 123px;
     }
 
     .mini-label {
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.48);
       margin-bottom: 8px;
     }
 
-    .contact-title,
-    .schedule-title {
+    .schedule-title,
+    .contact-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 32px;
       line-height: 1.02;
@@ -196,39 +181,19 @@
       font-weight: 700;
     }
 
-    .contact-phone {
-      font-size: 20px;
-      font-weight: 800;
-      line-height: 1.35;
-      margin-bottom: 10px;
-    }
-
-    .contact-note,
-    .schedule-note {
+    .schedule-note,
+    .contact-note {
       color: var(--muted);
       font-size: 13px;
       line-height: 1.65;
       margin-bottom: 12px;
     }
 
-    .contact-action {
-      display: inline-flex;
-      align-self: flex-start;
-      padding: 11px 14px;
-      border-radius: 14px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 800;
-      font-size: 14px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
     .schedule-lines {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      margin-top: 2px;
+      margin-bottom: 14px;
     }
 
     .schedule-line {
@@ -252,6 +217,95 @@
       font-size: 15px;
       font-weight: 800;
       color: rgba(255,255,255,0.97);
+    }
+
+    .contact-phone-box {
+      padding-top: 6px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-phone-label {
+      color: rgba(255,255,255,0.55);
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .contact-phone {
+      font-size: 19px;
+      font-weight: 800;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+
+    .contact-action {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 10px 14px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 800;
+      font-size: 14px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 0.72fr;
+      gap: 18px;
+    }
+
+    .contact-card,
+    .slider-card {
+      min-height: 220px;
+    }
+
+    .contact-card {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .slider-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slider-overlay {
+      position: absolute;
+      inset: auto 12px 12px 12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(8, 8, 12, 0.38);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(10px);
+      font-size: 13px;
+      color: rgba(255,255,255,0.88);
+      z-index: 2;
     }
 
     .category-shell {
@@ -413,16 +467,17 @@
       font-weight: 800;
     }
 
-    @media (max-width: 1350px) {
+    @media (max-width: 1250px) {
       .hero-top {
         grid-template-columns: 210px 1fr;
       }
 
-      .right-stack {
+      .schedule-card {
         grid-column: 1 / -1;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
-        min-height: auto;
+      }
+
+      .feature-row {
+        grid-template-columns: 1fr;
       }
 
       .cards {
@@ -435,13 +490,14 @@
         grid-template-columns: 1fr;
       }
 
-      .brand-box {
-        min-height: 200px;
+      .brand-box,
+      .hero-main,
+      .schedule-card {
+        min-height: auto;
       }
 
-      .hero-main,
-      .right-stack {
-        min-height: auto;
+      .feature-row {
+        grid-template-columns: 1fr;
       }
 
       .cards {
@@ -449,29 +505,25 @@
       }
     }
 
-    /* Телефоны: отдельный стиль, но визуально как ПК */
-    @media (max-width: 700px) {
+    @media (max-width: 760px) {
       body {
-        padding: 14px;
-      }
-
-      .page {
-        gap: 16px;
+        padding: 16px;
       }
 
       .hero {
-        padding: 14px;
-        border-radius: 24px;
+        padding: 16px;
       }
 
-      .hero-top {
+      .hero-top,
+      .feature-row {
         gap: 14px;
       }
 
       .brand-box,
       .hero-main,
+      .schedule-card,
       .contact-card,
-      .schedule-card {
+      .slider-card {
         border-radius: 20px;
       }
 
@@ -484,24 +536,8 @@
         font-size: 22px;
       }
 
-      .brand-subtitle {
-        font-size: 9px;
-        margin-top: 8px;
-      }
-
       .hero-main {
         padding: 18px;
-        min-height: auto;
-      }
-
-      .hero-main h1 {
-        font-size: 30px;
-        margin-bottom: 12px;
-      }
-
-      .hero-description {
-        gap: 8px;
-        margin-bottom: 16px;
       }
 
       .hero-description p {
@@ -511,32 +547,18 @@
 
       .hero-buttons {
         flex-direction: row;
-        gap: 10px;
       }
 
       .hero-btn {
-        min-width: 0;
         flex: 1;
-        padding: 12px 14px;
+        min-width: 0;
         font-size: 14px;
-        border-radius: 14px;
+        padding: 12px 14px;
       }
 
-      .right-stack {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .contact-card,
-      .schedule-card {
-        padding: 16px;
-        min-height: auto;
-      }
-
-      .contact-title,
-      .schedule-title {
-        font-size: 26px;
-        margin-bottom: 8px;
+      .schedule-title,
+      .contact-title {
+        font-size: 28px;
       }
 
       .contact-phone {
@@ -549,20 +571,9 @@
         line-height: 1.55;
       }
 
-      .schedule-line {
-        padding: 9px 10px;
-      }
-
-      .schedule-line strong {
-        font-size: 11px;
-      }
-
-      .schedule-line span {
-        font-size: 14px;
-      }
-
-      .category-shell {
-        gap: 0;
+      .slider,
+      .slider-card {
+        min-height: 200px;
       }
 
       .category-arrow {
@@ -571,8 +582,8 @@
 
       .category-bar {
         padding: 12px;
-        border-radius: 18px;
         gap: 10px;
+        border-radius: 18px;
       }
 
       .category-link.empty {
@@ -581,24 +592,15 @@
         border-radius: 12px;
       }
 
-      .section {
-        gap: 12px;
-      }
-
-      .section h2 {
-        font-size: 22px;
-        padding-left: 2px;
-      }
-
       .cards {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
       }
 
       .card {
-        border-radius: 18px;
-        padding: 12px;
         min-height: 200px;
+        padding: 12px;
+        border-radius: 18px;
       }
 
       .card-image {
@@ -616,33 +618,25 @@
         margin-bottom: 10px;
       }
 
-      .qty {
-        gap: 8px;
-      }
-
       .qty button {
         width: 32px;
         height: 32px;
         font-size: 20px;
         border-radius: 10px;
       }
-
-      .qty span {
-        font-size: 14px;
-      }
     }
 
     @media (max-width: 430px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
       .hero-buttons {
         flex-direction: column;
       }
 
       .hero-btn {
         width: 100%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -657,11 +651,9 @@
         </div>
 
         <div class="hero-main">
-          <h1>Фуд Тайм</h1>
-
           <div class="hero-description">
             <p>Мы ценим комфорт каждого гостя.</p>
-            <p>Заказы принимаются ежедневно, а команда внимательно сопровождает каждое оформление от выбора блюд до подтверждения деталей.</p>
+            <p>Заказы принимаются ежедневно, а команда внимательно сопровождает оформление от выбора блюд до подтверждения деталей.</p>
           </div>
 
           <div class="hero-buttons">
@@ -670,40 +662,56 @@
           </div>
         </div>
 
-        <div class="right-stack">
-          <div class="contact-card">
-            <div>
-              <div class="mini-label">Связь</div>
-              <div class="contact-title">На связи<br>с вами</div>
-              <div class="contact-phone">+7 927 712-62-64</div>
-              <div class="contact-note">
-                Для оформления заказа, уточнения деталей и быстрой обратной связи.
+        <div class="schedule-card">
+          <div>
+            <div class="mini-label">Режим работы</div>
+            <div class="schedule-title">График<br>сервиса</div>
+            <div class="schedule-note">
+              Мы на связи каждый день и обрабатываем заказы в удобное для гостей время.
+            </div>
+
+            <div class="schedule-lines">
+              <div class="schedule-line">
+                <strong>Будние</strong>
+                <span>10:30 — 21:00</span>
+              </div>
+
+              <div class="schedule-line">
+                <strong>Выходные</strong>
+                <span>12:00 — 23:00</span>
               </div>
             </div>
+          </div>
+
+          <div class="contact-phone-box">
+            <div class="contact-phone-label">Номер для связи</div>
+            <div class="contact-phone">+7 927 712-62-64</div>
             <a href="tel:+79277126264" class="contact-action">Позвонить</a>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="schedule-card">
-            <div>
-              <div class="mini-label">Режим работы</div>
-              <div class="schedule-title">График<br>сервиса</div>
-              <div class="schedule-note">
-                Мы на связи каждый день и обрабатываем заказы в удобное для гостей время.
-              </div>
-
-              <div class="schedule-lines">
-                <div class="schedule-line">
-                  <strong>Будние</strong>
-                  <span>10:30 — 21:00</span>
-                </div>
-                <div class="schedule-line">
-                  <strong>Выходные</strong>
-                  <span>12:00 — 23:00</span>
-                </div>
-              </div>
-            </div>
+    <section class="feature-row">
+      <div class="contact-card">
+        <div>
+          <div class="mini-label">Связь</div>
+          <div class="contact-title">На связи<br>с вами</div>
+          <div class="contact-phone">+7 927 712-62-64</div>
+          <div class="contact-note">
+            Для оформления заказа, уточнения деталей и быстрой обратной связи.
           </div>
         </div>
+        <a href="tel:+79277126264" class="contact-action">Позвонить</a>
+      </div>
+
+      <div class="slider-card">
+        <div class="slider" id="heroSlider">
+          <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80');"></div>
+        </div>
+        <div class="slider-overlay">Актуальные блюда и атмосфера сервиса</div>
       </div>
     </section>
 
@@ -749,27 +757,4 @@
       <div class="cards">
         <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 1</div><div class="card-price">120 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
         <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 2</div><div class="card-price">130 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 3</div><div class="card-price">140 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 4</div><div class="card-price">150 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 5</div><div class="card-price">160 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 6</div><div class="card-price">170 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 7</div><div class="card-price">180 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 8</div><div class="card-price">190 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 9</div><div class="card-price">200 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 10</div><div class="card-price">210 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-      </div>
-    </section>
-  </div>
-
-  <script>
-    function scrollCategories(direction) {
-      const bar = document.getElementById('categoryBar');
-      const amount = 260;
-      bar.scrollBy({
-        left: direction * amount,
-        behavior: 'smooth'
-      });
-    }
-  </script>
-</body>
-</html>
+        <div class="card"><div><div class
