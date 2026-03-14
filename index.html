@@ -19,6 +19,7 @@
     :root {
       --text: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.74);
+      --soft: rgba(255,255,255,0.52);
       --glass: rgba(255,255,255,0.07);
       --glass-strong: rgba(255,255,255,0.09);
       --border: rgba(255,255,255,0.12);
@@ -40,45 +41,15 @@
         radial-gradient(circle at 72% 58%, rgba(255, 140, 0, 0.06), transparent 18%),
         linear-gradient(135deg, #040506 0%, #090811 24%, #140914 50%, #0a1020 76%, #040506 100%);
       color: var(--text);
-      padding: 28px;
+      padding: 24px;
     }
 
     .page {
-      display: grid;
-      grid-template-columns: 96px 1fr;
-      gap: 24px;
-      min-height: calc(100vh - 56px);
-    }
-
-    .sidebar {
-      background: var(--glass);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(22px);
-      border-radius: 28px;
-      padding: 18px 12px;
+      max-width: 1680px;
+      margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      align-items: center;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 28px;
-      height: fit-content;
-    }
-
-    .side-dot {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.09);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-
-    .content {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
+      gap: 22px;
     }
 
     .hero {
@@ -86,22 +57,21 @@
       border: 1px solid var(--border);
       backdrop-filter: blur(22px);
       border-radius: 32px;
-      padding: 24px;
+      padding: 22px;
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
     .hero-top {
       display: grid;
-      grid-template-columns: 230px 1fr 420px;
-      gap: 20px;
+      grid-template-columns: 220px 1fr 420px;
+      gap: 18px;
       align-items: stretch;
     }
 
     .brand-box,
     .hero-main,
-    .top-side-grid,
-    .service-box {
+    .top-side-grid {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.10);
       backdrop-filter: blur(22px);
@@ -110,19 +80,19 @@
     }
 
     .brand-box {
-      padding: 24px 18px;
+      padding: 22px 16px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      min-height: 220px;
+      min-height: 250px;
     }
 
     .brand-title {
       font-family: 'Unbounded', sans-serif;
-      font-size: 28px;
-      line-height: 1.15;
+      font-size: 30px;
+      line-height: 1.12;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       text-shadow: 0 0 28px rgba(255,255,255,0.08);
@@ -138,39 +108,45 @@
 
     .hero-main {
       padding: 28px;
+      min-height: 250px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 220px;
     }
 
     .hero-main h1 {
-      font-size: 44px;
-      line-height: 1.05;
-      margin-bottom: 14px;
+      font-size: 48px;
+      line-height: 1.02;
+      margin-bottom: 16px;
       font-weight: 800;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
     }
 
-    .hero-main p {
-      color: var(--muted);
+    .hero-description {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
       max-width: 760px;
-      line-height: 1.68;
-      font-size: 16px;
+      margin-bottom: 22px;
+    }
+
+    .hero-description p {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: 17px;
     }
 
     .hero-buttons {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 18px;
     }
 
     .hero-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 138px;
+      min-width: 148px;
       padding: 14px 18px;
       border-radius: 16px;
       text-decoration: none;
@@ -192,19 +168,20 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      min-height: 220px;
+      min-height: 250px;
     }
 
     .contact-card,
-    .slider-card {
+    .schedule-card {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.10);
       border-radius: 22px;
       overflow: hidden;
-      min-height: 190px;
+      min-height: 220px;
     }
 
-    .contact-card {
+    .contact-card,
+    .schedule-card {
       padding: 18px;
       display: flex;
       flex-direction: column;
@@ -219,29 +196,61 @@
       margin-bottom: 10px;
     }
 
-    .contact-title {
+    .contact-title,
+    .schedule-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
-      line-height: 1.05;
-      margin-bottom: 10px;
+      font-size: 34px;
+      line-height: 1.02;
+      margin-bottom: 12px;
       font-weight: 700;
     }
 
     .contact-phone {
-      font-size: 18px;
+      font-size: 21px;
       font-weight: 800;
       line-height: 1.4;
       margin-bottom: 10px;
     }
 
-    .contact-note {
+    .contact-note,
+    .schedule-note {
       color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .schedule-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .schedule-line {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .schedule-line strong {
       font-size: 13px;
-      line-height: 1.6;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.88);
+    }
+
+    .schedule-line span {
+      font-size: 15px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.96);
     }
 
     .contact-action {
-      margin-top: 14px;
       display: inline-flex;
       align-self: flex-start;
       padding: 11px 14px;
@@ -254,15 +263,55 @@
       border: 1px solid rgba(255,255,255,0.12);
     }
 
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+    }
+
+    .service-card,
+    .slider-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      backdrop-filter: blur(22px);
+      border-radius: 26px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+      overflow: hidden;
+    }
+
+    .service-card {
+      padding: 24px 26px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 24px;
+      align-items: start;
+      min-height: 250px;
+    }
+
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px;
+      line-height: 0.95;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
     .slider-card {
       position: relative;
+      min-height: 250px;
     }
 
     .slider {
       position: relative;
       width: 100%;
       height: 100%;
-      min-height: 190px;
+      min-height: 250px;
     }
 
     .slide {
@@ -289,44 +338,6 @@
       font-size: 13px;
       color: rgba(255,255,255,0.88);
       z-index: 2;
-    }
-
-    .service-box {
-      padding: 24px 26px;
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 26px;
-      align-items: start;
-    }
-
-    .service-box h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 42px;
-      line-height: 0.95;
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-
-    .service-box p {
-      color: var(--muted);
-      font-size: 16px;
-      line-height: 1.9;
-      column-gap: 0;
-    }
-
-    .service-time {
-      margin-top: 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 11px 15px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: rgba(255,255,255,0.92);
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.04em;
     }
 
     .category-shell {
@@ -488,7 +499,7 @@
       font-weight: 800;
     }
 
-    @media (max-width: 1480px) {
+    @media (max-width: 1500px) {
       .hero-top {
         grid-template-columns: 220px 1fr;
       }
@@ -497,7 +508,7 @@
         grid-column: 1 / -1;
       }
 
-      .service-box {
+      .feature-row {
         grid-template-columns: 1fr;
       }
 
@@ -506,24 +517,23 @@
       }
     }
 
-    @media (max-width: 1100px) {
-      .page {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        display: none;
-      }
-
+    @media (max-width: 1180px) {
       .hero-top {
         grid-template-columns: 1fr;
       }
 
       .brand-box,
       .hero-main,
-      .top-side-grid,
-      .service-box {
+      .top-side-grid {
         min-height: auto;
+      }
+
+      .feature-row {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        grid-template-columns: 1fr;
       }
 
       .cards {
@@ -532,22 +542,25 @@
     }
 
     @media (max-width: 900px) {
-      .category-arrow {
-        display: none;
-      }
-
-      .top-side-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
       body {
         padding: 16px;
       }
 
       .hero {
-        padding: 18px;
+        padding: 16px;
+      }
+
+      .hero-top,
+      .feature-row {
+        gap: 14px;
+      }
+
+      .top-side-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-arrow {
+        display: none;
       }
 
       .hero-main {
@@ -555,25 +568,59 @@
       }
 
       .hero-main h1 {
-        font-size: 34px;
+        font-size: 36px;
       }
 
-      .section h2 {
-        font-size: 24px;
+      .hero-description p {
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .brand-box {
+        min-height: 200px;
+      }
+
+      .contact-card,
+      .schedule-card,
+      .slider-card,
+      .service-card {
+        min-height: auto;
+      }
+
+      .slider,
+      .slider-card {
+        min-height: 220px;
+      }
+
+      .service-card {
+        padding: 20px;
+      }
+
+      .service-card h3 {
+        font-size: 36px;
       }
 
       .cards {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-
-      .service-box h3 {
-        font-size: 34px;
-      }
     }
 
-    @media (max-width: 520px) {
-      .cards {
-        grid-template-columns: 1fr;
+    @media (max-width: 560px) {
+      .hero-main h1 {
+        font-size: 32px;
+      }
+
+      .brand-title {
+        font-size: 24px;
+      }
+
+      .contact-title,
+      .schedule-title {
+        font-size: 30px;
+      }
+
+      .service-card h3 {
+        font-size: 32px;
       }
 
       .hero-buttons {
@@ -584,7 +631,11 @@
         width: 100%;
       }
 
-      .brand-title {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section h2 {
         font-size: 24px;
       }
     }
@@ -592,66 +643,68 @@
 </head>
 <body>
   <div class="page">
-    <aside class="sidebar">
-      <div class="side-dot"></div>
-      <div class="side-dot"></div>
-      <div class="side-dot"></div>
-      <div class="side-dot"></div>
-      <div class="side-dot"></div>
-      <div class="side-dot"></div>
-    </aside>
+    <section class="hero">
+      <div class="hero-top">
+        <div class="brand-box">
+          <div class="brand-title">Фуд Тайм</div>
+          <div class="brand-subtitle">premium food service</div>
+        </div>
 
-    <main class="content">
-      <section class="hero">
-        <div class="hero-top">
-          <div class="brand-box">
-            <div class="brand-title">Фуд Тайм</div>
-            <div class="brand-subtitle">premium food service</div>
+        <div class="hero-main">
+          <h1>Фуд Тайм</h1>
+
+          <div class="hero-description">
+            <p>Мы ценим комфорт каждого гостя.</p>
+            <p>Заказы принимаются ежедневно, а команда внимательно сопровождает каждое оформление от выбора блюд до подтверждения деталей.</p>
           </div>
 
-          <div class="hero-main">
-            <h1>Фуд Тайм</h1>
-            <p>
-              Удобный сервис заказа с понятной навигацией, быстрым выбором позиций и внимательной
-              обработкой каждого заказа. Всё необходимое для оформления собрано в одном пространстве —
-              просто, аккуратно и без лишних действий.
-            </p>
+          <div class="hero-buttons">
+            <a href="#" class="hero-btn">Telegram</a>
+            <a href="#" class="hero-btn">VK</a>
+          </div>
+        </div>
 
-            <div class="hero-buttons">
-              <a href="#" class="hero-btn">Telegram</a>
-              <a href="#" class="hero-btn">VK</a>
+        <div class="top-side-grid">
+          <div class="contact-card">
+            <div>
+              <div class="mini-label">Связь</div>
+              <div class="contact-title">На связи<br>с вами</div>
+              <div class="contact-phone">+7 927 712-62-64</div>
+              <div class="contact-note">
+                Для оформления заказа, уточнения деталей и быстрой обратной связи.
+              </div>
             </div>
+            <a href="tel:+79277126264" class="contact-action">Позвонить</a>
           </div>
 
-          <div class="top-side-grid">
-            <div class="contact-card">
-              <div>
-                <div class="mini-label">Связь</div>
-                <div class="contact-title">На связи<br>с вами</div>
-                <div class="contact-phone">+7 (999) 123-45-67</div>
-                <div class="contact-note">
-                  Для оформления заказа, уточнения деталей и быстрой обратной связи.
+          <div class="schedule-card">
+            <div>
+              <div class="mini-label">Режим работы</div>
+              <div class="schedule-title">График<br>сервиса</div>
+              <div class="schedule-note">
+                Мы на связи каждый день и обрабатываем заказы в удобное для гостей время.
+              </div>
+
+              <div class="schedule-lines">
+                <div class="schedule-line">
+                  <strong>Будние</strong>
+                  <span>10:30 — 21:00</span>
+                </div>
+                <div class="schedule-line">
+                  <strong>Выходные</strong>
+                  <span>12:00 — 23:00</span>
                 </div>
               </div>
-              <a href="tel:+79991234567" class="contact-action">Позвонить</a>
-            </div>
-
-            <div class="slider-card">
-              <div class="slider" id="heroSlider">
-                <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80');"></div>
-                <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80');"></div>
-                <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80');"></div>
-              </div>
-              <div class="slider-overlay">Актуальные блюда и атмосфера сервиса</div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="service-box">
+    <section class="feature-row">
+      <div class="service-card">
         <div>
           <h3>Режим работы<br>и сервис</h3>
-          <div class="service-time">Ежедневно · 10:00 — 22:00</div>
         </div>
 
         <div>
@@ -660,61 +713,70 @@
             сопровождает каждое оформление от выбора блюд до подтверждения деталей.
           </p>
         </div>
-      </section>
-
-      <div class="category-shell">
-        <button class="category-arrow left" aria-label="Прокрутить влево" onclick="scrollCategories(-1)">
-          &#10094;
-        </button>
-
-        <div class="category-bar" id="categoryBar">
-          <a href="#" class="category-link empty"></a>
-          <a href="#" class="category-link empty"></a>
-          <a href="#" class="category-link empty"></a>
-          <a href="#" class="category-link empty"></a>
-          <a href="#" class="category-link empty"></a>
-          <a href="#" class="category-link empty"></a>
-          <a href="#" class="category-link empty"></a>
-          <a href="#" class="category-link empty"></a>
-        </div>
-
-        <button class="category-arrow right" aria-label="Прокрутить вправо" onclick="scrollCategories(1)">
-          &#10095;
-        </button>
       </div>
 
-      <section class="section">
-        <h2>Горячее</h2>
-        <div class="cards">
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 1</div><div class="card-price">300 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 2</div><div class="card-price">320 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 3</div><div class="card-price">340 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 4</div><div class="card-price">360 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 5</div><div class="card-price">380 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 6</div><div class="card-price">400 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 7</div><div class="card-price">420 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 8</div><div class="card-price">440 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 9</div><div class="card-price">460 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 10</div><div class="card-price">480 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+      <div class="slider-card">
+        <div class="slider" id="heroSlider">
+          <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80');"></div>
+          <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80');"></div>
         </div>
-      </section>
+        <div class="slider-overlay">Актуальные блюда и атмосфера сервиса</div>
+      </div>
+    </section>
 
-      <section class="section">
-        <h2>Перекусы</h2>
-        <div class="cards">
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 1</div><div class="card-price">120 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 2</div><div class="card-price">130 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 3</div><div class="card-price">140 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 4</div><div class="card-price">150 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 5</div><div class="card-price">160 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 6</div><div class="card-price">170 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 7</div><div class="card-price">180 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 8</div><div class="card-price">190 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 9</div><div class="card-price">200 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-          <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 10</div><div class="card-price">210 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
-        </div>
-      </section>
-    </main>
+    <div class="category-shell">
+      <button class="category-arrow left" aria-label="Прокрутить влево" onclick="scrollCategories(-1)">
+        &#10094;
+      </button>
+
+      <div class="category-bar" id="categoryBar">
+        <a href="#" class="category-link empty"></a>
+        <a href="#" class="category-link empty"></a>
+        <a href="#" class="category-link empty"></a>
+        <a href="#" class="category-link empty"></a>
+        <a href="#" class="category-link empty"></a>
+        <a href="#" class="category-link empty"></a>
+        <a href="#" class="category-link empty"></a>
+        <a href="#" class="category-link empty"></a>
+      </div>
+
+      <button class="category-arrow right" aria-label="Прокрутить вправо" onclick="scrollCategories(1)">
+        &#10095;
+      </button>
+    </div>
+
+    <section class="section">
+      <h2>Горячее</h2>
+      <div class="cards">
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 1</div><div class="card-price">300 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 2</div><div class="card-price">320 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 3</div><div class="card-price">340 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 4</div><div class="card-price">360 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 5</div><div class="card-price">380 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 6</div><div class="card-price">400 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 7</div><div class="card-price">420 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 8</div><div class="card-price">440 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 9</div><div class="card-price">460 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Горячее 10</div><div class="card-price">480 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Перекусы</h2>
+      <div class="cards">
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 1</div><div class="card-price">120 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 2</div><div class="card-price">130 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 3</div><div class="card-price">140 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 4</div><div class="card-price">150 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 5</div><div class="card-price">160 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 6</div><div class="card-price">170 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 7</div><div class="card-price">180 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 8</div><div class="card-price">190 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 9</div><div class="card-price">200 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+        <div class="card"><div><div class="card-image">Фото</div><div class="card-title">Перекус 10</div><div class="card-price">210 ₽</div></div><div class="qty"><button>-</button><span>0</span><button>+</button></div></div>
+      </div>
+    </section>
   </div>
 
   <script>
