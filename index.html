@@ -1,3 +1,5 @@
+Вот один нормальный цельный код. Замени им index.html полностью.
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -19,6 +21,7 @@
     :root {
       --text: rgba(255,255,255,0.96);
       --muted: rgba(255,255,255,0.74);
+      --soft: rgba(255,255,255,0.48);
       --glass: rgba(255,255,255,0.07);
       --glass-strong: rgba(255,255,255,0.09);
       --border: rgba(255,255,255,0.12);
@@ -62,7 +65,7 @@
 
     .top-row {
       display: grid;
-      grid-template-columns: 230px 1fr 250px;
+      grid-template-columns: 230px 1fr;
       gap: 16px;
       align-items: stretch;
     }
@@ -76,7 +79,6 @@
 
     .brand-box,
     .main-box,
-    .contact-box,
     .photo-box,
     .service-box {
       background: rgba(255,255,255,0.05);
@@ -114,9 +116,17 @@
     .main-box {
       min-height: 200px;
       padding: 22px 24px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .main-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      min-width: 0;
     }
 
     .main-desc {
@@ -164,16 +174,21 @@
       font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.48);
+      color: var(--soft);
       margin-bottom: 8px;
     }
 
-    .contact-box {
-      min-height: 200px;
-      padding: 18px;
+    .contact-mini {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.15);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      min-height: 100%;
     }
 
     .contact-title,
@@ -432,11 +447,16 @@
 
     @media (max-width: 1180px) {
       .top-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: 210px 1fr;
+      }
+
+      .main-box {
+        grid-template-columns: 1fr 280px;
+        padding: 20px;
       }
 
       .bottom-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
       }
 
       .cards {
@@ -453,11 +473,19 @@
         padding: 14px;
       }
 
-      .main-box,
-      .contact-box,
+      .top-row,
+      .bottom-row {
+        grid-template-columns: 1fr;
+      }
+
+      .main-box {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .brand-box,
       .photo-box,
-      .service-box,
-      .brand-box {
+      .service-box {
         min-height: auto;
       }
 
@@ -466,6 +494,10 @@
       }
 
       .hero-btn {
+        width: 100%;
+      }
+
+      .contact-mini {
         width: 100%;
       }
 
@@ -506,14 +538,16 @@
         </div>
 
         <div class="main-box">
-          <div class="main-desc">
-            <p>Мы ценим комфорт каждого гостя.</p>
-            <p>Заказы принимаются ежедневно, а команда внимательно сопровождает оформление от выбора блюд до подтверждения деталей.</p>
-          </div>
+          <div class="main-content">
+            <div class="main-desc">
+              <p>Мы ценим комфорт каждого гостя.</p>
+              <p>Заказы принимаются ежедневно, а команда внимательно сопровождает оформление от выбора блюд до подтверждения деталей.</p>
+            </div>
 
-          <div class="hero-buttons">
-            <a href="#" class="hero-btn">Telegram</a>
-            <a href="#" class="hero-btn">VK</a>
+            <div class="hero-buttons">
+              <a href="#" class="hero-btn">Telegram</a>
+              <a href="#" class="hero-btn">VK</a>
+            </div>
           </div>
 
           <div class="contact-mini">
@@ -555,6 +589,7 @@
               <strong>Будние</strong>
               <span>10:30 — 21:00</span>
             </div>
+
             <div class="schedule-line">
               <strong>Выходные</strong>
               <span>12:00 — 23:00</span>
