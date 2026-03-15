@@ -62,20 +62,21 @@
 
     .top-row {
       display: grid;
-      grid-template-columns: 230px 1fr;
+      grid-template-columns: 230px 1fr 250px;
       gap: 16px;
       align-items: stretch;
     }
 
     .bottom-row {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-columns: 1fr 1fr;
       gap: 16px;
       margin-top: 16px;
     }
 
     .brand-box,
     .main-box,
+    .contact-box,
     .photo-box,
     .service-box {
       background: rgba(255,255,255,0.05);
@@ -113,13 +114,6 @@
     .main-box {
       min-height: 200px;
       padding: 22px 24px;
-      display: grid;
-      grid-template-columns: 1fr 250px;
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    .main-content {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -166,23 +160,20 @@
       opacity: 0.96;
     }
 
-    .contact-mini {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 20px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100%;
-    }
-
     .mini-label {
       font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.48);
       margin-bottom: 8px;
+    }
+
+    .contact-box {
+      min-height: 200px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .contact-title,
@@ -195,7 +186,7 @@
     }
 
     .contact-phone {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 800;
       line-height: 1.35;
       margin-bottom: 10px;
@@ -441,15 +432,7 @@
 
     @media (max-width: 1180px) {
       .top-row {
-        grid-template-columns: 210px 1fr;
-      }
-
-      .main-box {
         grid-template-columns: 1fr;
-      }
-
-      .contact-mini {
-        min-height: auto;
       }
 
       .bottom-row {
@@ -466,27 +449,16 @@
         padding: 16px;
       }
 
-      .top-row {
-        grid-template-columns: 1fr;
-      }
-
-      .brand-box,
-      .main-box,
-      .photo-box,
-      .service-box {
-        min-height: auto;
-      }
-
       .hero {
         padding: 14px;
       }
 
-      .main-box {
-        padding: 18px;
-      }
-
-      .main-desc p {
-        font-size: 14px;
+      .main-box,
+      .contact-box,
+      .photo-box,
+      .service-box,
+      .brand-box {
+        min-height: auto;
       }
 
       .hero-buttons {
@@ -534,16 +506,14 @@
         </div>
 
         <div class="main-box">
-          <div class="main-content">
-            <div class="main-desc">
-              <p>Мы ценим комфорт каждого гостя.</p>
-              <p>Заказы принимаются ежедневно, а команда внимательно сопровождает оформление от выбора блюд до подтверждения деталей.</p>
-            </div>
+          <div class="main-desc">
+            <p>Мы ценим комфорт каждого гостя.</p>
+            <p>Заказы принимаются ежедневно, а команда внимательно сопровождает оформление от выбора блюд до подтверждения деталей.</p>
+          </div>
 
-            <div class="hero-buttons">
-              <a href="#" class="hero-btn">Telegram</a>
-              <a href="#" class="hero-btn">VK</a>
-            </div>
+          <div class="hero-buttons">
+            <a href="#" class="hero-btn">Telegram</a>
+            <a href="#" class="hero-btn">VK</a>
           </div>
 
           <div class="contact-mini">
