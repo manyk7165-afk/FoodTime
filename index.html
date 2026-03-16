@@ -373,22 +373,13 @@
     .hot-pill.bottom-1 { grid-column: 2 / 4; }
     .hot-pill.bottom-2 { grid-column: 4 / 6; }
 
-    .street-grid,
     .burger-grid {
       display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
       margin-top: 14px;
     }
 
-    .street-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .burger-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .street-card,
     .burger-card {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.10);
@@ -400,17 +391,6 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 16px;
-    }
-
-    .street-card {
-      text-decoration: none;
-      color: #fff;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 24px;
-      font-weight: 800;
-      min-height: 140px;
     }
 
     .burger-card-image {
@@ -572,10 +552,6 @@
         grid-column: auto;
       }
 
-      .street-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
       .burger-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -627,13 +603,11 @@
       }
 
       .hot-grid,
-      .street-grid,
       .burger-grid {
         grid-template-columns: 1fr;
       }
 
-      .hot-pill,
-      .street-card {
+      .hot-pill {
         min-height: 96px;
         font-size: 18px;
       }
@@ -747,23 +721,57 @@
       </div>
     </section>
 
-    <section class="section-block">
+    <section class="section-block" id="street-food">
       <div class="mini-label">Категория</div>
       <div class="section-title">Уличная лавка</div>
-      <div class="section-note">Выберите нужную категорию.</div>
+      <div class="section-note">Позиции с быстрой подачей и добавлением в корзину.</div>
 
-      <div class="street-grid">
-        <a class="street-card" href="shaurma.html">Шаурма</a>
-        <a class="street-card" href="hotdog.html">Хот-доги</a>
-        <a class="street-card" href="sandwichi.html">Сэндвичи</a>
-        <a class="street-card" href="burgery.html">Бургеры</a>
+      <div class="burger-grid">
+        <div class="burger-card" data-name="Шаурма" data-price="290">
+          <div>
+            <div class="burger-card-image">Фото</div>
+            <div class="burger-card-title">Шаурма</div>
+            <div class="burger-card-price">290 ₽</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
+
+        <div class="burger-card" data-name="Хот-дог" data-price="220">
+          <div>
+            <div class="burger-card-image">Фото</div>
+            <div class="burger-card-title">Хот-дог</div>
+            <div class="burger-card-price">220 ₽</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
+
+        <div class="burger-card" data-name="Сэндвич с курицей" data-price="260">
+          <div>
+            <div class="burger-card-image">Фото</div>
+            <div class="burger-card-title">Сэндвич с курицей</div>
+            <div class="burger-card-price">260 ₽</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section-block" id="burgers">
       <div class="mini-label">Категория</div>
       <div class="section-title">Бургеры</div>
-      <div class="section-note">Для пробы корзины — три рабочие позиции.</div>
+      <div class="section-note">Три рабочие позиции с корзиной.</div>
 
       <div class="burger-grid">
         <div class="burger-card" data-name="Бургер с курицей" data-price="320">
@@ -842,7 +850,7 @@
     const cart = {};
 
     function changeQty(button, delta) {
-      const card = button.closest('.burger-card, .card');
+      const card = button.closest('.burger-card');
       if (!card) return;
 
       const name = card.dataset.name || 'Товар';
