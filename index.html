@@ -363,8 +363,8 @@
       margin-top: 14px;
     }
 
-    .hot-grid-7 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+    .hot-grid-6 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .hot-pill {
@@ -397,7 +397,7 @@
       border-radius: 24px;
       box-shadow: 0 14px 30px rgba(0,0,0,0.14);
       overflow: hidden;
-      min-height: 260px;
+      min-height: 320px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -428,8 +428,9 @@
     .product-card-meta {
       color: rgba(255,255,255,0.72);
       font-size: 14px;
-      margin-bottom: 6px;
-      line-height: 1.45;
+      margin-bottom: 8px;
+      line-height: 1.55;
+      white-space: pre-line;
     }
 
     .product-card-price {
@@ -518,8 +519,8 @@
     .cart-panel {
       display: none;
       margin-top: 12px;
-      width: 320px;
-      max-height: 420px;
+      width: 340px;
+      max-height: 500px;
       overflow: auto;
       padding: 16px;
       border-radius: 22px;
@@ -580,6 +581,35 @@
       font-weight: 800;
     }
 
+    .cart-comment-wrap {
+      margin-top: 14px;
+    }
+
+    .cart-comment-label {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .cart-comment {
+      width: 100%;
+      min-height: 84px;
+      resize: vertical;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .cart-comment::placeholder {
+      color: rgba(255,255,255,0.42);
+    }
+
     @media (max-width: 1180px) {
       .top-row {
         grid-template-columns: 210px 1fr;
@@ -590,8 +620,8 @@
         padding: 20px;
       }
 
-      .hot-grid-7 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .hot-grid-6 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .product-grid {
@@ -645,7 +675,7 @@
         display: none;
       }
 
-      .hot-grid-7,
+      .hot-grid-6,
       .product-grid {
         grid-template-columns: 1fr;
       }
@@ -667,7 +697,7 @@
       }
 
       .cart-panel {
-        width: min(88vw, 320px);
+        width: min(88vw, 340px);
       }
     }
   </style>
@@ -745,11 +775,11 @@
 
       <div class="category-bar" id="categoryBar">
         <a href="#hot" class="category-link">Горячее</a>
+        <a href="#daily-menu" class="category-link">Меню дня</a>
         <a href="#street-food" class="category-link">Уличная классика</a>
         <a href="#burgers" class="category-link">Бургеры</a>
         <a href="#addons" class="category-link">Добавки</a>
         <a href="#drinks" class="category-link">Напитки</a>
-        <a href="#reviews" class="category-link">Отзывы</a>
       </div>
 
       <button class="category-arrow right" aria-label="Прокрутить вправо" onclick="scrollCategories(1)">&#10095;</button>
@@ -758,11 +788,9 @@
     <section class="section-block" id="hot">
       <div class="mini-label">Категория</div>
       <div class="section-title">Горячие</div>
-      <div class="section-note">Выберите нужную категорию.</div>
 
-      <div class="hot-grid hot-grid-7">
+      <div class="hot-grid hot-grid-6">
         <a class="hot-pill" href="svinina.html">Свинина</a>
-        <a class="hot-pill" href="govyadina.html">Говядина</a>
         <a class="hot-pill" href="kurica.html">Курица</a>
         <a class="hot-pill" href="ovoshchi.html">Овощи</a>
         <a class="hot-pill" href="ryba.html">Рыба</a>
@@ -782,14 +810,14 @@
     <section class="section-block" id="street-food">
       <div class="mini-label">Категория</div>
       <div class="section-title">Уличная классика</div>
-      <div class="section-note">Позиции с быстрой подачей и добавлением в корзину.</div>
 
       <div class="product-grid">
-        <div class="product-card" data-name="Шаурма" data-price="290">
+        <div class="product-card" data-name="Шаурма с курицей" data-price="300">
           <div>
             <div class="product-card-image">Фото</div>
-            <div class="product-card-title">Шаурма</div>
-            <div class="product-card-price">290 ₽</div>
+            <div class="product-card-title">Шаурма с курицей</div>
+            <div class="product-card-price">300 ₽</div>
+            <div class="product-card-meta">(курица, салат, огурцы свеж., томат, лук, корейская морковь, соус)</div>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -798,11 +826,26 @@
           </div>
         </div>
 
-        <div class="product-card" data-name="Хот-дог" data-price="220">
+        <div class="product-card" data-name="Шаурма со свининой" data-price="300">
+          <div>
+            <div class="product-card-image">Фото</div>
+            <div class="product-card-title">Шаурма со свининой</div>
+            <div class="product-card-price">300 ₽</div>
+            <div class="product-card-meta">(свинина, салат, огурцы свеж., томат, лук, корейская морковь, соус)</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Хот-дог" data-price="300">
           <div>
             <div class="product-card-image">Фото</div>
             <div class="product-card-title">Хот-дог</div>
-            <div class="product-card-price">220 ₽</div>
+            <div class="product-card-price">300 ₽</div>
+            <div class="product-card-meta">(булочка, сосиска халяль, морковь по-корейски, соленый огурец, кетчуп, дижонская горчица, жареный лук)</div>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -811,11 +854,12 @@
           </div>
         </div>
 
-        <div class="product-card" data-name="Сэндвич с курицей" data-price="260">
+        <div class="product-card" data-name="Сэндвич с курицей" data-price="380">
           <div>
             <div class="product-card-image">Фото</div>
             <div class="product-card-title">Сэндвич с курицей</div>
-            <div class="product-card-price">260 ₽</div>
+            <div class="product-card-price">380 ₽</div>
+            <div class="product-card-meta">(хлеб HARRY'S, курица, творожный сыр, томат, красный лук, айсберг)</div>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -829,14 +873,14 @@
     <section class="section-block" id="burgers">
       <div class="mini-label">Категория</div>
       <div class="section-title">Бургеры</div>
-      <div class="section-note">Три рабочие позиции с корзиной.</div>
 
       <div class="product-grid">
-        <div class="product-card" data-name="Бургер с курицей" data-price="320">
+        <div class="product-card" data-name="Бургер с курицей" data-price="380">
           <div>
             <div class="product-card-image">Фото</div>
             <div class="product-card-title">Бургер с курицей</div>
-            <div class="product-card-price">320 ₽</div>
+            <div class="product-card-price">380 ₽</div>
+            <div class="product-card-meta">(булочка, салат, сыр, томат, соленый огурец, лук, майонез, кетчуп)</div>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -845,24 +889,26 @@
           </div>
         </div>
 
-        <div class="product-card" data-name="Бургер с говядиной" data-price="360">
+        <div class="product-card" data-name="Бургер с говядиной BBQ" data-price="450">
+          <div>
+            <div class="product-card-image">Фото</div>
+            <div class="product-card-title">Бургер с говядиной BBQ</div>
+            <div class="product-card-price">450 ₽</div>
+            <div class="product-card-meta">(булочка, соус BBQ, сыр, салат, жареный бекон, маринованный красный лук, соленый огурец)</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Бургер с говядиной" data-price="500">
           <div>
             <div class="product-card-image">Фото</div>
             <div class="product-card-title">Бургер с говядиной</div>
-            <div class="product-card-price">360 ₽</div>
-          </div>
-          <div class="qty">
-            <button onclick="changeQty(this, -1)">-</button>
-            <span>0</span>
-            <button onclick="changeQty(this, 1)">+</button>
-          </div>
-        </div>
-
-        <div class="product-card" data-name="Бургер BBQ" data-price="390">
-          <div>
-            <div class="product-card-image">Фото</div>
-            <div class="product-card-title">Бургер BBQ</div>
-            <div class="product-card-price">390 ₽</div>
+            <div class="product-card-price">500 ₽</div>
+            <div class="product-card-meta">(булочка, дижонская горчица, салат, томат, соленый огурец, маринованный красный лук, томатный соус на клюквенной основе)</div>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -876,7 +922,6 @@
     <section class="section-block" id="addons">
       <div class="mini-label">Категория</div>
       <div class="section-title">Добавки</div>
-      <div class="section-note">Дополните заказ соусами и гарниром.</div>
 
       <div class="product-grid">
         <div class="product-card" data-name="Картофель фри" data-price="170">
@@ -966,26 +1011,6 @@
         </div>
       </div>
     </section>
-
-    <section class="section-block" id="reviews">
-      <div class="mini-label">Отзывы</div>
-      <div class="section-title">Отзывы гостей</div>
-      <div class="section-note">Пока это заглушка. Потом сюда поставим ссылку или настоящий блок отзывов.</div>
-
-      <div class="reviews-box">
-        <div class="review-item">
-          <div class="review-name">Гость 1</div>
-          <div class="review-text">Очень красивый сайт и удобная подача меню. Всё читается легко.</div>
-        </div>
-
-        <div class="review-item">
-          <div class="review-name">Гость 2</div>
-          <div class="review-text">Понравилось, что позиции удобно собирать в корзину прямо на странице.</div>
-        </div>
-
-        <a href="#" class="review-link">Ссылка на отзывы позже</a>
-      </div>
-    </section>
   </div>
 
   <div class="cart-float">
@@ -993,9 +1018,20 @@
 
     <div class="cart-panel" id="cartPanel">
       <div class="cart-title">Корзина</div>
+
       <div class="cart-items" id="cartItems">
         <div class="cart-empty">Пока пусто</div>
       </div>
+
+      <div class="cart-comment-wrap">
+        <div class="cart-comment-label">Комментарий к заказу</div>
+        <textarea
+          id="orderComment"
+          class="cart-comment"
+          placeholder="Например: без лука, позвонить по приезду, добавить приборы..."
+        ></textarea>
+      </div>
+
       <div class="cart-total">Итого: <span id="cartTotal">0 ₽</span></div>
       <button class="cart-order-btn" style="margin-top:12px;">Оформить</button>
     </div>
@@ -1020,6 +1056,7 @@
     }
 
     const CART_KEY = 'foodtime_cart';
+    const CART_COMMENT_KEY = 'foodtime_order_comment';
 
     function getCart() {
       try {
@@ -1031,6 +1068,14 @@
 
     function saveCart(cart) {
       localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+
+    function getOrderComment() {
+      return localStorage.getItem(CART_COMMENT_KEY) || '';
+    }
+
+    function saveOrderComment(value) {
+      localStorage.setItem(CART_COMMENT_KEY, value || '');
     }
 
     function changeQty(button, delta) {
@@ -1060,6 +1105,7 @@
       const cartItems = document.getElementById('cartItems');
       const cartCount = document.getElementById('cartCount');
       const cartTotal = document.getElementById('cartTotal');
+      const orderComment = document.getElementById('orderComment');
 
       let totalCount = 0;
       let totalPrice = 0;
@@ -1071,6 +1117,9 @@
 
       if (cartCount) cartCount.textContent = totalCount;
       if (cartTotal) cartTotal.textContent = totalPrice + ' ₽';
+      if (orderComment && document.activeElement !== orderComment) {
+        orderComment.value = getOrderComment();
+      }
 
       if (cartItems) {
         const entries = Object.entries(cart);
@@ -1209,6 +1258,14 @@
     document.addEventListener('DOMContentLoaded', () => {
       renderDailyMenu();
       updateCartUI();
+
+      const orderComment = document.getElementById('orderComment');
+      if (orderComment) {
+        orderComment.value = getOrderComment();
+        orderComment.addEventListener('input', (e) => {
+          saveOrderComment(e.target.value);
+        });
+      }
     });
   </script>
 </body>
