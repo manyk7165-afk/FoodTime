@@ -24,6 +24,8 @@
       --border: rgba(255,255,255,0.12);
       --shadow: 0 18px 40px rgba(0,0,0,0.24);
       --button: linear-gradient(135deg, #18b7ff 0%, #7b61ff 100%);
+      --chip: rgba(255,255,255,0.08);
+      --chip-active: rgba(255,255,255,0.18);
     }
 
     html {
@@ -153,8 +155,7 @@
 
     .hero-btn,
     .contact-action,
-    .cart-order-btn,
-    .review-link {
+    .cart-order-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -364,7 +365,7 @@
     }
 
     .hot-grid-6 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     .hot-pill {
@@ -471,32 +472,6 @@
       margin: 12px 0 8px;
     }
 
-    .reviews-box {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 12px;
-    }
-
-    .review-item {
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-    }
-
-    .review-name {
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-
-    .review-text {
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 14px;
-    }
-
     .cart-float {
       position: fixed;
       right: 18px;
@@ -520,7 +495,7 @@
       display: none;
       margin-top: 12px;
       width: 340px;
-      max-height: 500px;
+      max-height: 560px;
       overflow: auto;
       padding: 16px;
       border-radius: 22px;
@@ -610,6 +585,44 @@
       color: rgba(255,255,255,0.42);
     }
 
+    .option-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .option-check input {
+      width: 16px;
+      height: 16px;
+      accent-color: #7b61ff;
+    }
+
+    .variant-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0 10px;
+    }
+
+    .variant-btn {
+      border: 1px solid rgba(255,255,255,0.10);
+      background: var(--chip);
+      color: #fff;
+      border-radius: 12px;
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .variant-btn.active {
+      background: var(--chip-active);
+      border-color: rgba(255,255,255,0.22);
+    }
+
     @media (max-width: 1180px) {
       .top-row {
         grid-template-columns: 210px 1fr;
@@ -661,8 +674,7 @@
 
       .hero-btn,
       .contact-action,
-      .cart-order-btn,
-      .review-link {
+      .cart-order-btn {
         width: 100%;
         justify-content: center;
       }
@@ -769,17 +781,16 @@
         </div>
       </div>
     </section>
-
-    <div class="category-shell">
+        <div class="category-shell">
       <button class="category-arrow left" aria-label="Прокрутить влево" onclick="scrollCategories(-1)">&#10094;</button>
 
       <div class="category-bar" id="categoryBar">
         <a href="#hot" class="category-link">Горячее</a>
+        <a href="#salads" class="category-link">Салаты</a>
         <a href="#daily-menu" class="category-link">Меню дня</a>
         <a href="#street-food" class="category-link">Уличная классика</a>
         <a href="#burgers" class="category-link">Бургеры</a>
         <a href="#addons" class="category-link">Добавки</a>
-        <a href="#drinks" class="category-link">Напитки</a>
       </div>
 
       <button class="category-arrow right" aria-label="Прокрутить вправо" onclick="scrollCategories(1)">&#10095;</button>
@@ -796,6 +807,84 @@
         <a class="hot-pill" href="ryba.html">Рыба</a>
         <a class="hot-pill" href="lyulya-kebab.html">Люля-кебаб</a>
         <a class="hot-pill" href="baranina.html">Баранина</a>
+        <a class="hot-pill" href="sety.html">Сеты</a>
+      </div>
+    </section>
+
+    <section class="section-block" id="salads">
+      <div class="mini-label">Категория</div>
+      <div class="section-title">Салаты</div>
+
+      <div class="product-grid">
+        <div class="product-card" data-name="Огурцы и помидоры свежие" data-base-name="Огурцы и помидоры свежие" data-price="180">
+          <div>
+            <div class="product-card-image">Фото</div>
+            <div class="product-card-title">Огурцы и помидоры свежие</div>
+            <div class="product-card-price">180 ₽</div>
+            <div class="product-card-meta">С луком и растительным маслом, 110 г (по желанию майонез / сметана)</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Греческий" data-base-name="Греческий" data-price="250">
+          <div>
+            <div class="product-card-image">Фото</div>
+            <div class="product-card-title">Греческий</div>
+            <div class="product-card-price">250 ₽</div>
+            <div class="product-card-meta">200 г</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Цезарь с курицей" data-base-name="Цезарь с курицей" data-price="260">
+          <div>
+            <div class="product-card-image">Фото</div>
+            <div class="product-card-title">Цезарь с курицей</div>
+            <div class="product-card-price">260 ₽</div>
+            <div class="product-card-meta">270 г</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Цезарь с креветками" data-base-name="Цезарь с креветками" data-price="290">
+          <div>
+            <div class="product-card-image">Фото</div>
+            <div class="product-card-title">Цезарь с креветками</div>
+            <div class="product-card-price">290 ₽</div>
+            <div class="product-card-meta">250 г</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Огурцы и помидоры с болгарским перцем" data-base-name="Огурцы и помидоры с болгарским перцем" data-price="210">
+          <div>
+            <div class="product-card-image">Фото</div>
+            <div class="product-card-title">Огурцы и помидоры с болгарским перцем</div>
+            <div class="product-card-price">210 ₽</div>
+            <div class="product-card-meta">С луком и майонезом, 260 г</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -812,12 +901,12 @@
       <div class="section-title">Уличная классика</div>
 
       <div class="product-grid">
-        <div class="product-card" data-name="Шаурма с курицей" data-price="300">
+        <div class="product-card" data-name="Шаурма с курицей" data-base-name="Шаурма с курицей" data-price="300">
           <div>
             <div class="product-card-image">Фото</div>
             <div class="product-card-title">Шаурма с курицей</div>
             <div class="product-card-price">300 ₽</div>
-            <div class="product-card-meta">(курица, салат, огурцы свеж., томат, лук, корейская морковь, соус)</div>
+            <div class="product-card-meta">Шаурма состав: курица, морковь по-корейски, лук, огурцы, томаты, соус белый чесночный</div>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -826,12 +915,12 @@
           </div>
         </div>
 
-        <div class="product-card" data-name="Шаурма со свининой" data-price="300">
+        <div class="product-card" data-name="Шаурма со свининой" data-base-name="Шаурма со свининой" data-price="300">
           <div>
             <div class="product-card-image">Фото</div>
             <div class="product-card-title">Шаурма со свининой</div>
             <div class="product-card-price">300 ₽</div>
-            <div class="product-card-meta">(свинина, салат, огурцы свеж., томат, лук, корейская морковь, соус)</div>
+            <div class="product-card-meta">Шаурма состав: свинина, морковь по-корейски, лук, огурцы, томаты, соус белый чесночный</div>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -840,7 +929,7 @@
           </div>
         </div>
 
-        <div class="product-card" data-name="Хот-дог" data-price="300">
+        <div class="product-card" data-name="Хот-дог" data-base-name="Хот-дог" data-price="300">
           <div>
             <div class="product-card-image">Фото</div>
             <div class="product-card-title">Хот-дог</div>
@@ -854,7 +943,7 @@
           </div>
         </div>
 
-        <div class="product-card" data-name="Сэндвич с курицей" data-price="380">
+        <div class="product-card" data-name="Сэндвич с курицей" data-base-name="Сэндвич с курицей" data-price="380">
           <div>
             <div class="product-card-image">Фото</div>
             <div class="product-card-title">Сэндвич с курицей</div>
@@ -875,7 +964,7 @@
       <div class="section-title">Бургеры</div>
 
       <div class="product-grid">
-        <div class="product-card" data-name="Бургер с курицей" data-price="380">
+        <div class="product-card" data-name="Бургер с курицей" data-base-name="Бургер с курицей" data-price="380">
           <div>
             <div class="product-card-image">Фото</div>
             <div class="product-card-title">Бургер с курицей</div>
@@ -889,12 +978,12 @@
           </div>
         </div>
 
-        <div class="product-card" data-name="Бургер с говядиной BBQ" data-price="450">
+        <div class="product-card" data-name="Бургер с говядиной" data-base-name="Бургер с говядиной" data-price="450">
           <div>
             <div class="product-card-image">Фото</div>
-            <div class="product-card-title">Бургер с говядиной BBQ</div>
+            <div class="product-card-title">Бургер с говядиной</div>
             <div class="product-card-price">450 ₽</div>
-            <div class="product-card-meta">(булочка, соус BBQ, сыр, салат, жареный бекон, маринованный красный лук, соленый огурец)</div>
+            <div class="product-card-meta">(булочка, дижонская горчица, салат, томат, соленый огурец, маринованный красный лук, томатный соус на клюквенной основе)</div>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -903,12 +992,16 @@
           </div>
         </div>
 
-        <div class="product-card" data-name="Бургер с говядиной" data-price="500">
+        <div class="product-card" data-name="Бургер BBQ" data-base-name="Бургер BBQ" data-price="500">
           <div>
             <div class="product-card-image">Фото</div>
-            <div class="product-card-title">Бургер с говядиной</div>
+            <div class="product-card-title">Бургер BBQ</div>
             <div class="product-card-price">500 ₽</div>
-            <div class="product-card-meta">(булочка, дижонская горчица, салат, томат, соленый огурец, маринованный красный лук, томатный соус на клюквенной основе)</div>
+            <div class="product-card-meta">(булочка, соус BBQ, сыр, салат, жареный бекон, маринованный красный лук, соленый огурец)</div>
+            <label class="option-check">
+              <input type="checkbox" class="bbq-bacon-toggle" onchange="toggleBbqOption(this)">
+              <span>Убрать бекон</span>
+            </label>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -924,23 +1017,11 @@
       <div class="section-title">Добавки</div>
 
       <div class="product-grid">
-        <div class="product-card" data-name="Картофель фри" data-price="170">
+        <div class="product-card" data-name="Халапеньо" data-base-name="Халапеньо" data-price="60">
           <div>
             <div class="product-card-image">Фото</div>
-            <div class="product-card-title">Картофель фри</div>
-            <div class="product-card-price">170 ₽</div>
-          </div>
-          <div class="qty">
-            <button onclick="changeQty(this, -1)">-</button>
-            <span>0</span>
-            <button onclick="changeQty(this, 1)">+</button>
-          </div>
-        </div>
-
-        <div class="product-card" data-name="Сырный соус" data-price="60">
-          <div>
-            <div class="product-card-image">Фото</div>
-            <div class="product-card-title">Сырный соус</div>
+            <div class="product-card-title">Халапеньо</div>
+            <div class="product-card-meta">20 г</div>
             <div class="product-card-price">60 ₽</div>
           </div>
           <div class="qty">
@@ -950,10 +1031,11 @@
           </div>
         </div>
 
-        <div class="product-card" data-name="Лаваш" data-price="50">
+        <div class="product-card" data-name="Тонкий лаваш" data-base-name="Тонкий лаваш" data-price="50">
           <div>
             <div class="product-card-image">Фото</div>
-            <div class="product-card-title">Лаваш</div>
+            <div class="product-card-title">Тонкий лаваш</div>
+            <div class="product-card-meta">150 г</div>
             <div class="product-card-price">50 ₽</div>
           </div>
           <div class="qty">
@@ -962,20 +1044,19 @@
             <button onclick="changeQty(this, 1)">+</button>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section-block" id="drinks">
-      <div class="mini-label">Категория</div>
-      <div class="section-title">Напитки</div>
-      <div class="section-note">Холодные напитки к заказу.</div>
-
-      <div class="product-grid">
-        <div class="product-card" data-name="Кола" data-price="120">
+        <div class="product-card variant-card" data-base-name="Матнакаш на мангале" data-price="80" data-name="Матнакаш на мангале">
           <div>
             <div class="product-card-image">Фото</div>
-            <div class="product-card-title">Кола</div>
-            <div class="product-card-price">120 ₽</div>
+            <div class="product-card-title">Матнакаш на мангале</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active" data-name="Матнакаш на мангале" data-meta="Целый" data-price="80" onclick="selectVariant(this)">Целый · 80 ₽</button>
+              <button class="variant-btn" data-name="Половина матнакаша" data-meta="Половина" data-price="40" onclick="selectVariant(this)">Половина · 40 ₽</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">Целый</div>
+            <div class="product-card-price variant-price">80 ₽</div>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -984,11 +1065,18 @@
           </div>
         </div>
 
-        <div class="product-card" data-name="Сок" data-price="110">
+        <div class="product-card variant-card" data-base-name="Соус белый чесночный 50 мл" data-price="70" data-name="Соус белый чесночный 50 мл">
           <div>
             <div class="product-card-image">Фото</div>
-            <div class="product-card-title">Сок</div>
-            <div class="product-card-price">110 ₽</div>
+            <div class="product-card-title">Соус белый чесночный</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active" data-name="Соус белый чесночный 50 мл" data-meta="50 мл" data-price="70" onclick="selectVariant(this)">50 мл · 70 ₽</button>
+              <button class="variant-btn" data-name="Соус белый чесночный 100 мл" data-meta="100 мл" data-price="100" onclick="selectVariant(this)">100 мл · 100 ₽</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">50 мл</div>
+            <div class="product-card-price variant-price">70 ₽</div>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -997,11 +1085,18 @@
           </div>
         </div>
 
-        <div class="product-card" data-name="Вода" data-price="90">
+        <div class="product-card variant-card" data-base-name="Соус красный кавказский 50 мл" data-price="70" data-name="Соус красный кавказский 50 мл">
           <div>
             <div class="product-card-image">Фото</div>
-            <div class="product-card-title">Вода</div>
-            <div class="product-card-price">90 ₽</div>
+            <div class="product-card-title">Соус красный кавказский</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active" data-name="Соус красный кавказский 50 мл" data-meta="50 мл" data-price="70" onclick="selectVariant(this)">50 мл · 70 ₽</button>
+              <button class="variant-btn" data-name="Соус красный кавказский 100 мл" data-meta="100 мл" data-price="100" onclick="selectVariant(this)">100 мл · 100 ₽</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">50 мл</div>
+            <div class="product-card-price variant-price">70 ₽</div>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -1036,7 +1131,6 @@
       <button class="cart-order-btn" style="margin-top:12px;">Оформить</button>
     </div>
   </div>
-
   <script>
     function scrollCategories(direction) {
       const bar = document.getElementById('categoryBar');
@@ -1078,11 +1172,22 @@
       localStorage.setItem(CART_COMMENT_KEY, value || '');
     }
 
+    function getEffectiveCardName(card) {
+      const checkbox = card.querySelector('.bbq-bacon-toggle');
+      const baseName = card.dataset.baseName || card.dataset.name || 'Товар';
+
+      if (checkbox) {
+        return checkbox.checked ? baseName + ' (без бекона)' : baseName;
+      }
+
+      return baseName;
+    }
+
     function changeQty(button, delta) {
       const card = button.closest('.product-card');
       if (!card) return;
 
-      const name = card.dataset.name || 'Товар';
+      const name = getEffectiveCardName(card);
       const price = Number(card.dataset.price || 0);
 
       const cart = getCart();
@@ -1097,6 +1202,55 @@
 
       saveCart(cart);
       updateCartUI();
+    }
+
+    function changeCartQty(name, delta) {
+      const cart = getCart();
+      if (!cart[name]) return;
+
+      const newQty = Math.max(0, (cart[name].qty || 0) + delta);
+
+      if (newQty === 0) {
+        delete cart[name];
+      } else {
+        cart[name].qty = newQty;
+      }
+
+      saveCart(cart);
+      updateCartUI();
+    }
+
+    function toggleBbqOption() {
+      updateCartUI();
+    }
+
+    function updateCardQtyLabel(card) {
+      const cart = getCart();
+      const qtyEl = card.querySelector('.qty span');
+      if (!qtyEl) return;
+
+      const name = getEffectiveCardName(card);
+      qtyEl.textContent = cart[name]?.qty || 0;
+    }
+
+    function selectVariant(button) {
+      const card = button.closest('.variant-card');
+      if (!card) return;
+
+      card.querySelectorAll('.variant-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      card.dataset.baseName = button.dataset.name;
+      card.dataset.name = button.dataset.name;
+      card.dataset.price = button.dataset.price;
+
+      const metaEl = card.querySelector('.variant-meta');
+      const priceEl = card.querySelector('.variant-price');
+
+      if (metaEl) metaEl.textContent = button.dataset.meta || '';
+      if (priceEl) priceEl.textContent = `${button.dataset.price} ₽`;
+
+      updateCardQtyLabel(card);
     }
 
     function updateCartUI() {
@@ -1123,15 +1277,23 @@
 
       if (cartItems) {
         const entries = Object.entries(cart);
+
         if (!entries.length) {
           cartItems.innerHTML = '<div class="cart-empty">Пока пусто</div>';
         } else {
           cartItems.innerHTML = entries.map(([name, item]) => `
             <div class="cart-item">
-              <div>
+              <div style="flex:1;">
                 <div class="cart-item-name">${name}</div>
-                <div class="cart-item-meta">${item.qty} × ${item.price} ₽</div>
+                <div class="cart-item-meta">${item.price} ₽ за шт</div>
+
+                <div class="qty" style="margin-top:8px;">
+                  <button onclick='changeCartQty(${JSON.stringify(name)}, -1)'>-</button>
+                  <span>${item.qty}</span>
+                  <button onclick='changeCartQty(${JSON.stringify(name)}, 1)'>+</button>
+                </div>
               </div>
+
               <div class="cart-item-name">${item.qty * item.price} ₽</div>
             </div>
           `).join('');
@@ -1139,10 +1301,7 @@
       }
 
       document.querySelectorAll('.product-card').forEach(card => {
-        const name = card.dataset.name || 'Товар';
-        const qtyEl = card.querySelector('.qty span');
-        if (!qtyEl) return;
-        qtyEl.textContent = cart[name]?.qty || 0;
+        updateCardQtyLabel(card);
       });
     }
 
@@ -1231,7 +1390,7 @@
       dayEl.textContent = menu.title;
 
       gridEl.innerHTML = menu.items.map(item => `
-        <div class="product-card" data-name="${item.name}" data-price="${item.price}">
+        <div class="product-card" data-name="${item.name}" data-base-name="${item.name}" data-price="${item.price}">
           <div>
             <div class="product-card-image">Фото</div>
             <div class="product-card-title">${item.name}</div>
@@ -1256,6 +1415,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.product-card').forEach(card => {
+        if (!card.dataset.baseName && card.dataset.name) {
+          card.dataset.baseName = card.dataset.name;
+        }
+      });
+
       renderDailyMenu();
       updateCartUI();
 
@@ -1269,4 +1434,4 @@
     });
   </script>
 </body>
-</html>
+</html>  
