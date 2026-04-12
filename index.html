@@ -786,6 +786,7 @@
 
       <div class="category-bar" id="categoryBar">
         <a href="#hot" class="category-link">Горячее</a>
+        <a href="#grill-side" class="category-link">К шашлыку</a>
         <a href="#salads" class="category-link">Салаты</a>
         <a href="#daily-menu" class="category-link">Меню дня</a>
         <a href="#street-food" class="category-link">Уличная классика</a>
@@ -803,11 +804,103 @@
       <div class="hot-grid hot-grid-6">
         <a class="hot-pill" href="svinina.html">Свинина</a>
         <a class="hot-pill" href="kurica.html">Курица</a>
-        <a class="hot-pill" href="ovoshchi.html">Овощи</a>
         <a class="hot-pill" href="ryba.html">Рыба</a>
         <a class="hot-pill" href="lyulya-kebab.html">Люля-кебаб</a>
         <a class="hot-pill" href="baranina.html">Баранина</a>
         <a class="hot-pill" href="sety.html">Сеты</a>
+      </div>
+    </section>
+
+    <section class="section-block" id="grill-side">
+      <div class="mini-label">Категория</div>
+      <div class="section-title">К шашлыку</div>
+
+      <div class="product-grid">
+        <div class="product-card" data-name="Шампиньоны" data-base-name="Шампиньоны" data-price="220">
+          <div>
+            <div class="product-card-image">Фото</div>
+            <div class="product-card-title">Шампиньоны</div>
+            <div class="product-card-meta">200 г</div>
+            <div class="product-card-price">220 ₽</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Картошка" data-base-name="Картошка" data-price="150">
+          <div>
+            <div class="product-card-image">Фото</div>
+            <div class="product-card-title">Картошка</div>
+            <div class="product-card-meta">230 г</div>
+            <div class="product-card-price">150 ₽</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
+
+        <div class="product-card variant-card" data-base-name="Овощи гриль" data-price="350" data-name="Овощи гриль">
+          <div>
+            <div class="product-card-image">Фото</div>
+            <div class="product-card-title">Овощи гриль</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active"
+                data-name="Овощи гриль"
+                data-meta="Обычные · 300 г"
+                data-price="350"
+                onclick="selectVariant(this)">300 г · 350 ₽</button>
+
+              <button class="variant-btn"
+                data-name="Овощи гриль XL"
+                data-meta="XL · 400 г"
+                data-price="500"
+                onclick="selectVariant(this)">400 г · 500 ₽</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">Обычные · 300 г</div>
+            <div class="product-card-price variant-price">350 ₽</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
+
+        <div class="product-card variant-card" data-base-name="Огурцы и помидоры свежие со сметаной" data-name="Огурцы и помидоры свежие со сметаной" data-price="180">
+          <div>
+            <div class="product-card-image">Фото</div>
+            <div class="product-card-title">Огурцы и помидоры свежие</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active"
+                data-name="Огурцы и помидоры свежие со сметаной"
+                data-meta="С луком и растительным маслом · 110 г · сметана"
+                data-price="180"
+                onclick="selectVariant(this)">Сметана</button>
+
+              <button class="variant-btn"
+                data-name="Огурцы и помидоры свежие с майонезом"
+                data-meta="С луком и растительным маслом · 110 г · майонез"
+                data-price="180"
+                onclick="selectVariant(this)">Майонез</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">С луком и растительным маслом · 110 г · сметана</div>
+            <div class="product-card-price variant-price">180 ₽</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this, -1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this, 1)">+</button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -816,12 +909,27 @@
       <div class="section-title">Салаты</div>
 
       <div class="product-grid">
-        <div class="product-card" data-name="Огурцы и помидоры свежие" data-base-name="Огурцы и помидоры свежие" data-price="180">
+        <div class="product-card variant-card" data-base-name="Огурцы и помидоры свежие со сметаной" data-name="Огурцы и помидоры свежие со сметаной" data-price="180">
           <div>
             <div class="product-card-image">Фото</div>
             <div class="product-card-title">Огурцы и помидоры свежие</div>
-            <div class="product-card-price">180 ₽</div>
-            <div class="product-card-meta">С луком и растительным маслом, 110 г (по желанию майонез / сметана)</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active"
+                data-name="Огурцы и помидоры свежие со сметаной"
+                data-meta="С луком и растительным маслом · 110 г · сметана"
+                data-price="180"
+                onclick="selectVariant(this)">Сметана</button>
+
+              <button class="variant-btn"
+                data-name="Огурцы и помидоры свежие с майонезом"
+                data-meta="С луком и растительным маслом · 110 г · майонез"
+                data-price="180"
+                onclick="selectVariant(this)">Майонез</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">С луком и растительным маслом · 110 г · сметана</div>
+            <div class="product-card-price variant-price">180 ₽</div>
           </div>
           <div class="qty">
             <button onclick="changeQty(this, -1)">-</button>
@@ -1131,7 +1239,7 @@
       <button class="cart-order-btn" style="margin-top:12px;">Оформить</button>
     </div>
   </div>
-  <script>
+    <script>
     function scrollCategories(direction) {
       const bar = document.getElementById('categoryBar');
       if (!bar) return;
@@ -1362,31 +1470,25 @@
     function renderDailyMenu() {
       const dayEl = document.getElementById('dailyMenuDay');
       const gridEl = document.getElementById('dailyMenuGrid');
-      if (!dayEl || !gridEl) return;
+      const sectionEl = document.getElementById('daily-menu');
+
+      if (!dayEl || !gridEl || !sectionEl) return;
 
       const day = new Date().getDay();
 
       if (day === 0 || day === 6) {
-        dayEl.textContent = 'Выходной день';
-        gridEl.innerHTML = `
-          <div class="product-card">
-            <div>
-              <div class="product-card-image">Меню</div>
-              <div class="product-card-title">Сегодня действует основное меню</div>
-              <div class="product-card-meta">Выходной</div>
-              <div class="product-card-price">—</div>
-            </div>
-            <div class="qty">
-              <button disabled>-</button>
-              <span>0</span>
-              <button disabled>+</button>
-            </div>
-          </div>
-        `;
+        sectionEl.style.display = 'none';
         return;
       }
 
+      sectionEl.style.display = '';
+
       const menu = dailyMenus[day];
+      if (!menu) {
+        sectionEl.style.display = 'none';
+        return;
+      }
+
       dayEl.textContent = menu.title;
 
       gridEl.innerHTML = menu.items.map(item => `
@@ -1434,4 +1536,4 @@
     });
   </script>
 </body>
-</html>  
+</html>
