@@ -53,16 +53,16 @@
       gap: 18px;
     }
 
-    .hero,
-    .section-block,
-    .category-shell {
-      background: var(--glass);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(22px);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-    }
-
+ .hero,
+.section-block,
+.category-shell {
+  background: rgba(16, 20, 28, 0.88);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 28px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
     .hero {
       padding: 16px;
     }
@@ -496,16 +496,16 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .daily-variant-box {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 180px;
-    }
+   .daily-variant-box {
+  background: rgba(20, 26, 36, 0.96);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 18px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 180px;
+}
 
     .daily-variant-name {
       font-size: 15px;
@@ -1040,6 +1040,77 @@
 
   .cart-total {
     font-size: 15px;
+  }
+}
+    @media (max-width: 640px) {
+  .hero,
+  .section-block,
+  .category-shell,
+  .product-card,
+  .daily-variant-box,
+  .brand-box,
+  .main-box,
+  .photo-box,
+  .service-box,
+  .contact-mini {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+    @media (max-width: 640px) {
+  .hero,
+  .section-block,
+  .category-shell,
+  .product-card,
+  .daily-variant-box,
+  .brand-box,
+  .main-box,
+  .photo-box,
+  .service-box,
+  .contact-mini {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(18, 24, 34, 0.96) !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.16) !important;
+  }
+}
+    @media (max-width: 640px) {
+  html, body {
+    background: #0b1220 !important;
+  }
+
+  .hero,
+  .section-block,
+  .category-shell,
+  .product-card,
+  .daily-variant-box,
+  .brand-box,
+  .main-box,
+  .photo-box,
+  .service-box,
+  .contact-mini,
+  .cart-panel {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: rgba(18, 24, 34, 0.96) !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.16) !important;
+  }
+
+  .product-card-image,
+  .slider-overlay,
+  .schedule-line,
+  .variant-btn,
+  .cart-button,
+  .qty button {
+    box-shadow: none !important;
+  }
+
+  body::before,
+  body::after {
+    display: none !important;
+    content: none !important;
   }
 }
   </style>
