@@ -1113,6 +1113,51 @@
     content: none !important;
   }
 }
+    .product-card {
+  position: relative;
+  overflow: visible;
+}
+
+.product-card::before,
+.product-card::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 38px;
+  border-radius: 6px;
+  background:
+    linear-gradient(rgba(10,12,18,0.9), rgba(10,12,18,0.9)) padding-box,
+    linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0.05)) border-box;
+  border: 1px solid transparent;
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,0.35),
+    0 0 18px rgba(120, 210, 255, 0.22);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.product-card::before {
+  top: -12px;
+  left: -12px;
+}
+
+.product-card::after {
+  right: -12px;
+  bottom: -12px;
+}
+
+.product-card::before,
+.product-card::after {
+  background-image:
+    radial-gradient(circle at 50% 52%, rgba(190,240,255,0.9) 0%, rgba(120,210,255,0.7) 28%, rgba(120,210,255,0.18) 58%, transparent 100%),
+    linear-gradient(rgba(12,14,20,0.95), rgba(12,14,20,0.95));
+  background-blend-mode: screen, normal;
+}
+
+.product-card > * {
+  position: relative;
+  z-index: 1;
+}
   </style>
 </head>
 <body>
