@@ -472,6 +472,61 @@
       margin: 12px 0 8px;
     }
 
+    .daily-multi-card {
+      grid-column: span 2;
+      min-height: 320px;
+    }
+
+    .daily-multi-title {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .daily-variants-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .daily-variants-grid.cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .daily-variants-grid.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .daily-variant-box {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 180px;
+    }
+
+    .daily-variant-name {
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .daily-variant-meta {
+      font-size: 13px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.45;
+      margin-bottom: 10px;
+    }
+
+    .daily-variant-price {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
     .cart-float {
       position: fixed;
       right: 18px;
@@ -701,6 +756,15 @@
         min-width: 150px;
         height: 52px;
         font-size: 14px;
+      }
+
+      .daily-multi-card {
+        grid-column: span 1;
+      }
+
+      .daily-variants-grid.cols-2,
+      .daily-variants-grid.cols-3 {
+        grid-template-columns: 1fr;
       }
 
       .cart-float {
@@ -1417,52 +1481,68 @@
       1: {
         title: 'День 1 · Понедельник',
         items: [
-          { name: 'Щи со свежей капустой и говядиной', meta: 'Суп · 350 мл', price: 200 },
-          { name: 'Котлеты куриные', meta: 'Второе · 180 г', price: 200 },
-          { name: 'Картофельное пюре', meta: 'Гарнир · 150 г', price: 70 },
-          { name: 'Гречка отварная', meta: 'Гарнир · 130 г', price: 65 },
-          { name: 'Макароны', meta: 'Гарнир · 120 г', price: 65 },
-          { name: 'Витаминный', meta: 'Салат · 100 г', price: 70 },
-          { name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70 }
+          { type: 'single', name: 'Щи со свежей капустой и говядиной', meta: 'Суп · 350 мл', price: 200 },
+          { type: 'single', name: 'Котлеты куриные', meta: 'Второе · 180 г', price: 200 },
+          {
+            type: 'group',
+            title: 'Гарнир',
+            items: [
+              { name: 'Картофельное пюре', meta: '150 г', price: 70 },
+              { name: 'Гречка отварная', meta: '130 г', price: 65 },
+              { name: 'Макароны', meta: '120 г', price: 65 }
+            ]
+          },
+          { type: 'single', name: 'Витаминный', meta: 'Салат · 100 г', price: 70 },
+          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70 }
         ]
       },
+
       2: {
         title: 'День 2 · Вторник',
         items: [
-          { name: 'Суп гороховый с копчёностями', meta: 'Суп · 350 мл', price: 200 },
-          { name: 'Паста сливочная с курицей и грибами', meta: 'Второе', price: 210 },
-          { name: 'Греческий', meta: 'Салат · 200 г', price: 180 },
-          { name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70 }
+          { type: 'single', name: 'Суп гороховый с копчёностями', meta: 'Суп · 350 мл', price: 200 },
+          { type: 'single', name: 'Паста сливочная с курицей и грибами', meta: 'Второе', price: 210 },
+          { type: 'single', name: 'Греческий', meta: 'Салат · 200 г', price: 180 },
+          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70 }
         ]
       },
+
       3: {
         title: 'День 3 · Среда',
         items: [
-          { name: 'Суп куриный с вермишелью', meta: 'Суп · 350 мл', price: 160 },
-          { name: 'Лагман жареный (говядина)', meta: 'Второе · 400 г', price: 380 },
-          { name: 'Огурцы и помидоры свежие с луком и растительным маслом', meta: 'Салат · 100 г', price: 120 },
-          { name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70 }
+          { type: 'single', name: 'Суп куриный с вермишелью', meta: 'Суп · 350 мл', price: 160 },
+          { type: 'single', name: 'Лагман жареный (говядина)', meta: 'Второе · 400 г', price: 380 },
+          { type: 'single', name: 'Огурцы и помидоры свежие с луком и растительным маслом', meta: 'Салат · 100 г', price: 120 },
+          { type: 'single', name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70 }
         ]
       },
+
       4: {
         title: 'День 4 · Четверг',
         items: [
-          { name: 'Солянка', meta: 'Суп · 250 мл', price: 210 },
-          { name: 'Куриный шашлычок с овощами', meta: 'Второе · 200 г', price: 250 },
-          { name: 'Морковь по-корейски', meta: 'Салат · 70 г', price: 70 },
-          { name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70 }
+          { type: 'single', name: 'Солянка', meta: 'Суп · 250 мл', price: 210 },
+          { type: 'single', name: 'Куриный шашлычок с овощами', meta: 'Второе · 200 г', price: 250 },
+          { type: 'single', name: 'Морковь по-корейски', meta: 'Салат · 70 г', price: 70 },
+          { type: 'single', name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70 }
         ]
       },
+
       5: {
         title: 'День 5 · Пятница',
         items: [
-          { name: 'Сливочный с курицей и грибами', meta: 'Суп · 350 мл', price: 200 },
-          { name: 'Рубленые куриные котлеты с помидорами и сыром', meta: 'Второе · 230 г', price: 240 },
-          { name: 'Картофельное пюре', meta: 'Гарнир · 150 г', price: 70 },
-          { name: 'Гречка отварная', meta: 'Гарнир · 130 г', price: 65 },
-          { name: 'Макароны', meta: 'Гарнир · 120 г', price: 65 },
-          { name: 'Цезарь с курицей', meta: 'Салат · 270 г', price: 170 },
-          { name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70 }
+          { type: 'single', name: 'Сливочный с курицей и грибами', meta: 'Суп · 350 мл', price: 200 },
+          { type: 'single', name: 'Рубленые куриные котлеты с помидорами и сыром', meta: 'Второе · 230 г', price: 240 },
+          {
+            type: 'group',
+            title: 'Гарнир',
+            items: [
+              { name: 'Картофельное пюре', meta: '150 г', price: 70 },
+              { name: 'Гречка отварная', meta: '130 г', price: 65 },
+              { name: 'Макароны', meta: '120 г', price: 65 }
+            ]
+          },
+          { type: 'single', name: 'Цезарь с курицей', meta: 'Салат · 270 г', price: 170 },
+          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70 }
         ]
       }
     };
@@ -1491,21 +1571,55 @@
 
       dayEl.textContent = menu.title;
 
-      gridEl.innerHTML = menu.items.map(item => `
-        <div class="product-card" data-name="${item.name}" data-base-name="${item.name}" data-price="${item.price}">
-          <div>
-            <div class="product-card-image">Фото</div>
-            <div class="product-card-title">${item.name}</div>
-            <div class="product-card-meta">${item.meta}</div>
-            <div class="product-card-price">${item.price} ₽</div>
+      gridEl.innerHTML = menu.items.map(item => {
+        if (item.type === 'group') {
+          const colsClass = item.items.length === 2 ? 'cols-2' : 'cols-3';
+
+          return `
+            <div class="product-card daily-multi-card">
+              <div>
+                <div class="product-card-image">Фото</div>
+                <div class="daily-multi-title">${item.title}</div>
+
+                <div class="daily-variants-grid ${colsClass}">
+                  ${item.items.map(sub => `
+                    <div class="daily-variant-box product-card" data-name="${sub.name}" data-base-name="${sub.name}" data-price="${sub.price}" style="min-height:auto; padding:14px;">
+                      <div>
+                        <div class="daily-variant-name">${sub.name}</div>
+                        <div class="daily-variant-meta">${sub.meta}</div>
+                        <div class="daily-variant-price">${sub.price} ₽</div>
+                      </div>
+
+                      <div class="qty">
+                        <button onclick="changeQty(this, -1)">-</button>
+                        <span>0</span>
+                        <button onclick="changeQty(this, 1)">+</button>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="product-card" data-name="${item.name}" data-base-name="${item.name}" data-price="${item.price}">
+            <div>
+              <div class="product-card-image">Фото</div>
+              <div class="product-card-title">${item.name}</div>
+              <div class="product-card-meta">${item.meta}</div>
+              <div class="product-card-price">${item.price} ₽</div>
+            </div>
+
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
           </div>
-          <div class="qty">
-            <button onclick="changeQty(this, -1)">-</button>
-            <span>0</span>
-            <button onclick="changeQty(this, 1)">+</button>
-          </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
 
       updateCartUI();
     }
