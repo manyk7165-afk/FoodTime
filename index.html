@@ -1608,3 +1608,351 @@
       <button class="cart-order-btn" style="margin-top:12px;">Оформить</button>
     </div>
   </div>
+  <script>
+    function scrollCategories(direction) {
+      const bar = document.getElementById('categoryBar');
+      if (!bar) return;
+      bar.scrollBy({ left: direction * 260, behavior: 'smooth' });
+    }
+
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    if (slides.length) {
+      setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }, 3000);
+    }
+
+    const CART_KEY = 'foodtime_cart';
+    const CART_COMMENT_KEY = 'foodtime_order_comment';
+
+    function getCart() {
+      try {
+        return JSON.parse(localStorage.getItem(CART_KEY)) || {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+
+    function getOrderComment() {
+      return localStorage.getItem(CART_COMMENT_KEY) || '';
+    }
+
+    function saveOrderComment(value) {
+      localStorage.setItem(CART_COMMENT_KEY, value || '');
+    }
+
+    function getEffectiveCardName(card) {
+      const checkbox = card.querySelector('.bbq-bacon-toggle');
+      const baseName = card.dataset.baseName || card.dataset.name || 'Товар';
+
+      if (checkbox) {
+        return checkbox.checked ? baseName + ' (без бекона)' : baseName;
+      }
+
+      return baseName;
+    }
+
+    function changeQty(button, delta) {
+      const card = button.closest('.product-card');
+      if (!card) return;
+
+      const name = getEffectiveCardName(card);
+      const price = Number(card.dataset.price || 0);
+
+      const cart = getCart();
+      const currentQty = cart[name]?.qty || 0;
+      const newQty = Math.max(0, currentQty + delta);
+
+      if (newQty === 0) {
+        delete cart[name];
+      } else {
+        cart[name] = { price, qty: newQty };
+      }
+
+      saveCart(cart);
+      updateCartUI();
+    }
+
+    function changeCartQty(name, delta) {
+      const cart = getCart();
+      if (!cart[name]) return;
+
+      const newQty = Math.max(0, (cart[name].qty || 0) + delta);
+
+      if (newQty === 0) {
+        delete cart[name];
+      } else {
+        cart[name].qty = newQty;
+      }
+
+      saveCart(cart);
+      updateCartUI();
+    }
+
+    function toggleBbqOption() {
+      updateCartUI();
+    }
+
+    function updateCardQtyLabel(card) {
+      const cart = getCart();
+      const qtyEl = card.querySelector('.qty span');
+      if (!qtyEl) return;
+
+      const name = getEffectiveCardName(card);
+      qtyEl.textContent = cart[name]?.qty || 0;
+    }
+
+    function selectVariant(button) {
+      const card = button.closest('.variant-card');
+      if (!card) return;
+
+      card.querySelectorAll('.variant-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      card.dataset.baseName = button.dataset.name;
+      card.dataset.name = button.dataset.name;
+      card.dataset.price = button.dataset.price;
+
+      const metaEl = card.querySelector('.variant-meta');
+      const priceEl = card.querySelector('.variant-price');
+
+      if (metaEl) metaEl.textContent = button.dataset.meta || '';
+      if (priceEl) priceEl.textContent = `${button.dataset.price} ₽`;
+
+      updateCardQtyLabel(card);
+    }
+
+    function updateCartUI() {
+      const cart = getCart();
+
+      const cartItems = document.getElementById('cartItems');
+      const cartCount = document.getElementById('cartCount');
+      const cartTotal = document.getElementById('cartTotal');
+      const orderComment = document.getElementById('orderComment');
+
+      let totalCount = 0;
+      let totalPrice = 0;
+
+      Object.entries(cart).forEach(([name, item]) => {
+        totalCount += item.qty;
+        totalPrice += item.qty * item.price;
+      });
+
+      if (cartCount) cartCount.textContent = totalCount;
+      if (cartTotal) cartTotal.textContent = totalPrice + ' ₽';
+      if (orderComment && document.activeElement !== orderComment) {
+        orderComment.value = getOrderComment();
+      }
+
+      if (cartItems) {
+        const entries = Object.entries(cart);
+
+        if (!entries.length) {
+          cartItems.innerHTML = '<div class="cart-empty">Пока пусто</div>';
+        } else {
+          cartItems.innerHTML = entries.map(([name, item]) => `
+            <div class="cart-item">
+              <div style="flex:1;">
+                <div class="cart-item-name">${name}</div>
+                <div class="cart-item-meta">${item.price} ₽ за шт</div>
+
+                <div class="qty" style="margin-top:8px;">
+                  <button onclick='changeCartQty(${JSON.stringify(name)}, -1)'>-</button>
+                  <span>${item.qty}</span>
+                  <button onclick='changeCartQty(${JSON.stringify(name)}, 1)'>+</button>
+                </div>
+              </div>
+
+              <div class="cart-item-name">${item.qty * item.price} ₽</div>
+            </div>
+          `).join('');
+        }
+      }
+
+      document.querySelectorAll('.product-card').forEach(card => {
+        updateCardQtyLabel(card);
+      });
+    }
+
+    const dailyMenus = {
+      1: {
+        title: 'День 1 · Понедельник',
+        items: [
+          { type: 'single', name: 'Щи со свежей капустой и говядиной', meta: 'Суп · 350 мл', price: 200 },
+          { type: 'single', name: 'Котлеты куриные', meta: 'Второе · 180 г', price: 200 },
+          {
+            type: 'group',
+            title: 'Гарнир',
+            items: [
+              { name: 'Картофельное пюре', meta: '150 г', price: 70 },
+              { name: 'Гречка отварная', meta: '130 г', price: 65 },
+              { name: 'Макароны', meta: '120 г', price: 65 }
+            ]
+          },
+          { type: 'single', name: 'Витаминный', meta: 'Салат · 100 г', price: 70 },
+          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70 }
+        ]
+      },
+
+      2: {
+        title: 'День 2 · Вторник',
+        items: [
+          { type: 'single', name: 'Суп гороховый с копчёностями', meta: 'Суп · 350 мл', price: 200 },
+          { type: 'single', name: 'Паста сливочная с курицей и грибами', meta: 'Второе', price: 210 },
+          { type: 'single', name: 'Греческий', meta: 'Салат · 200 г', price: 180 },
+          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70 }
+        ]
+      },
+
+      3: {
+        title: 'День 3 · Среда',
+        items: [
+          { type: 'single', name: 'Суп куриный с вермишелью', meta: 'Суп · 350 мл', price: 160 },
+          { type: 'single', name: 'Лагман жареный (говядина)', meta: 'Второе · 400 г', price: 380 },
+          { type: 'single', name: 'Огурцы и помидоры свежие с луком и растительным маслом', meta: 'Салат · 100 г', price: 120 },
+          { type: 'single', name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70 }
+        ]
+      },
+
+      4: {
+        title: 'День 4 · Четверг',
+        items: [
+          { type: 'single', name: 'Солянка', meta: 'Суп · 250 мл', price: 210 },
+          { type: 'single', name: 'Куриный шашлычок с овощами', meta: 'Второе · 200 г', price: 250 },
+          { type: 'single', name: 'Морковь по-корейски', meta: 'Салат · 70 г', price: 70 },
+          { type: 'single', name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70 }
+        ]
+      },
+
+      5: {
+        title: 'День 5 · Пятница',
+        items: [
+          { type: 'single', name: 'Сливочный с курицей и грибами', meta: 'Суп · 350 мл', price: 200 },
+          { type: 'single', name: 'Рубленые куриные котлеты с помидорами и сыром', meta: 'Второе · 230 г', price: 240 },
+          {
+            type: 'group',
+            title: 'Гарнир',
+            items: [
+              { name: 'Картофельное пюре', meta: '150 г', price: 70 },
+              { name: 'Гречка отварная', meta: '130 г', price: 65 },
+              { name: 'Макароны', meta: '120 г', price: 65 }
+            ]
+          },
+          { type: 'single', name: 'Цезарь с курицей', meta: 'Салат · 270 г', price: 170 },
+          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70 }
+        ]
+      }
+    };
+
+    function renderDailyMenu() {
+      const dayEl = document.getElementById('dailyMenuDay');
+      const gridEl = document.getElementById('dailyMenuGrid');
+      const sectionEl = document.getElementById('daily-menu');
+
+      if (!dayEl || !gridEl || !sectionEl) return;
+
+      const day = new Date().getDay();
+
+      if (day === 0 || day === 6) {
+        sectionEl.style.display = 'none';
+        return;
+      }
+
+      sectionEl.style.display = '';
+
+      const menu = dailyMenus[day];
+      if (!menu) {
+        sectionEl.style.display = 'none';
+        return;
+      }
+
+      dayEl.textContent = menu.title;
+
+      gridEl.innerHTML = menu.items.map(item => {
+        if (item.type === 'group') {
+          const colsClass = item.items.length === 2 ? 'cols-2' : 'cols-3';
+
+          return `
+            <div class="product-card daily-multi-card">
+              <div>
+                <div class="product-card-image">Фото</div>
+                <div class="daily-multi-title">${item.title}</div>
+
+                <div class="daily-variants-grid ${colsClass}">
+                  ${item.items.map(sub => `
+                    <div class="daily-variant-box product-card" data-name="${sub.name}" data-base-name="${sub.name}" data-price="${sub.price}" style="min-height:auto; padding:14px;">
+                      <div>
+                        <div class="daily-variant-name">${sub.name}</div>
+                        <div class="daily-variant-meta">${sub.meta}</div>
+                        <div class="daily-variant-price">${sub.price} ₽</div>
+                      </div>
+
+                      <div class="qty">
+                        <button onclick="changeQty(this, -1)">-</button>
+                        <span>0</span>
+                        <button onclick="changeQty(this, 1)">+</button>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="product-card" data-name="${item.name}" data-base-name="${item.name}" data-price="${item.price}">
+            <div>
+              <div class="product-card-image">Фото</div>
+              <div class="product-card-title">${item.name}</div>
+              <div class="product-card-meta">${item.meta}</div>
+              <div class="product-card-price">${item.price} ₽</div>
+            </div>
+
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      updateCartUI();
+    }
+
+    function toggleCart() {
+      const panel = document.getElementById('cartPanel');
+      if (!panel) return;
+      panel.classList.toggle('open');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.product-card').forEach(card => {
+        if (!card.dataset.baseName && card.dataset.name) {
+          card.dataset.baseName = card.dataset.name;
+        }
+      });
+
+      renderDailyMenu();
+      updateCartUI();
+
+      const orderComment = document.getElementById('orderComment');
+      if (orderComment) {
+        orderComment.value = getOrderComment();
+        orderComment.addEventListener('input', (e) => {
+          saveOrderComment(e.target.value);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
