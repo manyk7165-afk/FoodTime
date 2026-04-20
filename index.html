@@ -404,7 +404,6 @@
       flex-direction: column;
       justify-content: space-between;
       padding: 16px;
-      position: relative;
     }
 
     .product-card-image {
@@ -412,16 +411,19 @@
       height: 130px;
       border-radius: 18px;
       background-color: rgba(255,255,255,0.06);
-      background-size: contain;
-      background-position: center;
-      background-repeat: no-repeat;
       border: 1px solid rgba(255,255,255,0.09);
+      margin-bottom: 14px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(255,255,255,0.38);
-      font-size: 13px;
-      margin-bottom: 14px;
+    }
+
+    .product-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .product-card-title {
@@ -683,7 +685,7 @@
       background: var(--chip-active);
       border-color: rgba(255,255,255,0.22);
     }
-    @media (max-width: 1180px) {
+        @media (max-width: 1180px) {
       .top-row {
         grid-template-columns: 210px 1fr;
       }
@@ -1188,7 +1190,9 @@
       <div class="product-grid">
         <div class="product-card" data-name="Шампиньоны" data-base-name="Шампиньоны" data-price="220">
           <div>
-            <div class="product-card-image" style="background-image:url('Шампиньоны.png');"></div>
+            <div class="product-card-image">
+              <img src="Шампиньоны.png" alt="Шампиньоны">
+            </div>
             <div class="product-card-title">Шампиньоны</div>
             <div class="product-card-meta">200 г</div>
             <div class="product-card-price">220 ₽</div>
@@ -1202,7 +1206,9 @@
 
         <div class="product-card" data-name="Картошка" data-base-name="Картошка" data-price="150">
           <div>
-            <div class="product-card-image" style="background-image:url('Картошка.png');"></div>
+            <div class="product-card-image">
+              <img src="Картошка.png" alt="Картошка">
+            </div>
             <div class="product-card-title">Картошка</div>
             <div class="product-card-meta">230 г</div>
             <div class="product-card-price">150 ₽</div>
@@ -1216,7 +1222,9 @@
 
         <div class="product-card variant-card" data-base-name="Овощи гриль" data-price="350" data-name="Овощи гриль">
           <div>
-            <div class="product-card-image" style="background-image:url('Овощигриль.png');"></div>
+            <div class="product-card-image">
+              <img src="Овощигриль.png" alt="Овощи гриль">
+            </div>
             <div class="product-card-title">Овощи гриль</div>
 
             <div class="variant-group">
@@ -1245,7 +1253,9 @@
 
         <div class="product-card variant-card" data-base-name="Огурцы и помидоры свежие со сметаной" data-name="Огурцы и помидоры свежие со сметаной" data-price="180">
           <div>
-            <div class="product-card-image" style="background-image:url('Огурцыипомидорысвежие.png');"></div>
+            <div class="product-card-image">
+              <img src="Огурцыипомидорысвежие.png" alt="Огурцы и помидоры свежие">
+            </div>
             <div class="product-card-title">Огурцы и помидоры свежие</div>
 
             <div class="variant-group">
@@ -1273,14 +1283,16 @@
         </div>
       </div>
     </section>
-    <section class="section-block" id="salads">
+        <section class="section-block" id="salads">
       <div class="mini-label">Категория</div>
       <div class="section-title">Салаты</div>
 
       <div class="product-grid">
         <div class="product-card variant-card" data-base-name="Огурцы и помидоры свежие со сметаной" data-name="Огурцы и помидоры свежие со сметаной" data-price="180">
           <div>
-            <div class="product-card-image" style="background-image:url('Огурцыипомидорысвежие.png');"></div>
+            <div class="product-card-image">
+              <img src="Огурцыипомидорысвежие.png" alt="Огурцы и помидоры свежие">
+            </div>
             <div class="product-card-title">Огурцы и помидоры свежие</div>
 
             <div class="variant-group">
@@ -1309,7 +1321,9 @@
 
         <div class="product-card" data-name="Греческий" data-base-name="Греческий" data-price="250">
           <div>
-            <div class="product-card-image" style="background-image:url('Греческий.png');"></div>
+            <div class="product-card-image">
+              <img src="Греческий.png" alt="Греческий">
+            </div>
             <div class="product-card-title">Греческий</div>
             <div class="product-card-price">250 ₽</div>
             <div class="product-card-meta">200 г</div>
@@ -1323,7 +1337,9 @@
 
         <div class="product-card" data-name="Цезарь с курицей" data-base-name="Цезарь с курицей" data-price="260">
           <div>
-            <div class="product-card-image" style="background-image:url('Цезарьскурицей.png');"></div>
+            <div class="product-card-image">
+              <img src="Цезарьскурицей.png" alt="Цезарь с курицей">
+            </div>
             <div class="product-card-title">Цезарь с курицей</div>
             <div class="product-card-price">260 ₽</div>
             <div class="product-card-meta">270 г</div>
@@ -1337,7 +1353,9 @@
 
         <div class="product-card" data-name="Цезарь с креветками" data-base-name="Цезарь с креветками" data-price="290">
           <div>
-            <div class="product-card-image" style="background-image:url('Цезарьскреветками.png');"></div>
+            <div class="product-card-image">
+              <img src="Цезарьскреветками.png" alt="Цезарь с креветками">
+            </div>
             <div class="product-card-title">Цезарь с креветками</div>
             <div class="product-card-price">290 ₽</div>
             <div class="product-card-meta">250 г</div>
@@ -1351,7 +1369,9 @@
 
         <div class="product-card" data-name="Огурцы и помидоры с болгарским перцем" data-base-name="Огурцы и помидоры с болгарским перцем" data-price="210">
           <div>
-            <div class="product-card-image" style="background-image:url('Огурцыипомидорысболгарскимперцем.png');"></div>
+            <div class="product-card-image">
+              <img src="Огурцыипомидорысболгарскимперцем.png" alt="Огурцы и помидоры с болгарским перцем">
+            </div>
             <div class="product-card-title">Огурцы и помидоры с болгарским перцем</div>
             <div class="product-card-price">210 ₽</div>
             <div class="product-card-meta">С луком и майонезом, 260 г</div>
@@ -1380,7 +1400,9 @@
       <div class="product-grid">
         <div class="product-card" data-name="Шаурма с курицей" data-base-name="Шаурма с курицей" data-price="300">
           <div>
-            <div class="product-card-image" style="background-image:url('Шаурмаскурицей.png');"></div>
+            <div class="product-card-image">
+              <img src="Шаурмаскурицей.png" alt="Шаурма с курицей">
+            </div>
             <div class="product-card-title">Шаурма с курицей</div>
             <div class="product-card-price">300 ₽</div>
             <div class="product-card-meta">Шаурма состав: курица, морковь по-корейски, лук, огурцы, томаты, соус белый чесночный</div>
@@ -1394,7 +1416,9 @@
 
         <div class="product-card" data-name="Шаурма со свининой" data-base-name="Шаурма со свининой" data-price="300">
           <div>
-            <div class="product-card-image" style="background-image:url('Шаурмасосвининой.png');"></div>
+            <div class="product-card-image">
+              <img src="Шаурмасосвининой.png" alt="Шаурма со свининой">
+            </div>
             <div class="product-card-title">Шаурма со свининой</div>
             <div class="product-card-price">300 ₽</div>
             <div class="product-card-meta">Шаурма состав: свинина, морковь по-корейски, лук, огурцы, томаты, соус белый чесночный</div>
@@ -1408,7 +1432,9 @@
 
         <div class="product-card" data-name="Хот-дог" data-base-name="Хот-дог" data-price="300">
           <div>
-            <div class="product-card-image" style="background-image:url('Хотдог.png');"></div>
+            <div class="product-card-image">
+              <img src="Хотдог.png" alt="Хот-дог">
+            </div>
             <div class="product-card-title">Хот-дог</div>
             <div class="product-card-price">300 ₽</div>
             <div class="product-card-meta">(булочка, сосиска халяль, морковь по-корейски, соленый огурец, кетчуп, дижонская горчица, жареный лук)</div>
@@ -1422,7 +1448,9 @@
 
         <div class="product-card" data-name="Сэндвич с курицей" data-base-name="Сэндвич с курицей" data-price="380">
           <div>
-            <div class="product-card-image" style="background-image:url('Сэндвичскурицей.png');"></div>
+            <div class="product-card-image">
+              <img src="Сэндвичскурицей.png" alt="Сэндвич с курицей">
+            </div>
             <div class="product-card-title">Сэндвич с курицей</div>
             <div class="product-card-price">380 ₽</div>
             <div class="product-card-meta">(хлеб HARRY'S, курица, творожный сыр, томат, красный лук, айсберг)</div>
@@ -1443,7 +1471,9 @@
       <div class="product-grid">
         <div class="product-card" data-name="Бургер с курицей" data-base-name="Бургер с курицей" data-price="380">
           <div>
-            <div class="product-card-image" style="background-image:url('Бургерскурицей.png');"></div>
+            <div class="product-card-image">
+              <img src="Бургерскурицей.png" alt="Бургер с курицей">
+            </div>
             <div class="product-card-title">Бургер с курицей</div>
             <div class="product-card-price">380 ₽</div>
             <div class="product-card-meta">(булочка, салат, сыр, томат, соленый огурец, лук, майонез, кетчуп)</div>
@@ -1457,7 +1487,9 @@
 
         <div class="product-card" data-name="Бургер с говядиной" data-base-name="Бургер с говядиной" data-price="450">
           <div>
-            <div class="product-card-image" style="background-image:url('Бургерсговядиной.png');"></div>
+            <div class="product-card-image">
+              <img src="Бургерсговядиной.png" alt="Бургер с говядиной">
+            </div>
             <div class="product-card-title">Бургер с говядиной</div>
             <div class="product-card-price">450 ₽</div>
             <div class="product-card-meta">(булочка, дижонская горчица, салат, томат, соленый огурец, маринованный красный лук, томатный соус на клюквенной основе)</div>
@@ -1471,7 +1503,9 @@
 
         <div class="product-card" data-name="Бургер BBQ" data-base-name="Бургер BBQ" data-price="500">
           <div>
-            <div class="product-card-image" style="background-image:url('БургерBBQ.png');"></div>
+            <div class="product-card-image">
+              <img src="БургерBBQ.png" alt="Бургер BBQ">
+            </div>
             <div class="product-card-title">Бургер BBQ</div>
             <div class="product-card-price">500 ₽</div>
             <div class="product-card-meta">(булочка, соус BBQ, сыр, салат, жареный бекон, маринованный красный лук, соленый огурец)</div>
@@ -1496,7 +1530,9 @@
       <div class="product-grid">
         <div class="product-card" data-name="Халапеньо" data-base-name="Халапеньо" data-price="60">
           <div>
-            <div class="product-card-image" style="background-image:url('Халапеньо.png');"></div>
+            <div class="product-card-image">
+              <img src="Халапеньо.png" alt="Халапеньо">
+            </div>
             <div class="product-card-title">Халапеньо</div>
             <div class="product-card-meta">20 г</div>
             <div class="product-card-price">60 ₽</div>
@@ -1510,7 +1546,9 @@
 
         <div class="product-card" data-name="Тонкий лаваш" data-base-name="Тонкий лаваш" data-price="50">
           <div>
-            <div class="product-card-image" style="background-image:url('Тонкийлаваш.png');"></div>
+            <div class="product-card-image">
+              <img src="Тонкийлаваш.png" alt="Тонкий лаваш">
+            </div>
             <div class="product-card-title">Тонкий лаваш</div>
             <div class="product-card-meta">150 г</div>
             <div class="product-card-price">50 ₽</div>
@@ -1524,7 +1562,9 @@
 
         <div class="product-card variant-card" data-base-name="Матнакаш на мангале" data-price="80" data-name="Матнакаш на мангале">
           <div>
-            <div class="product-card-image" style="background-image:url('Матнакашнамангале.png');"></div>
+            <div class="product-card-image">
+              <img src="Матнакашнамангале.png" alt="Матнакаш на мангале">
+            </div>
             <div class="product-card-title">Матнакаш на мангале</div>
 
             <div class="variant-group">
@@ -1541,10 +1581,11 @@
             <button onclick="changeQty(this, 1)">+</button>
           </div>
         </div>
-
-        <div class="product-card variant-card" data-base-name="Соус белый чесночный 50 мл" data-price="70" data-name="Соус белый чесночный 50 мл">
+                <div class="product-card variant-card" data-base-name="Соус белый чесночный 50 мл" data-price="70" data-name="Соус белый чесночный 50 мл">
           <div>
-            <div class="product-card-image" style="background-image:url('Соусбелыйчесночный.png');"></div>
+            <div class="product-card-image">
+              <img src="Соусбелыйчесночный.png" alt="Соус белый чесночный">
+            </div>
             <div class="product-card-title">Соус белый чесночный</div>
 
             <div class="variant-group">
@@ -1564,7 +1605,9 @@
 
         <div class="product-card variant-card" data-base-name="Соус красный кавказский 50 мл" data-price="70" data-name="Соус красный кавказский 50 мл">
           <div>
-            <div class="product-card-image" style="background-image:url('Соускрасныйкавказский.png');"></div>
+            <div class="product-card-image">
+              <img src="Соускрасныйкавказский.png" alt="Соус красный кавказский">
+            </div>
             <div class="product-card-title">Соус красный кавказский</div>
 
             <div class="variant-group">
@@ -1608,7 +1651,8 @@
       <button class="cart-order-btn" style="margin-top:12px;">Оформить</button>
     </div>
   </div>
-    <script>
+
+  <script>
     function scrollCategories(direction) {
       const bar = document.getElementById('categoryBar');
       if (!bar) return;
@@ -1801,7 +1845,6 @@
           { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70, image: 'Компотизсухофруктов.png' }
         ]
       },
-
       2: {
         title: 'День 2 · Вторник',
         items: [
@@ -1811,7 +1854,6 @@
           { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70, image: 'Компотизсухофруктов.png' }
         ]
       },
-
       3: {
         title: 'День 3 · Среда',
         items: [
@@ -1821,7 +1863,6 @@
           { type: 'single', name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70, image: 'Клюквенныйморс.png' }
         ]
       },
-
       4: {
         title: 'День 4 · Четверг',
         items: [
@@ -1831,7 +1872,6 @@
           { type: 'single', name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70, image: 'Клюквенныйморс.png' }
         ]
       },
-
       5: {
         title: 'День 5 · Пятница',
         items: [
@@ -1890,7 +1930,9 @@
                   ${item.items.map(sub => `
                     <div class="daily-variant-box product-card" data-name="${sub.name}" data-base-name="${sub.name}" data-price="${sub.price}" style="min-height:auto; padding:14px;">
                       <div>
-                        <div class="product-card-image" style="background-image:url('${sub.image}'); height:90px; margin-bottom:10px;"></div>
+                        <div class="product-card-image" style="height:90px; margin-bottom:10px;">
+                          <img src="${sub.image}" alt="${sub.name}">
+                        </div>
                         <div class="daily-variant-name">${sub.name}</div>
                         <div class="daily-variant-meta">${sub.meta}</div>
                         <div class="daily-variant-price">${sub.price} ₽</div>
@@ -1912,7 +1954,9 @@
         return `
           <div class="product-card" data-name="${item.name}" data-base-name="${item.name}" data-price="${item.price}">
             <div>
-              <div class="product-card-image" style="background-image:url('${item.image}');"></div>
+              <div class="product-card-image">
+                <img src="${item.image}" alt="${item.name}">
+              </div>
               <div class="product-card-title">${item.name}</div>
               <div class="product-card-meta">${item.meta}</div>
               <div class="product-card-price">${item.price} ₽</div>
