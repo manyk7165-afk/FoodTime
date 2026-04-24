@@ -1561,5 +1561,759 @@
         </div>
       </div>
     </section>
+          <section class="section-block" id="burgers">
+      <div class="mini-label">Категория</div>
+      <div class="section-title">Бургеры</div>
+
+      <div class="product-grid">
+        <div class="product-card" data-name="Бургер с курицей" data-base-name="Бургер с курицей" data-price="380">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/burger-s-kuritsey.png" alt="Бургер с курицей">
+            </div>
+            <div class="product-card-title">Бургер с курицей</div>
+            <div class="product-card-price">380 ₽</div>
+            <div class="product-card-meta">(булочка, салат, сыр, томат, соленый огурец, лук, майонез, кетчуп)</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Бургер с говядиной" data-base-name="Бургер с говядиной" data-price="450">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/burger-s-govyadinoy.png" alt="Бургер с говядиной">
+            </div>
+            <div class="product-card-title">Бургер с говядиной</div>
+            <div class="product-card-price">450 ₽</div>
+            <div class="product-card-meta">(булочка, дижонская горчица, салат, томат, соленый огурец, маринованный красный лук, томатный соус на клюквенной основе)</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Бургер BBQ" data-base-name="Бургер BBQ" data-price="500">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/burger-bbq.png" alt="Бургер BBQ">
+            </div>
+            <div class="product-card-title">Бургер BBQ</div>
+            <div class="product-card-price">500 ₽</div>
+            <div class="product-card-meta">(булочка, соус BBQ, сыр, салат, жареный бекон, маринованный красный лук, соленый огурец)</div>
+            <label class="option-check">
+              <input type="checkbox" class="bbq-bacon-toggle" onchange="toggleBbqOption(this)">
+              <span>Убрать бекон</span>
+            </label>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block" id="addons">
+      <div class="mini-label">Категория</div>
+      <div class="section-title">Добавки</div>
+
+      <div class="product-grid">
+        <div class="product-card" data-name="Халапеньо" data-base-name="Халапеньо" data-price="60">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/khalapenyo.png" alt="Халапеньо">
+            </div>
+            <div class="product-card-title">Халапеньо</div>
+            <div class="product-card-meta">20 г</div>
+            <div class="product-card-price">60 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Тонкий лаваш" data-base-name="Тонкий лаваш" data-price="50">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/tonkiy-lavash.png" alt="Тонкий лаваш">
+            </div>
+            <div class="product-card-title">Тонкий лаваш</div>
+            <div class="product-card-meta">150 г</div>
+            <div class="product-card-price">50 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card variant-card" data-base-name="Матнакаш на мангале" data-price="80" data-name="Матнакаш на мангале">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/matnakash-na-mangale.png" alt="Матнакаш на мангале">
+            </div>
+            <div class="product-card-title">Матнакаш на мангале</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active" data-name="Матнакаш на мангале" data-meta="Целый" data-price="80" onclick="selectVariant(this)">Целый · 80 ₽</button>
+              <button class="variant-btn" data-name="Половина матнакаша" data-meta="Половина" data-price="40" onclick="selectVariant(this)">Половина · 40 ₽</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">Целый</div>
+            <div class="product-card-price variant-price">80 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card variant-card" data-base-name="Соус белый чесночный 50 мл" data-price="70" data-name="Соус белый чесночный 50 мл">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/sous-belyy-chesnochnyy.png" alt="Соус белый чесночный">
+            </div>
+            <div class="product-card-title">Соус белый чесночный</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active" data-name="Соус белый чесночный 50 мл" data-meta="50 мл" data-price="70" onclick="selectVariant(this)">50 мл · 70 ₽</button>
+              <button class="variant-btn" data-name="Соус белый чесночный 100 мл" data-meta="100 мл" data-price="100" onclick="selectVariant(this)">100 мл · 100 ₽</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">50 мл</div>
+            <div class="product-card-price variant-price">70 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+                <div class="product-card variant-card" data-base-name="Соус красный кавказский 50 мл" data-price="70" data-name="Соус красный кавказский 50 мл">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/sous-krasnyy-kavkazskiy.png" alt="Соус красный кавказский">
+            </div>
+            <div class="product-card-title">Соус красный кавказский</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active" data-name="Соус красный кавказский 50 мл" data-meta="50 мл" data-price="70" onclick="selectVariant(this)">50 мл · 70 ₽</button>
+              <button class="variant-btn" data-name="Соус красный кавказский 100 мл" data-meta="100 мл" data-price="100" onclick="selectVariant(this)">100 мл · 100 ₽</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">50 мл</div>
+            <div class="product-card-price variant-price">70 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="cart-float">
+    <button class="cart-button" onclick="toggleCart()">🛒 <span id="cartCount">0</span></button>
+
+    <div class="cart-panel" id="cartPanel">
+      <div class="cart-title">Корзина</div>
+
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty">Пока пусто</div>
+      </div>
+
+      <div class="delivery-mode-wrap">
+        <div class="cart-comment-label">Способ получения</div>
+
+        <div class="delivery-mode">
+          <button type="button" class="delivery-mode-btn active" id="pickupBtn" onclick="setDeliveryMode('pickup')">
+            Самовывоз
+          </button>
+          <button type="button" class="delivery-mode-btn" id="deliveryBtn" onclick="setDeliveryMode('delivery')">
+            Доставка
+          </button>
+        </div>
+
+        <div class="delivery-fields" id="deliveryFields" style="display:none;">
+          <div class="cart-comment-label" style="margin-top:12px;">Адрес доставки</div>
+          <input
+            type="text"
+            id="deliveryAddress"
+            class="delivery-address-input"
+            placeholder="Введите адрес доставки"
+          >
+
+          <button type="button" class="cart-order-btn" style="margin-top:10px;" onclick="calculateDelivery()">
+            Рассчитать доставку
+          </button>
+
+          <div class="delivery-info">
+            <div class="delivery-line">
+              <span>Расстояние:</span>
+              <strong id="deliveryDistance">—</strong>
+            </div>
+            <div class="delivery-line">
+              <span>Доставка:</span>
+              <strong id="deliveryPrice">0 ₽</strong>
+            </div>
+            <div class="delivery-line">
+              <span>Статус:</span>
+              <strong id="deliveryStatus">Самовывоз</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-comment-wrap">
+        <div class="cart-comment-label">Комментарий к заказу</div>
+        <textarea id="orderComment" class="cart-comment" placeholder="Например: без лука, позвонить по приезду, добавить приборы..."></textarea>
+      </div>
+
+      <div class="cart-total">Итого: <span id="cartTotal">0 ₽</span></div>
+      <button class="cart-order-btn" style="margin-top:12px;">Оформить</button>
+    </div>
+  </div>
+
+  <script>
+    function scrollCategories(direction) {
+      const bar = document.getElementById('categoryBar');
+      if (!bar) return;
+      bar.scrollBy({ left: direction * 260, behavior: 'smooth' });
+    }
+
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    if (slides.length) {
+      setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }, 3000);
+    }
+
+    const CART_KEY = 'foodtime_cart';
+    const CART_COMMENT_KEY = 'foodtime_order_comment';
+
+    const DELIVERY_MODE_KEY = 'foodtime_delivery_mode';
+    const DELIVERY_ADDRESS_KEY = 'foodtime_delivery_address';
+    const DELIVERY_PRICE_KEY = 'foodtime_delivery_price';
+    const DELIVERY_DISTANCE_KEY = 'foodtime_delivery_distance';
+    const DELIVERY_STATUS_KEY = 'foodtime_delivery_status';
+
+    function getCart() {
+      try {
+        return JSON.parse(localStorage.getItem(CART_KEY)) || {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveCart(cart) {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    }
+
+    function getOrderComment() {
+      return localStorage.getItem(CART_COMMENT_KEY) || '';
+    }
+
+    function saveOrderComment(value) {
+      localStorage.setItem(CART_COMMENT_KEY, value || '');
+    }
+
+    function getDeliveryMode() {
+      return localStorage.getItem(DELIVERY_MODE_KEY) || 'pickup';
+    }
+
+    function saveDeliveryMode(mode) {
+      localStorage.setItem(DELIVERY_MODE_KEY, mode);
+    }
+
+    function getDeliveryAddress() {
+      return localStorage.getItem(DELIVERY_ADDRESS_KEY) || '';
+    }
+
+    function saveDeliveryAddress(address) {
+      localStorage.setItem(DELIVERY_ADDRESS_KEY, address || '');
+    }
+
+    function getDeliveryPrice() {
+      return Number(localStorage.getItem(DELIVERY_PRICE_KEY) || 0);
+    }
+
+    function saveDeliveryPrice(price) {
+      localStorage.setItem(DELIVERY_PRICE_KEY, String(price || 0));
+    }
+
+    function getDeliveryDistance() {
+      return localStorage.getItem(DELIVERY_DISTANCE_KEY) || '—';
+    }
+
+    function saveDeliveryDistance(distance) {
+      localStorage.setItem(DELIVERY_DISTANCE_KEY, distance || '—');
+    }
+
+    function getDeliveryStatus() {
+      return localStorage.getItem(DELIVERY_STATUS_KEY) || 'Самовывоз';
+    }
+
+    function saveDeliveryStatus(status) {
+      localStorage.setItem(DELIVERY_STATUS_KEY, status || 'Самовывоз');
+    }
+
+    function getEffectiveCardName(card) {
+      const checkbox = card.querySelector('.bbq-bacon-toggle');
+      const baseName = card.dataset.baseName || card.dataset.name || 'Товар';
+      return checkbox && checkbox.checked ? baseName + ' (без бекона)' : baseName;
+    }
+
+    function changeQty(button, delta) {
+      const card = button.closest('.product-card');
+      if (!card) return;
+
+      const name = getEffectiveCardName(card);
+      const price = Number(card.dataset.price || 0);
+
+      const cart = getCart();
+      const currentQty = cart[name]?.qty || 0;
+      const newQty = Math.max(0, currentQty + delta);
+
+      if (newQty === 0) {
+        delete cart[name];
+      } else {
+        cart[name] = { price, qty: newQty };
+      }
+
+      saveCart(cart);
+      updateCartUI();
+    }
+
+    function changeCartQty(name, delta) {
+      const cart = getCart();
+      if (!cart[name]) return;
+
+      const newQty = Math.max(0, (cart[name].qty || 0) + delta);
+      if (newQty === 0) {
+        delete cart[name];
+      } else {
+        cart[name].qty = newQty;
+      }
+
+      saveCart(cart);
+      updateCartUI();
+    }
+
+    function toggleBbqOption() {
+      updateCartUI();
+    }
+
+    function updateCardQtyLabel(card) {
+      const cart = getCart();
+      const qtyEl = card.querySelector('.qty span');
+      if (!qtyEl) return;
+
+      const name = getEffectiveCardName(card);
+      qtyEl.textContent = cart[name]?.qty || 0;
+    }
+
+    function selectVariant(button) {
+      const card = button.closest('.variant-card');
+      if (!card) return;
+
+      card.querySelectorAll('.variant-btn').forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      card.dataset.baseName = button.dataset.name;
+      card.dataset.name = button.dataset.name;
+      card.dataset.price = button.dataset.price;
+
+      const metaEl = card.querySelector('.variant-meta');
+      const priceEl = card.querySelector('.variant-price');
+
+      if (metaEl) metaEl.textContent = button.dataset.meta || '';
+      if (priceEl) priceEl.textContent = `${button.dataset.price} ₽`;
+
+      updateCardQtyLabel(card);
+    }
+        function updateDeliveryUI() {
+      const addressInput = document.getElementById('deliveryAddress');
+      const distanceEl = document.getElementById('deliveryDistance');
+      const priceEl = document.getElementById('deliveryPrice');
+      const statusEl = document.getElementById('deliveryStatus');
+
+      if (addressInput && document.activeElement !== addressInput) {
+        addressInput.value = getDeliveryAddress();
+      }
+
+      if (distanceEl) distanceEl.textContent = getDeliveryDistance();
+      if (priceEl) priceEl.textContent = getDeliveryPrice() + ' ₽';
+      if (statusEl) statusEl.textContent = getDeliveryStatus();
+    }
+
+    function setDeliveryMode(mode) {
+      const pickupBtn = document.getElementById('pickupBtn');
+      const deliveryBtn = document.getElementById('deliveryBtn');
+      const deliveryFields = document.getElementById('deliveryFields');
+
+      saveDeliveryMode(mode);
+
+      if (pickupBtn) pickupBtn.classList.toggle('active', mode === 'pickup');
+      if (deliveryBtn) deliveryBtn.classList.toggle('active', mode === 'delivery');
+      if (deliveryFields) deliveryFields.style.display = mode === 'delivery' ? 'block' : 'none';
+
+      if (mode === 'pickup') {
+        saveDeliveryPrice(0);
+        saveDeliveryDistance('—');
+        saveDeliveryStatus('Самовывоз');
+        updateDeliveryUI();
+        updateCartUI();
+      } else {
+        saveDeliveryStatus('Введите адрес');
+        updateDeliveryUI();
+      }
+    }
+
+    function getCartSubtotal() {
+      const cart = getCart();
+      let total = 0;
+
+      Object.values(cart).forEach(item => {
+        total += item.qty * item.price;
+      });
+
+      return total;
+    }
+
+    function getDeliveryPriceByRules(orderSum, distanceKm) {
+      if (orderSum < 1000) {
+        return { ok: false, price: 0, status: 'Минимальный заказ 1000 ₽' };
+      }
+
+      if (distanceKm > 10) {
+        return { ok: false, price: 0, status: 'Адрес вне зоны доставки' };
+      }
+
+      let basePrice = 300;
+
+      if (orderSum >= 3000) {
+        basePrice = 100;
+      } else if (orderSum >= 2000) {
+        basePrice = 200;
+      } else if (orderSum >= 1000) {
+        basePrice = 300;
+      }
+
+      if (distanceKm > 8 && distanceKm <= 10) {
+        basePrice += 50;
+      }
+
+      return { ok: true, price: basePrice, status: 'Доставка рассчитана' };
+    }
+
+    function calculateDelivery() {
+      const addressInput = document.getElementById('deliveryAddress');
+      if (!addressInput) return;
+
+      const address = addressInput.value.trim();
+      saveDeliveryAddress(address);
+
+      if (!address) {
+        saveDeliveryStatus('Введите адрес');
+        saveDeliveryDistance('—');
+        saveDeliveryPrice(0);
+        updateDeliveryUI();
+        updateCartUI();
+        return;
+      }
+
+      const orderSum = getCartSubtotal();
+
+      /* 
+        ВРЕМЕННЫЙ ТЕСТОВЫЙ КИЛОМЕТРАЖ.
+        Позже сюда подключим Яндекс Карты и реальный расчёт.
+      */
+      const fakeDistanceKm = 6.5;
+
+      const result = getDeliveryPriceByRules(orderSum, fakeDistanceKm);
+
+      saveDeliveryDistance(fakeDistanceKm.toFixed(1) + ' км');
+      saveDeliveryPrice(result.price);
+      saveDeliveryStatus(result.status);
+
+      updateDeliveryUI();
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const cart = getCart();
+      const cartItems = document.getElementById('cartItems');
+      const cartCount = document.getElementById('cartCount');
+      const cartTotal = document.getElementById('cartTotal');
+      const orderComment = document.getElementById('orderComment');
+
+      let totalCount = 0;
+      let totalPrice = 0;
+
+      Object.entries(cart).forEach(([name, item]) => {
+        totalCount += item.qty;
+        totalPrice += item.qty * item.price;
+      });
+
+      const deliveryMode = getDeliveryMode();
+      const deliveryPrice = deliveryMode === 'delivery' ? getDeliveryPrice() : 0;
+      const finalPrice = totalPrice + deliveryPrice;
+
+      if (cartCount) cartCount.textContent = totalCount;
+      if (cartTotal) cartTotal.textContent = finalPrice + ' ₽';
+
+      if (orderComment && document.activeElement !== orderComment) {
+        orderComment.value = getOrderComment();
+      }
+
+      updateDeliveryUI();
+
+      if (cartItems) {
+        const entries = Object.entries(cart);
+
+        if (!entries.length) {
+          cartItems.innerHTML = '<div class="cart-empty">Пока пусто</div>';
+        } else {
+          cartItems.innerHTML = entries.map(([name, item]) => `
+            <div class="cart-item">
+              <div style="flex:1;">
+                <div class="cart-item-name">${name}</div>
+                <div class="cart-item-meta">${item.price} ₽ за шт</div>
+                <div class="qty" style="margin-top:8px;">
+                  <button onclick='changeCartQty(${JSON.stringify(name)}, -1)'>-</button>
+                  <span>${item.qty}</span>
+                  <button onclick='changeCartQty(${JSON.stringify(name)}, 1)'>+</button>
+                </div>
+              </div>
+              <div class="cart-item-name">${item.qty * item.price} ₽</div>
+            </div>
+          `).join('');
+        }
+      }
+
+      document.querySelectorAll('.product-card').forEach(card => updateCardQtyLabel(card));
+    }
+
+    const dailyMenus = {
+      1: {
+        title: 'День 1 · Понедельник',
+        items: [
+          { type: 'single', name: 'Щи со свежей капустой и говядиной', meta: 'Суп · 350 мл', price: 200, image: 'img/shchi-so-svezhey-kapustoy-i-govyadinoy.png' },
+          { type: 'single', name: 'Котлеты куриные', meta: 'Второе · 180 г', price: 200, image: 'img/kotlety-kurinye.png' },
+          {
+            type: 'group',
+            title: 'Гарнир',
+            items: [
+              { name: 'Картофельное пюре', meta: '150 г', price: 70, image: 'img/kartofelnoe-pyure.png' },
+              { name: 'Гречка отварная', meta: '130 г', price: 65, image: 'img/grechka-otvarnaya.png' },
+              { name: 'Макароны', meta: '120 г', price: 65, image: 'img/makarony.png' }
+            ]
+          },
+          { type: 'single', name: 'Витаминный', meta: 'Салат · 100 г', price: 70, image: 'img/vitaminnyy.png' },
+          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70, image: 'img/kompot-iz-sukhofruktov.png' }
+        ]
+      },
+      2: {
+        title: 'День 2 · Вторник',
+        items: [
+          { type: 'single', name: 'Суп гороховый с копчёностями', meta: 'Суп · 350 мл', price: 200, image: 'img/sup-gorokhovyy-s-kopchenostyami.png' },
+          { type: 'single', name: 'Паста сливочная с курицей и грибами', meta: 'Второе', price: 210, image: 'img/pasta-slivochnaya-s-kuritsey-i-gribami.png' },
+          { type: 'single', name: 'Греческий', meta: 'Салат · 200 г', price: 180, image: 'img/grecheskiy.png' },
+          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70, image: 'img/kompot-iz-sukhofruktov.png' }
+        ]
+      },
+      3: {
+        title: 'День 3 · Среда',
+        items: [
+          { type: 'single', name: 'Суп куриный с вермишелью', meta: 'Суп · 350 мл', price: 160, image: 'img/sup-kurinyy-s-vermishelyu.png' },
+          { type: 'single', name: 'Лагман жареный (говядина)', meta: 'Второе · 400 г', price: 380, image: 'img/lagman-zharenyy-govyadina.png' },
+          { type: 'single', name: 'Огурцы и помидоры свежие с луком и растительным маслом', meta: 'Салат · 100 г', price: 120, image: 'img/ogurtsy-i-pomidory-s-lukom-i-rastitelnym-maslom.png' },
+          { type: 'single', name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70, image: 'img/klyukvennyy-mors.png' }
+        ]
+      },
+      4: {
+        title: 'День 4 · Четверг',
+        items: [
+          { type: 'single', name: 'Солянка', meta: 'Суп · 250 мл', price: 210, image: 'img/solyanka.png' },
+          { type: 'single', name: 'Куриный шашлычок с овощами', meta: 'Второе · 200 г', price: 250, image: 'img/kurinyy-shashlychok-s-ovoshchami.png' },
+          { type: 'single', name: 'Морковь по-корейски', meta: 'Салат · 70 г', price: 70, image: 'img/morkov-po-koreyski.png' },
+          { type: 'single', name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70, image: 'img/klyukvennyy-mors.png' }
+        ]
+      },
+            5: {
+        title: 'День 5 · Пятница',
+        items: [
+          { type: 'single', name: 'Сливочный с курицей и грибами', meta: 'Суп · 350 мл', price: 200, image: 'img/slivochnyy-s-kuritsey-i-gribami.png' },
+          { type: 'single', name: 'Рубленые куриные котлеты с помидорами и сыром', meta: 'Второе · 230 г', price: 240, image: 'img/rublenye-kurinye-kotlety-s-pomidorami-i-syrom.png' },
+          {
+            type: 'group',
+            title: 'Гарнир',
+            items: [
+              { name: 'Картофельное пюре', meta: '150 г', price: 70, image: 'img/kartofelnoe-pyure.png' },
+              { name: 'Гречка отварная', meta: '130 г', price: 65, image: 'img/grechka-otvarnaya.png' },
+              { name: 'Макароны', meta: '120 г', price: 65, image: 'img/makarony.png' }
+            ]
+          },
+          { type: 'single', name: 'Цезарь с курицей', meta: 'Салат · 270 г', price: 170, image: 'img/tsezar-s-kuritsey.png' },
+          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70, image: 'img/kompot-iz-sukhofruktov.png' }
+        ]
+      }
+    };
+
+    function renderDailyMenu() {
+      const dayEl = document.getElementById('dailyMenuDay');
+      const gridEl = document.getElementById('dailyMenuGrid');
+      const sectionEl = document.getElementById('daily-menu');
+
+      if (!dayEl || !gridEl || !sectionEl) return;
+
+      const day = new Date().getDay();
+      if (day === 0 || day === 6) {
+        sectionEl.style.display = 'none';
+        return;
+      }
+
+      const menu = dailyMenus[day];
+      if (!menu) {
+        sectionEl.style.display = 'none';
+        return;
+      }
+
+      sectionEl.style.display = '';
+      dayEl.textContent = menu.title;
+
+      gridEl.innerHTML = menu.items.map(item => {
+        if (item.type === 'group') {
+          const colsClass = item.items.length === 2 ? 'cols-2' : 'cols-3';
+
+          return `
+            <div class="product-card daily-multi-card">
+              <div class="product-card-main">
+                <div class="product-card-image is-empty" data-fallback="Фото"></div>
+                <div class="daily-multi-title">${item.title}</div>
+
+                <div class="daily-variants-grid ${colsClass}">
+                  ${item.items.map(sub => `
+                    <div class="daily-variant-box product-card" data-name="${sub.name}" data-base-name="${sub.name}" data-price="${sub.price}" style="min-height:auto; padding:14px;">
+                      <div class="daily-variant-top">
+                        <div class="product-card-image" style="height:90px; min-height:0; margin-bottom:10px;">
+                          <img src="${sub.image}" alt="${sub.name}">
+                        </div>
+                        <div class="daily-variant-name">${sub.name}</div>
+                        <div class="daily-variant-meta">${sub.meta}</div>
+                        <div class="daily-variant-price">${sub.price} ₽</div>
+                      </div>
+                      <div class="daily-variant-bottom">
+                        <div class="qty">
+                          <button onclick="changeQty(this, -1)">-</button>
+                          <span>0</span>
+                          <button onclick="changeQty(this, 1)">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="product-card" data-name="${item.name}" data-base-name="${item.name}" data-price="${item.price}">
+            <div class="product-card-main">
+              <div class="product-card-image">
+                <img src="${item.image}" alt="${item.name}">
+              </div>
+              <div class="product-card-title">${item.name}</div>
+              <div class="product-card-meta">${item.meta}</div>
+              <div class="product-card-price">${item.price} ₽</div>
+            </div>
+            <div class="product-card-bottom">
+              <div class="qty">
+                <button onclick="changeQty(this, -1)">-</button>
+                <span>0</span>
+                <button onclick="changeQty(this, 1)">+</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      updateCartUI();
+    }
+
+    function toggleCart() {
+      const panel = document.getElementById('cartPanel');
+      if (!panel) return;
+      panel.classList.toggle('open');
+    }
+        document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.product-card').forEach(card => {
+        if (!card.dataset.baseName && card.dataset.name) {
+          card.dataset.baseName = card.dataset.name;
+        }
+      });
+
+      renderDailyMenu();
+      updateCartUI();
+
+      const orderComment = document.getElementById('orderComment');
+      if (orderComment) {
+        orderComment.value = getOrderComment();
+        orderComment.addEventListener('input', (e) => {
+          saveOrderComment(e.target.value);
+        });
+      }
+
+      const deliveryAddress = document.getElementById('deliveryAddress');
+      if (deliveryAddress) {
+        deliveryAddress.value = getDeliveryAddress();
+        deliveryAddress.addEventListener('input', (e) => {
+          saveDeliveryAddress(e.target.value);
+        });
+      }
+
+      setDeliveryMode(getDeliveryMode());
+      updateDeliveryUI();
+    });
+  </script>
+</body>
+</html>
+      
+    
+      
         
   
