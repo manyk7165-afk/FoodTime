@@ -2039,39 +2039,102 @@
       return { ok: true, price: basePrice, status: 'Доставка рассчитана' };
     }
 
-    function calculateDelivery() {
-      const addressInput = document.getElementById('deliveryAddress');
-      if (!addressInput) return;
+    async function calculateDelivery() {
+  const addressInput = document.getElementById('deliveryAddress');
+  if (!addressInput) return;
 
-      const address = addressInput.value.trim();
-      saveDeliveryAddress(address);
+  const address = addressInput.value.trim();
+  saveDeliveryAddress(address);
 
-      if (!address) {
-        saveDeliveryStatus('Введите адрес');
-        saveDeliveryDistance('—');
-        saveDeliveryPrice(0);
-        updateDeliveryUI();
-        updateCartUI();
-        return;
-      }
+  if (!address) {
+    saveDeliveryStatus('Введите адрес');
+    saveDeliveryDistance('—');
+    saveDeliveryPrice(0);
+    updateDeliveryUI();
+    updateCartUI();
+    return;
+  }
 
-      const orderSum = getCartSubtotal();
+  const orderSum = getCartSubtotal();
 
-      /* 
-        ВРЕМЕННЫЙ ТЕСТОВЫЙ КИЛОМЕТРАЖ.
-        Позже сюда подключим Яндекс Карты и реальный расчёт.
-      */
-      const fakeDistanceKm = 6.5;
+  try {
+    saveDeliveryStatus('Считаем доставку...');
+    updateDeliveryUI();
 
-      const result = getDeliveryPriceByRules(orderSum, fakeDistanceKm);
+    const apiKey = 'f38bdd35-9ab0-407b-9484-952c1d82b551';
+    const restaurantAddress = 'Самара, улица Советской Армии, 125А';
 
-      saveDeliveryDistance(fakeDistanceKm.toFixed(1) + ' км');
-      saveDeliveryPrice(result.price);
-      saveDeliveryStatus(result.status);
+    async function geocodeAddress(query) {
+      const url = `https://geocode-maps.yandex.ru/v1/?apikey=${encodeURIComponent(apiKey)}&geocode=${encodeURIComponent(query)}&lang=ru_RU&format=json`;
 
+      const response = await fetch(url);
+      const data = await response.json();
+
+      const feature = data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject;
+      const pos = feature?.Point?.pos;
+      const text = feature?.metaDataProperty?.GeocoderMetaData?.text || query;
+
+      if (!pos) return null;
+
+      const [lon, lat] = pos.split(' ').map(Number);
+
+      return { lat, lon, text };
+    }
+
+    function getDistanceKm(lat1, lon1, lat2, lon2) {
+      const toRad = deg => deg * Math.PI / 180;
+      const R = 6371;
+
+      const dLat = toRad(lat2 - lat1);
+      const dLon = toRad(lon2 - lon1);
+
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    const restaurant = await geocodeAddress(restaurantAddress);
+    const client = await geocodeAddress(address);
+
+    if (!restaurant || !client) {
+      saveDeliveryDistance('—');
+      saveDeliveryPrice(0);
+      saveDeliveryStatus('Адрес не найден');
       updateDeliveryUI();
       updateCartUI();
+      return;
     }
+
+    const distanceKm = getDistanceKm(
+      restaurant.lat,
+      restaurant.lon,
+      client.lat,
+      client.lon
+    );
+
+    const result = getDeliveryPriceByRules(orderSum, distanceKm);
+
+    saveDeliveryDistance(distanceKm.toFixed(1) + ' км');
+    saveDeliveryPrice(result.price);
+    saveDeliveryStatus(result.status);
+    saveDeliveryAddress(client.text);
+
+    if (addressInput) addressInput.value = client.text;
+
+    updateDeliveryUI();
+    updateCartUI();
+  } catch (error) {
+    saveDeliveryDistance('—');
+    saveDeliveryPrice(0);
+    saveDeliveryStatus('Ошибка расчёта');
+    updateDeliveryUI();
+    updateCartUI();
+  }
+}
 
     function updateCartUI() {
       const cart = getCart();
