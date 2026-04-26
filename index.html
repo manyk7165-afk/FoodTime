@@ -726,6 +726,25 @@
     .delivery-line strong {
       color: #fff;
     }
+    .delivery-address-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.delivery-address-grid input:first-child {
+  grid-column: span 2;
+}
+
+@media (max-width: 640px) {
+  .delivery-address-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-address-grid input:first-child {
+    grid-column: span 1;
+  }
+}
 
     .option-check {
       display: flex;
@@ -1742,66 +1761,97 @@
   </div>
 
   <div class="cart-float">
-    <button class="cart-button" onclick="toggleCart()">🛒 <span id="cartCount">0</span></button>
+  <button class="cart-button" onclick="toggleCart()">🛒 <span id="cartCount">0</span></button>
 
-    <div class="cart-panel" id="cartPanel">
-      <div class="cart-title">Корзина</div>
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-title">Корзина</div>
 
-      <div class="cart-items" id="cartItems">
-        <div class="cart-empty">Пока пусто</div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty">Пока пусто</div>
+    </div>
+
+    <div class="delivery-mode-wrap">
+      <div class="cart-comment-label">Способ получения</div>
+
+      <div class="delivery-mode">
+        <button type="button" class="delivery-mode-btn active" id="pickupBtn" onclick="setDeliveryMode('pickup')">
+          Самовывоз
+        </button>
+        <button type="button" class="delivery-mode-btn" id="deliveryBtn" onclick="setDeliveryMode('delivery')">
+          Доставка
+        </button>
       </div>
 
-      <div class="delivery-mode-wrap">
-        <div class="cart-comment-label">Способ получения</div>
+      <div class="delivery-fields" id="deliveryFields" style="display:none;">
+        <div class="cart-comment-label" style="margin-top:12px;">Адрес доставки</div>
 
-        <div class="delivery-mode">
-          <button type="button" class="delivery-mode-btn active" id="pickupBtn" onclick="setDeliveryMode('pickup')">
-            Самовывоз
-          </button>
-          <button type="button" class="delivery-mode-btn" id="deliveryBtn" onclick="setDeliveryMode('delivery')">
-            Доставка
-          </button>
-        </div>
-
-        <div class="delivery-fields" id="deliveryFields" style="display:none;">
-          <div class="cart-comment-label" style="margin-top:12px;">Адрес доставки</div>
+        <div class="delivery-address-grid">
           <input
             type="text"
-            id="deliveryAddress"
+            id="deliveryCity"
             class="delivery-address-input"
-            placeholder="Введите адрес доставки"
+            placeholder="Город"
           >
 
-          <button type="button" class="cart-order-btn" style="margin-top:10px;" onclick="calculateDelivery()">
-            Рассчитать доставку
-          </button>
+          <input
+            type="text"
+            id="deliveryStreet"
+            class="delivery-address-input"
+            placeholder="Улица"
+          >
 
-          <div class="delivery-info">
-            <div class="delivery-line">
-              <span>Расстояние:</span>
-              <strong id="deliveryDistance">—</strong>
-            </div>
-            <div class="delivery-line">
-              <span>Доставка:</span>
-              <strong id="deliveryPrice">0 ₽</strong>
-            </div>
-            <div class="delivery-line">
-              <span>Статус:</span>
-              <strong id="deliveryStatus">Самовывоз</strong>
-            </div>
+          <input
+            type="text"
+            id="deliveryHouse"
+            class="delivery-address-input"
+            placeholder="Дом"
+          >
+
+          <input
+            type="text"
+            id="deliveryFloor"
+            class="delivery-address-input"
+            placeholder="Этаж"
+          >
+
+          <input
+            type="text"
+            id="deliveryFlat"
+            class="delivery-address-input"
+            placeholder="Квартира"
+          >
+        </div>
+
+        <button type="button" class="cart-order-btn" style="margin-top:10px;" onclick="calculateDelivery()">
+          Рассчитать доставку
+        </button>
+
+        <div class="delivery-info">
+          <div class="delivery-line">
+            <span>Расстояние:</span>
+            <strong id="deliveryDistance">—</strong>
+          </div>
+          <div class="delivery-line">
+            <span>Доставка:</span>
+            <strong id="deliveryPrice">0 ₽</strong>
           </div>
         </div>
       </div>
-
-      <div class="cart-comment-wrap">
-        <div class="cart-comment-label">Комментарий к заказу</div>
-        <textarea id="orderComment" class="cart-comment" placeholder="Например: без лука, позвонить по приезду, добавить приборы..."></textarea>
-      </div>
-
-      <div class="cart-total">Итого: <span id="cartTotal">0 ₽</span></div>
-      <button class="cart-order-btn" style="margin-top:12px;">Оформить</button>
     </div>
+
+    <div class="cart-comment-wrap">
+      <div class="cart-comment-label">Комментарий к заказу</div>
+      <textarea
+        id="orderComment"
+        class="cart-comment"
+        placeholder="Например: без лука, позвонить по приезду, добавить приборы..."
+      ></textarea>
+    </div>
+
+    <div class="cart-total">Итого: <span id="cartTotal">0 ₽</span></div>
+    <button class="cart-order-btn" style="margin-top:12px;">Оформить</button>
   </div>
+</div>
 
   <script>
     function scrollCategories(direction) {
