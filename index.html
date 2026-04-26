@@ -2063,31 +2063,27 @@
       return total;
     }
 
-    function getDeliveryPriceByRules(orderSum, distanceKm) {
-      if (orderSum < 1000) {
-        return { ok: false, price: 0, status: 'Минимальный заказ 1000 ₽' };
-      }
+   function getDeliveryPriceByRules(orderSum, distanceKm) {
+  if (orderSum < 1000) {
+    return { ok: false, price: 0, status: 'Минимальный заказ 1000 ₽' };
+  }
 
-      if (distanceKm > 10) {
-        return { ok: false, price: 0, status: 'Адрес вне зоны доставки' };
-      }
+  let basePrice = 300;
 
-      let basePrice = 300;
+  if (orderSum >= 3000) {
+    basePrice = 100;
+  } else if (orderSum >= 2000) {
+    basePrice = 200;
+  } else if (orderSum >= 1000) {
+    basePrice = 300;
+  }
 
-      if (orderSum >= 3000) {
-        basePrice = 100;
-      } else if (orderSum >= 2000) {
-        basePrice = 200;
-      } else if (orderSum >= 1000) {
-        basePrice = 300;
-      }
+  if (distanceKm >= 10) {
+    basePrice += 50;
+  }
 
-      if (distanceKm > 8 && distanceKm <= 10) {
-        basePrice += 50;
-      }
-
-      return { ok: true, price: basePrice, status: 'Доставка рассчитана' };
-    }
+  return { ok: true, price: basePrice, status: 'Доставка рассчитана' };
+}
 
     async function calculateDelivery() {
   const addressInput = document.getElementById('deliveryAddress');
