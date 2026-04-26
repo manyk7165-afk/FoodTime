@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@500;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cart.css">
 
   <style>
     * {
@@ -153,8 +154,7 @@
     }
 
     .hero-btn,
-    .contact-action,
-    .cart-order-btn {
+    .contact-action {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -340,8 +340,7 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
     }
-
-    .section-block {
+        .section-block {
       padding: 18px;
     }
 
@@ -426,12 +425,6 @@
       display: block;
     }
 
-    .product-card-image.is-empty::after {
-      content: attr(data-fallback);
-      font-size: 13px;
-      color: rgba(255,255,255,0.38);
-    }
-
     .product-card-title {
       font-size: 18px;
       font-weight: 800;
@@ -480,287 +473,6 @@
       font-weight: 800;
     }
 
-    .daily-menu-day {
-      font-size: 22px;
-      font-weight: 800;
-      margin: 12px 0 8px;
-    }
-
-    .daily-multi-card {
-      grid-column: span 2;
-      min-height: 320px;
-    }
-
-    .daily-multi-title {
-      font-size: 18px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .daily-variants-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .daily-variants-grid.cols-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .daily-variants-grid.cols-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .daily-variant-box {
-      background: rgba(20, 26, 36, 0.96);
-      border: 1px solid rgba(255,255,255,0.04);
-      border-radius: 18px;
-      padding: 14px;
-      display: flex;
-      flex-direction: column;
-      min-height: 180px;
-      gap: 10px;
-    }
-
-    .daily-variant-top {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .daily-variant-bottom {
-      margin-top: auto;
-    }
-        .daily-variant-name {
-      font-size: 15px;
-      font-weight: 800;
-      line-height: 1.35;
-      margin-bottom: 8px;
-    }
-
-    .daily-variant-meta {
-      font-size: 13px;
-      color: rgba(255,255,255,0.72);
-      line-height: 1.45;
-      margin-bottom: 10px;
-    }
-
-    .daily-variant-price {
-      font-size: 16px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .cart-float {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 999;
-    }
-
-    .cart-button {
-      border: 1px solid rgba(255,255,255,0.14);
-      background: linear-gradient(135deg, #18b7ff 0%, #7b61ff 100%);
-      color: #fff;
-      border-radius: 18px;
-      padding: 14px 18px;
-      font-size: 18px;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 18px 34px rgba(0,0,0,0.28);
-    }
-
-    .cart-panel {
-      display: none;
-      margin-top: 12px;
-      width: 340px;
-      max-height: 560px;
-      overflow: auto;
-      padding: 16px;
-      border-radius: 22px;
-      background: rgba(20, 20, 30, 0.88);
-      border: 1px solid rgba(255,255,255,0.10);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-    }
-
-    .cart-panel.open {
-      display: block;
-    }
-
-    .cart-title {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    .cart-items {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .cart-item-name {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .cart-item-meta {
-      font-size: 13px;
-      color: rgba(255,255,255,0.72);
-      margin-top: 4px;
-    }
-
-    .cart-empty {
-      color: rgba(255,255,255,0.65);
-      font-size: 14px;
-    }
-
-    .cart-total {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 16px;
-      font-weight: 800;
-    }
-
-    .cart-comment-wrap {
-      margin-top: 14px;
-    }
-
-    .cart-comment-label {
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: rgba(255,255,255,0.92);
-    }
-
-    .cart-comment {
-      width: 100%;
-      min-height: 84px;
-      resize: vertical;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      padding: 10px 12px;
-      font-family: inherit;
-      font-size: 13px;
-      outline: none;
-    }
-
-    .cart-comment::placeholder {
-      color: rgba(255,255,255,0.42);
-    }
-        .delivery-mode-wrap {
-      margin-top: 14px;
-    }
-
-    .delivery-mode {
-      display: flex;
-      gap: 8px;
-    }
-
-    .delivery-mode-btn {
-      flex: 1;
-      min-height: 44px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .delivery-mode-btn.active {
-      background: rgba(255,255,255,0.16);
-      border-color: rgba(255,255,255,0.22);
-    }
-
-    .delivery-address-input {
-      width: 100%;
-      min-height: 46px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      padding: 0 12px;
-      font-family: inherit;
-      font-size: 13px;
-      outline: none;
-    }
-
-    .delivery-address-input::placeholder {
-      color: rgba(255,255,255,0.42);
-    }
-
-    .delivery-info {
-      margin-top: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .delivery-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      font-size: 13px;
-    }
-
-    .delivery-line strong {
-      color: #fff;
-    }
-    .delivery-address-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.delivery-address-grid input:first-child {
-  grid-column: span 2;
-}
-
-@media (max-width: 640px) {
-  .delivery-address-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .delivery-address-grid input:first-child {
-    grid-column: span 1;
-  }
-}
-
-    .option-check {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-      font-size: 13px;
-      color: rgba(255,255,255,0.9);
-    }
-
-    .option-check input {
-      width: 16px;
-      height: 16px;
-      accent-color: #7b61ff;
-    }
-
     .variant-group {
       display: flex;
       flex-wrap: wrap;
@@ -783,6 +495,22 @@
       background: var(--chip-active);
       border-color: rgba(255,255,255,0.22);
     }
+
+    .option-check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .option-check input {
+      width: 16px;
+      height: 16px;
+      accent-color: #7b61ff;
+    }
+
     @media (max-width: 1180px) {
       .top-row {
         grid-template-columns: 210px 1fr;
@@ -822,25 +550,14 @@
         min-height: auto;
       }
 
-      .brand-box,
-      .photo-box,
-      .service-box {
-        min-height: auto;
-      }
-
       .hero-buttons {
         flex-direction: column;
       }
 
       .hero-btn,
-      .contact-action,
-      .cart-order-btn {
+      .contact-action {
         width: 100%;
         justify-content: center;
-      }
-
-      .contact-mini {
-        width: 100%;
       }
 
       .category-arrow {
@@ -851,335 +568,11 @@
       .product-grid {
         grid-template-columns: 1fr;
       }
-
-      .hot-pill {
-        min-height: 96px;
-        font-size: 18px;
-      }
-
-      .category-link {
-        min-width: 150px;
-        height: 52px;
-        font-size: 14px;
-      }
-
-      .daily-multi-card {
-        grid-column: span 1;
-      }
-
-      .daily-variants-grid.cols-2,
-      .daily-variants-grid.cols-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .cart-float {
-        right: 14px;
-        bottom: 14px;
-      }
-
-      .cart-panel {
-        width: min(88vw, 340px);
-      }
-    }
-        @media (max-width: 640px) {
-      body {
-        padding: 12px;
-      }
-
-      .page {
-        gap: 14px;
-      }
-
-      .hero,
-      .section-block,
-      .category-shell {
-        border-radius: 22px;
-      }
-
-      .hero,
-      .section-block {
-        padding: 12px;
-      }
-
-      .brand-box,
-      .main-box,
-      .photo-box,
-      .service-box,
-      .contact-mini {
-        border-radius: 18px;
-      }
-
-      .brand-box {
-        min-height: 120px;
-        padding: 14px;
-      }
-
-      .brand-title {
-        font-size: 20px;
-      }
-
-      .brand-subtitle {
-        font-size: 9px;
-        letter-spacing: 0.16em;
-      }
-
-      .main-box {
-        padding: 14px;
-        gap: 14px;
-      }
-
-      .main-desc {
-        gap: 8px;
-        margin-bottom: 14px;
-      }
-
-      .main-desc p {
-        font-size: 14px;
-        line-height: 1.5;
-      }
-
-      .contact-title,
-      .service-title,
-      .section-title {
-        font-size: 24px;
-        margin-bottom: 8px;
-      }
-
-      .contact-phone {
-        font-size: 16px;
-      }
-
-      .contact-note,
-      .service-note,
-      .section-note {
-        font-size: 12px;
-        line-height: 1.45;
-      }
-
-      .hero-btn,
-      .contact-action,
-      .cart-order-btn {
-        min-height: 46px;
-        padding: 12px 14px;
-        font-size: 14px;
-        border-radius: 14px;
-      }
-
-      .photo-box,
-      .slider {
-        min-height: 180px;
-      }
-
-      .schedule-line {
-        padding: 9px 10px;
-        border-radius: 12px;
-      }
-
-      .schedule-line span {
-        font-size: 14px;
-      }
-
-      .category-shell {
-        padding: 10px;
-      }
-
-      .category-bar {
-        gap: 8px;
-      }
-
-      .category-link {
-        min-width: 132px;
-        height: 46px;
-        padding: 0 14px;
-        border-radius: 14px;
-        font-size: 13px;
-      }
-
-      .hot-pill {
-        min-height: 82px;
-        border-radius: 22px;
-        font-size: 16px;
-        padding: 14px;
-      }
-
-      .product-grid {
-        gap: 12px;
-      }
-
-      .product-card {
-        min-height: auto;
-        padding: 12px;
-        border-radius: 18px;
-        gap: 10px;
-      }
-
-      .product-card-image {
-        aspect-ratio: 16 / 9;
-        min-height: 0;
-        border-radius: 14px;
-        margin-bottom: 0;
-      }
-             .product-card-title {
-        font-size: 16px;
-      }
-
-      .product-card-meta {
-        font-size: 13px;
-        line-height: 1.45;
-        margin-bottom: 8px;
-      }
-
-      .product-card-price {
-        font-size: 15px;
-        margin-bottom: 12px;
-      }
-
-      .variant-group {
-        gap: 6px;
-        margin: 8px 0;
-      }
-
-      .variant-btn {
-        font-size: 11px;
-        padding: 7px 9px;
-        border-radius: 10px;
-      }
-
-      .option-check {
-        font-size: 12px;
-        margin-top: 8px;
-      }
-
-      .qty {
-        gap: 8px;
-      }
-
-      .qty button {
-        width: 34px;
-        height: 34px;
-        font-size: 20px;
-        border-radius: 10px;
-        flex: 0 0 34px;
-      }
-
-      .qty span {
-        font-size: 15px;
-      }
-
-      .daily-menu-day {
-        font-size: 18px;
-        margin: 8px 0 4px;
-      }
-
-      .daily-multi-title {
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-
-      .daily-variant-box {
-        min-height: auto;
-        padding: 12px;
-        border-radius: 14px;
-      }
-
-      .daily-variant-name {
-        font-size: 14px;
-      }
-
-      .daily-variant-meta {
-        font-size: 12px;
-        margin-bottom: 8px;
-      }
-
-      .daily-variant-price {
-        font-size: 15px;
-        margin-bottom: 10px;
-      }
-
-      .cart-float {
-        right: 10px;
-        bottom: 10px;
-      }
-
-      .cart-button {
-        padding: 12px 14px;
-        font-size: 16px;
-        border-radius: 14px;
-      }
-
-      .cart-panel {
-        width: calc(100vw - 20px);
-        max-width: none;
-        max-height: 70vh;
-        border-radius: 18px;
-        padding: 14px;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        background: rgba(18, 24, 34, 0.96);
-        border: 1px solid rgba(255,255,255,0.05);
-        box-shadow: 0 8px 18px rgba(0,0,0,0.16);
-      }
-
-      .cart-title {
-        font-size: 20px;
-        margin-bottom: 12px;
-      }
-
-      .cart-item {
-        padding: 10px;
-        border-radius: 12px;
-      }
-
-      .cart-item-name {
-        font-size: 13px;
-      }
-
-      .cart-item-meta {
-        font-size: 12px;
-      }
-
-      .cart-comment {
-        min-height: 78px;
-        font-size: 12px;
-        border-radius: 12px;
-      }
-
-      .cart-total {
-        font-size: 15px;
-      }
-
-      .hero,
-      .section-block,
-      .category-shell,
-      .product-card,
-      .daily-variant-box,
-      .brand-box,
-      .main-box,
-      .photo-box,
-      .service-box,
-      .contact-mini {
-        backdrop-filter: none !important;
-        -webkit-backdrop-filter: none !important;
-      }
-
-      html, body {
-        background:
-          radial-gradient(circle at 14% 22%, rgba(255, 0, 128, 0.10), transparent 22%),
-          radial-gradient(circle at 86% 14%, rgba(123, 97, 255, 0.14), transparent 24%),
-          radial-gradient(circle at 52% 75%, rgba(0, 255, 200, 0.05), transparent 26%),
-          linear-gradient(135deg, #040506 0%, #090811 24%, #140914 50%, #0a1020 76%, #040506 100%) !important;
-      }
-
-      body::before,
-      body::after {
-        display: none !important;
-        content: none !important;
-      }
     }
   </style>
 </head>
 <body>
-    <div class="page">
+  <div class="page">
     <section class="hero">
       <div class="top-row">
         <div class="brand-box">
@@ -1252,7 +645,6 @@
         <a href="#hot" class="category-link">Горячее</a>
         <a href="#grill-side" class="category-link">К шашлыку</a>
         <a href="#salads" class="category-link">Салаты</a>
-        <a href="#daily-menu" class="category-link">Меню дня</a>
         <a href="#street-food" class="category-link">Уличная классика</a>
         <a href="#burgers" class="category-link">Бургеры</a>
         <a href="#addons" class="category-link">Добавки</a>
@@ -1274,8 +666,7 @@
         <a class="hot-pill" href="sety.html">Сеты</a>
       </div>
     </section>
-
-    <section class="section-block" id="grill-side">
+        <section class="section-block" id="grill-side">
       <div class="mini-label">Категория</div>
       <div class="section-title">К шашлыку</div>
 
@@ -1283,7 +674,7 @@
         <div class="product-card" data-name="Шампиньоны" data-base-name="Шампиньоны" data-price="220">
           <div class="product-card-main">
             <div class="product-card-image">
-              <img src="img/shampinony.PNG" alt="Шампиньоны">
+              <img src="img/shampinony.png" alt="Шампиньоны">
             </div>
             <div class="product-card-title">Шампиньоны</div>
             <div class="product-card-meta">200 г</div>
@@ -1301,7 +692,7 @@
         <div class="product-card" data-name="Картошка" data-base-name="Картошка" data-price="150">
           <div class="product-card-main">
             <div class="product-card-image">
-              <img src="img/kartoshka.PNG" alt="Картошка">
+              <img src="img/kartoshka.png" alt="Картошка">
             </div>
             <div class="product-card-title">Картошка</div>
             <div class="product-card-meta">230 г</div>
@@ -1319,10 +710,11 @@
         <div class="product-card variant-card" data-base-name="Овощи гриль" data-price="350" data-name="Овощи гриль">
           <div class="product-card-main">
             <div class="product-card-image">
-              <img src="img/ovoshchi-gril.PNG" alt="Овощи гриль">
+              <img src="img/ovoshchi-gril.png" alt="Овощи гриль">
             </div>
             <div class="product-card-title">Овощи гриль</div>
-                        <div class="variant-group">
+
+            <div class="variant-group">
               <button class="variant-btn active"
                 data-name="Овощи гриль"
                 data-meta="Обычные · 300 г"
@@ -1351,7 +743,7 @@
         <div class="product-card variant-card" data-base-name="Огурцы и помидоры свежие со сметаной" data-name="Огурцы и помидоры свежие со сметаной" data-price="180">
           <div class="product-card-main">
             <div class="product-card-image">
-              <img src="img/ogurtsy-i-pomidory-svezhie.PNG" alt="Огурцы и помидоры свежие">
+              <img src="img/ogurtsy-i-pomidory-svezhie.png" alt="Огурцы и помидоры свежие">
             </div>
             <div class="product-card-title">Огурцы и помидоры свежие</div>
 
@@ -1474,7 +866,8 @@
             </div>
           </div>
         </div>
-                <div class="product-card" data-name="Огурцы и помидоры с болгарским перцем" data-base-name="Огурцы и помидоры с болгарским перцем" data-price="210">
+
+        <div class="product-card" data-name="Огурцы и помидоры с болгарским перцем" data-base-name="Огурцы и помидоры с болгарским перцем" data-price="210">
           <div class="product-card-main">
             <div class="product-card-image">
               <img src="img/ogurtsy-i-pomidory-s-bolgarskim-pertsem.png" alt="Огурцы и помидоры с болгарским перцем">
@@ -1493,16 +886,7 @@
         </div>
       </div>
     </section>
-
-    <section class="section-block" id="daily-menu">
-      <div class="mini-label">Меню дня</div>
-      <div class="section-title">Блюдо дня</div>
-      <div class="section-note">Актуальное предложение на сегодня обновляется автоматически.</div>
-      <div class="daily-menu-day" id="dailyMenuDay">Сегодняшнее меню</div>
-      <div class="product-grid" id="dailyMenuGrid"></div>
-    </section>
-
-    <section class="section-block" id="street-food">
+        <section class="section-block" id="street-food">
       <div class="mini-label">Категория</div>
       <div class="section-title">Уличная классика</div>
 
@@ -1580,7 +964,8 @@
         </div>
       </div>
     </section>
-          <section class="section-block" id="burgers">
+
+    <section class="section-block" id="burgers">
       <div class="mini-label">Категория</div>
       <div class="section-title">Бургеры</div>
 
@@ -1630,7 +1015,7 @@
             <div class="product-card-price">500 ₽</div>
             <div class="product-card-meta">(булочка, соус BBQ, сыр, салат, жареный бекон, маринованный красный лук, соленый огурец)</div>
             <label class="option-check">
-              <input type="checkbox" class="bbq-bacon-toggle" onchange="toggleBbqOption(this)">
+              <input type="checkbox" class="bbq-bacon-toggle">
               <span>Убрать бекон</span>
             </label>
           </div>
@@ -1760,99 +1145,6 @@
     </section>
   </div>
 
-  <div class="cart-float">
-  <button class="cart-button" onclick="toggleCart()">🛒 <span id="cartCount">0</span></button>
-
-  <div class="cart-panel" id="cartPanel">
-    <div class="cart-title">Корзина</div>
-
-    <div class="cart-items" id="cartItems">
-      <div class="cart-empty">Пока пусто</div>
-    </div>
-
-    <div class="delivery-mode-wrap">
-      <div class="cart-comment-label">Способ получения</div>
-
-      <div class="delivery-mode">
-        <button type="button" class="delivery-mode-btn active" id="pickupBtn" onclick="setDeliveryMode('pickup')">
-          Самовывоз
-        </button>
-        <button type="button" class="delivery-mode-btn" id="deliveryBtn" onclick="setDeliveryMode('delivery')">
-          Доставка
-        </button>
-      </div>
-
-      <div class="delivery-fields" id="deliveryFields" style="display:none;">
-        <div class="cart-comment-label" style="margin-top:12px;">Адрес доставки</div>
-
-        <div class="delivery-address-grid">
-          <input
-            type="text"
-            id="deliveryCity"
-            class="delivery-address-input"
-            placeholder="Город"
-          >
-
-          <input
-            type="text"
-            id="deliveryStreet"
-            class="delivery-address-input"
-            placeholder="Улица"
-          >
-
-          <input
-            type="text"
-            id="deliveryHouse"
-            class="delivery-address-input"
-            placeholder="Дом"
-          >
-
-          <input
-            type="text"
-            id="deliveryFloor"
-            class="delivery-address-input"
-            placeholder="Этаж"
-          >
-
-          <input
-            type="text"
-            id="deliveryFlat"
-            class="delivery-address-input"
-            placeholder="Квартира"
-          >
-        </div>
-
-        <button type="button" class="cart-order-btn" style="margin-top:10px;" onclick="calculateDelivery()">
-          Рассчитать доставку
-        </button>
-
-        <div class="delivery-info">
-          <div class="delivery-line">
-            <span>Расстояние:</span>
-            <strong id="deliveryDistance">—</strong>
-          </div>
-          <div class="delivery-line">
-            <span>Доставка:</span>
-            <strong id="deliveryPrice">0 ₽</strong>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cart-comment-wrap">
-      <div class="cart-comment-label">Комментарий к заказу</div>
-      <textarea
-        id="orderComment"
-        class="cart-comment"
-        placeholder="Например: без лука, позвонить по приезду, добавить приборы..."
-      ></textarea>
-    </div>
-
-    <div class="cart-total">Итого: <span id="cartTotal">0 ₽</span></div>
-    <button class="cart-order-btn" style="margin-top:12px;">Оформить</button>
-  </div>
-</div>
-
   <script>
     function scrollCategories(direction) {
       const bar = document.getElementById('categoryBar');
@@ -1871,130 +1163,6 @@
       }, 3000);
     }
 
-    const CART_KEY = 'foodtime_cart';
-    const CART_COMMENT_KEY = 'foodtime_order_comment';
-
-    const DELIVERY_MODE_KEY = 'foodtime_delivery_mode';
-    const DELIVERY_ADDRESS_KEY = 'foodtime_delivery_address';
-    const DELIVERY_PRICE_KEY = 'foodtime_delivery_price';
-    const DELIVERY_DISTANCE_KEY = 'foodtime_delivery_distance';
-    const DELIVERY_STATUS_KEY = 'foodtime_delivery_status';
-
-    function getCart() {
-      try {
-        return JSON.parse(localStorage.getItem(CART_KEY)) || {};
-      } catch (e) {
-        return {};
-      }
-    }
-
-    function saveCart(cart) {
-      localStorage.setItem(CART_KEY, JSON.stringify(cart));
-    }
-
-    function getOrderComment() {
-      return localStorage.getItem(CART_COMMENT_KEY) || '';
-    }
-
-    function saveOrderComment(value) {
-      localStorage.setItem(CART_COMMENT_KEY, value || '');
-    }
-
-    function getDeliveryMode() {
-      return localStorage.getItem(DELIVERY_MODE_KEY) || 'pickup';
-    }
-
-    function saveDeliveryMode(mode) {
-      localStorage.setItem(DELIVERY_MODE_KEY, mode);
-    }
-
-    function getDeliveryAddress() {
-      return localStorage.getItem(DELIVERY_ADDRESS_KEY) || '';
-    }
-
-    function saveDeliveryAddress(address) {
-      localStorage.setItem(DELIVERY_ADDRESS_KEY, address || '');
-    }
-
-    function getDeliveryPrice() {
-      return Number(localStorage.getItem(DELIVERY_PRICE_KEY) || 0);
-    }
-
-    function saveDeliveryPrice(price) {
-      localStorage.setItem(DELIVERY_PRICE_KEY, String(price || 0));
-    }
-
-    function getDeliveryDistance() {
-      return localStorage.getItem(DELIVERY_DISTANCE_KEY) || '—';
-    }
-
-    function saveDeliveryDistance(distance) {
-      localStorage.setItem(DELIVERY_DISTANCE_KEY, distance || '—');
-    }
-
-    function getDeliveryStatus() {
-      return localStorage.getItem(DELIVERY_STATUS_KEY) || 'Самовывоз';
-    }
-
-    function saveDeliveryStatus(status) {
-      localStorage.setItem(DELIVERY_STATUS_KEY, status || 'Самовывоз');
-    }
-
-    function getEffectiveCardName(card) {
-      const checkbox = card.querySelector('.bbq-bacon-toggle');
-      const baseName = card.dataset.baseName || card.dataset.name || 'Товар';
-      return checkbox && checkbox.checked ? baseName + ' (без бекона)' : baseName;
-    }
-
-    function changeQty(button, delta) {
-      const card = button.closest('.product-card');
-      if (!card) return;
-
-      const name = getEffectiveCardName(card);
-      const price = Number(card.dataset.price || 0);
-
-      const cart = getCart();
-      const currentQty = cart[name]?.qty || 0;
-      const newQty = Math.max(0, currentQty + delta);
-
-      if (newQty === 0) {
-        delete cart[name];
-      } else {
-        cart[name] = { price, qty: newQty };
-      }
-
-      saveCart(cart);
-      updateCartUI();
-    }
-
-    function changeCartQty(name, delta) {
-      const cart = getCart();
-      if (!cart[name]) return;
-
-      const newQty = Math.max(0, (cart[name].qty || 0) + delta);
-      if (newQty === 0) {
-        delete cart[name];
-      } else {
-        cart[name].qty = newQty;
-      }
-
-      saveCart(cart);
-      updateCartUI();
-    }
-
-    function toggleBbqOption() {
-      updateCartUI();
-    }
-
-    function updateCardQtyLabel(card) {
-      const cart = getCart();
-      const qtyEl = card.querySelector('.qty span');
-      if (!qtyEl) return;
-
-      const name = getEffectiveCardName(card);
-      qtyEl.textContent = cart[name]?.qty || 0;
-    }
-
     function selectVariant(button) {
       const card = button.closest('.variant-card');
       if (!card) return;
@@ -2011,425 +1179,13 @@
 
       if (metaEl) metaEl.textContent = button.dataset.meta || '';
       if (priceEl) priceEl.textContent = `${button.dataset.price} ₽`;
-
-      updateCardQtyLabel(card);
     }
-        function updateDeliveryUI() {
-      const addressInput = document.getElementById('deliveryAddress');
-      const distanceEl = document.getElementById('deliveryDistance');
-      const priceEl = document.getElementById('deliveryPrice');
-      const statusEl = document.getElementById('deliveryStatus');
-
-      if (addressInput && document.activeElement !== addressInput) {
-        addressInput.value = getDeliveryAddress();
-      }
-
-      if (distanceEl) distanceEl.textContent = getDeliveryDistance();
-      if (priceEl) priceEl.textContent = getDeliveryPrice() + ' ₽';
-      if (statusEl) statusEl.textContent = getDeliveryStatus();
-    }
-
-    function setDeliveryMode(mode) {
-      const pickupBtn = document.getElementById('pickupBtn');
-      const deliveryBtn = document.getElementById('deliveryBtn');
-      const deliveryFields = document.getElementById('deliveryFields');
-
-      saveDeliveryMode(mode);
-
-      if (pickupBtn) pickupBtn.classList.toggle('active', mode === 'pickup');
-      if (deliveryBtn) deliveryBtn.classList.toggle('active', mode === 'delivery');
-      if (deliveryFields) deliveryFields.style.display = mode === 'delivery' ? 'block' : 'none';
-
-      if (mode === 'pickup') {
-        saveDeliveryPrice(0);
-        saveDeliveryDistance('—');
-        saveDeliveryStatus('Самовывоз');
-        updateDeliveryUI();
-        updateCartUI();
-      } else {
-        saveDeliveryStatus('Введите адрес');
-        updateDeliveryUI();
-      }
-    }
-
-    function getCartSubtotal() {
-      const cart = getCart();
-      let total = 0;
-
-      Object.values(cart).forEach(item => {
-        total += item.qty * item.price;
-      });
-
-      return total;
-    }
-
-   function getDeliveryPriceByRules(orderSum, distanceKm) {
-  if (orderSum < 1000) {
-    return { ok: false, price: 0, status: 'Минимальный заказ 1000 ₽' };
-  }
-
-  let basePrice = 300;
-
-  if (orderSum >= 3000) {
-    basePrice = 100;
-  } else if (orderSum >= 2000) {
-    basePrice = 200;
-  } else if (orderSum >= 1000) {
-    basePrice = 300;
-  }
-
-  if (distanceKm >= 10) {
-    basePrice += 50;
-  }
-
-  return { ok: true, price: basePrice, status: 'Доставка рассчитана' };
-}
-
-    async function calculateDelivery() {
-  const addressInput = document.getElementById('deliveryAddress');
-  if (!addressInput) return;
-
-  const address = addressInput.value.trim();
-  saveDeliveryAddress(address);
-
-  if (!address) {
-    saveDeliveryStatus('Введите адрес');
-    saveDeliveryDistance('—');
-    saveDeliveryPrice(0);
-    updateDeliveryUI();
-    updateCartUI();
-    return;
-  }
-
-  const orderSum = getCartSubtotal();
-
-  try {
-    saveDeliveryStatus('Считаем доставку...');
-    updateDeliveryUI();
-
-    const apiKey = 'f38bdd35-9ab0-407b-9484-952c1d82b551';
-    const restaurantAddress = 'Самара, улица Советской Армии, 125А';
-
-    async function geocodeAddress(query) {
-      const url = `https://geocode-maps.yandex.ru/v1/?apikey=${encodeURIComponent(apiKey)}&geocode=${encodeURIComponent(query)}&lang=ru_RU&format=json`;
-
-      const response = await fetch(url);
-      const data = await response.json();
-
-      const feature = data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject;
-      const pos = feature?.Point?.pos;
-      const text = feature?.metaDataProperty?.GeocoderMetaData?.text || query;
-
-      if (!pos) return null;
-
-      const [lon, lat] = pos.split(' ').map(Number);
-
-      return { lat, lon, text };
-    }
-
-    function getDistanceKm(lat1, lon1, lat2, lon2) {
-      const toRad = deg => deg * Math.PI / 180;
-      const R = 6371;
-
-      const dLat = toRad(lat2 - lat1);
-      const dLon = toRad(lon2 - lon1);
-
-      const a =
-        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2);
-
-      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-      return R * c;
-    }
-
-    const restaurant = await geocodeAddress(restaurantAddress);
-    const client = await geocodeAddress(address);
-
-    if (!restaurant || !client) {
-      saveDeliveryDistance('—');
-      saveDeliveryPrice(0);
-      saveDeliveryStatus('Адрес не найден');
-      updateDeliveryUI();
-      updateCartUI();
-      return;
-    }
-
-    const distanceKm = getDistanceKm(
-      restaurant.lat,
-      restaurant.lon,
-      client.lat,
-      client.lon
-    );
-
-    const result = getDeliveryPriceByRules(orderSum, distanceKm);
-
-    saveDeliveryDistance(distanceKm.toFixed(1) + ' км');
-    saveDeliveryPrice(result.price);
-    saveDeliveryStatus(result.status);
-    saveDeliveryAddress(client.text);
-
-    if (addressInput) addressInput.value = client.text;
-
-    updateDeliveryUI();
-    updateCartUI();
-  } catch (error) {
-    saveDeliveryDistance('—');
-    saveDeliveryPrice(0);
-    saveDeliveryStatus('Ошибка расчёта');
-    updateDeliveryUI();
-    updateCartUI();
-  }
-}
-
-    function updateCartUI() {
-      const cart = getCart();
-      const cartItems = document.getElementById('cartItems');
-      const cartCount = document.getElementById('cartCount');
-      const cartTotal = document.getElementById('cartTotal');
-      const orderComment = document.getElementById('orderComment');
-
-      let totalCount = 0;
-      let totalPrice = 0;
-
-      Object.entries(cart).forEach(([name, item]) => {
-        totalCount += item.qty;
-        totalPrice += item.qty * item.price;
-      });
-
-      const deliveryMode = getDeliveryMode();
-      const deliveryPrice = deliveryMode === 'delivery' ? getDeliveryPrice() : 0;
-      const finalPrice = totalPrice + deliveryPrice;
-
-      if (cartCount) cartCount.textContent = totalCount;
-      if (cartTotal) cartTotal.textContent = finalPrice + ' ₽';
-
-      if (orderComment && document.activeElement !== orderComment) {
-        orderComment.value = getOrderComment();
-      }
-
-      updateDeliveryUI();
-
-      if (cartItems) {
-        const entries = Object.entries(cart);
-
-        if (!entries.length) {
-          cartItems.innerHTML = '<div class="cart-empty">Пока пусто</div>';
-        } else {
-          cartItems.innerHTML = entries.map(([name, item]) => `
-            <div class="cart-item">
-              <div style="flex:1;">
-                <div class="cart-item-name">${name}</div>
-                <div class="cart-item-meta">${item.price} ₽ за шт</div>
-                <div class="qty" style="margin-top:8px;">
-                  <button onclick='changeCartQty(${JSON.stringify(name)}, -1)'>-</button>
-                  <span>${item.qty}</span>
-                  <button onclick='changeCartQty(${JSON.stringify(name)}, 1)'>+</button>
-                </div>
-              </div>
-              <div class="cart-item-name">${item.qty * item.price} ₽</div>
-            </div>
-          `).join('');
-        }
-      }
-
-      document.querySelectorAll('.product-card').forEach(card => updateCardQtyLabel(card));
-    }
-
-    const dailyMenus = {
-      1: {
-        title: 'День 1 · Понедельник',
-        items: [
-          { type: 'single', name: 'Щи со свежей капустой и говядиной', meta: 'Суп · 350 мл', price: 200, image: 'img/shchi-so-svezhey-kapustoy-i-govyadinoy.png' },
-          { type: 'single', name: 'Котлеты куриные', meta: 'Второе · 180 г', price: 200, image: 'img/kotlety-kurinye.png' },
-          {
-            type: 'group',
-            title: 'Гарнир',
-            items: [
-              { name: 'Картофельное пюре', meta: '150 г', price: 70, image: 'img/kartofelnoe-pyure.png' },
-              { name: 'Гречка отварная', meta: '130 г', price: 65, image: 'img/grechka-otvarnaya.png' },
-              { name: 'Макароны', meta: '120 г', price: 65, image: 'img/makarony.png' }
-            ]
-          },
-          { type: 'single', name: 'Витаминный', meta: 'Салат · 100 г', price: 70, image: 'img/vitaminnyy.png' },
-          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70, image: 'img/kompot-iz-sukhofruktov.png' }
-        ]
-      },
-      2: {
-        title: 'День 2 · Вторник',
-        items: [
-          { type: 'single', name: 'Суп гороховый с копчёностями', meta: 'Суп · 350 мл', price: 200, image: 'img/sup-gorokhovyy-s-kopchenostyami.png' },
-          { type: 'single', name: 'Паста сливочная с курицей и грибами', meta: 'Второе', price: 210, image: 'img/pasta-slivochnaya-s-kuritsey-i-gribami.png' },
-          { type: 'single', name: 'Греческий', meta: 'Салат · 200 г', price: 180, image: 'img/grecheskiy.png' },
-          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70, image: 'img/kompot-iz-sukhofruktov.png' }
-        ]
-      },
-      3: {
-        title: 'День 3 · Среда',
-        items: [
-          { type: 'single', name: 'Суп куриный с вермишелью', meta: 'Суп · 350 мл', price: 160, image: 'img/sup-kurinyy-s-vermishelyu.png' },
-          { type: 'single', name: 'Лагман жареный (говядина)', meta: 'Второе · 400 г', price: 380, image: 'img/lagman-zharenyy-govyadina.png' },
-          { type: 'single', name: 'Огурцы и помидоры свежие с луком и растительным маслом', meta: 'Салат · 100 г', price: 120, image: 'img/ogurtsy-i-pomidory-s-lukom-i-rastitelnym-maslom.png' },
-          { type: 'single', name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70, image: 'img/klyukvennyy-mors.png' }
-        ]
-      },
-      4: {
-        title: 'День 4 · Четверг',
-        items: [
-          { type: 'single', name: 'Солянка', meta: 'Суп · 250 мл', price: 210, image: 'img/solyanka.png' },
-          { type: 'single', name: 'Куриный шашлычок с овощами', meta: 'Второе · 200 г', price: 250, image: 'img/kurinyy-shashlychok-s-ovoshchami.png' },
-          { type: 'single', name: 'Морковь по-корейски', meta: 'Салат · 70 г', price: 70, image: 'img/morkov-po-koreyski.png' },
-          { type: 'single', name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70, image: 'img/klyukvennyy-mors.png' }
-        ]
-      },
-            5: {
-        title: 'День 5 · Пятница',
-        items: [
-          { type: 'single', name: 'Сливочный с курицей и грибами', meta: 'Суп · 350 мл', price: 200, image: 'img/slivochnyy-s-kuritsey-i-gribami.png' },
-          { type: 'single', name: 'Рубленые куриные котлеты с помидорами и сыром', meta: 'Второе · 230 г', price: 240, image: 'img/rublenye-kurinye-kotlety-s-pomidorami-i-syrom.png' },
-          {
-            type: 'group',
-            title: 'Гарнир',
-            items: [
-              { name: 'Картофельное пюре', meta: '150 г', price: 70, image: 'img/kartofelnoe-pyure.png' },
-              { name: 'Гречка отварная', meta: '130 г', price: 65, image: 'img/grechka-otvarnaya.png' },
-              { name: 'Макароны', meta: '120 г', price: 65, image: 'img/makarony.png' }
-            ]
-          },
-          { type: 'single', name: 'Цезарь с курицей', meta: 'Салат · 270 г', price: 170, image: 'img/tsezar-s-kuritsey.png' },
-          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70, image: 'img/kompot-iz-sukhofruktov.png' }
-        ]
-      }
-    };
-
-    function renderDailyMenu() {
-      const dayEl = document.getElementById('dailyMenuDay');
-      const gridEl = document.getElementById('dailyMenuGrid');
-      const sectionEl = document.getElementById('daily-menu');
-
-      if (!dayEl || !gridEl || !sectionEl) return;
-
-      const day = new Date().getDay();
-      if (day === 0 || day === 6) {
-        sectionEl.style.display = 'none';
-        return;
-      }
-
-      const menu = dailyMenus[day];
-      if (!menu) {
-        sectionEl.style.display = 'none';
-        return;
-      }
-
-      sectionEl.style.display = '';
-      dayEl.textContent = menu.title;
-
-      gridEl.innerHTML = menu.items.map(item => {
-        if (item.type === 'group') {
-          const colsClass = item.items.length === 2 ? 'cols-2' : 'cols-3';
-
-          return `
-            <div class="product-card daily-multi-card">
-              <div class="product-card-main">
-                <div class="product-card-image is-empty" data-fallback="Фото"></div>
-                <div class="daily-multi-title">${item.title}</div>
-
-                <div class="daily-variants-grid ${colsClass}">
-                  ${item.items.map(sub => `
-                    <div class="daily-variant-box product-card" data-name="${sub.name}" data-base-name="${sub.name}" data-price="${sub.price}" style="min-height:auto; padding:14px;">
-                      <div class="daily-variant-top">
-                        <div class="product-card-image" style="height:90px; min-height:0; margin-bottom:10px;">
-                          <img src="${sub.image}" alt="${sub.name}">
-                        </div>
-                        <div class="daily-variant-name">${sub.name}</div>
-                        <div class="daily-variant-meta">${sub.meta}</div>
-                        <div class="daily-variant-price">${sub.price} ₽</div>
-                      </div>
-                      <div class="daily-variant-bottom">
-                        <div class="qty">
-                          <button onclick="changeQty(this, -1)">-</button>
-                          <span>0</span>
-                          <button onclick="changeQty(this, 1)">+</button>
-                        </div>
-                      </div>
-                    </div>
-                  `).join('')}
-                </div>
-              </div>
-            </div>
-          `;
-        }
-
-        return `
-          <div class="product-card" data-name="${item.name}" data-base-name="${item.name}" data-price="${item.price}">
-            <div class="product-card-main">
-              <div class="product-card-image">
-                <img src="${item.image}" alt="${item.name}">
-              </div>
-              <div class="product-card-title">${item.name}</div>
-              <div class="product-card-meta">${item.meta}</div>
-              <div class="product-card-price">${item.price} ₽</div>
-            </div>
-            <div class="product-card-bottom">
-              <div class="qty">
-                <button onclick="changeQty(this, -1)">-</button>
-                <span>0</span>
-                <button onclick="changeQty(this, 1)">+</button>
-              </div>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      updateCartUI();
-    }
-
-    function toggleCart() {
-      const panel = document.getElementById('cartPanel');
-      if (!panel) return;
-      panel.classList.toggle('open');
-    }
-        document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.product-card').forEach(card => {
-        if (!card.dataset.baseName && card.dataset.name) {
-          card.dataset.baseName = card.dataset.name;
-        }
-      });
-
-      renderDailyMenu();
-      updateCartUI();
-
-      const orderComment = document.getElementById('orderComment');
-      if (orderComment) {
-        orderComment.value = getOrderComment();
-        orderComment.addEventListener('input', (e) => {
-          saveOrderComment(e.target.value);
-        });
-      }
-
-     ['deliveryCity', 'deliveryStreet', 'deliveryHouse', 'deliveryFloor', 'deliveryFlat'].forEach(id => {
-  const input = document.getElementById(id);
-  if (input) {
-    input.addEventListener('input', () => {
-      saveDeliveryAddressObject({
-        city: document.getElementById('deliveryCity')?.value.trim() || '',
-        street: document.getElementById('deliveryStreet')?.value.trim() || '',
-        house: document.getElementById('deliveryHouse')?.value.trim() || '',
-        floor: document.getElementById('deliveryFloor')?.value.trim() || '',
-        flat: document.getElementById('deliveryFlat')?.value.trim() || ''
-      });
-    });
-  }
-});
-
-      setDeliveryMode(getDeliveryMode());
-      updateDeliveryUI();
-    });
   </script>
+
+  <script src="js/cart.js"></script>
 </body>
 </html>
-      
-    
-      
         
-  
+        
+    
+    
