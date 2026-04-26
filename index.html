@@ -2411,13 +2411,20 @@
         });
       }
 
-      const deliveryAddress = document.getElementById('deliveryAddress');
-      if (deliveryAddress) {
-        deliveryAddress.value = getDeliveryAddress();
-        deliveryAddress.addEventListener('input', (e) => {
-          saveDeliveryAddress(e.target.value);
-        });
-      }
+     ['deliveryCity', 'deliveryStreet', 'deliveryHouse', 'deliveryFloor', 'deliveryFlat'].forEach(id => {
+  const input = document.getElementById(id);
+  if (input) {
+    input.addEventListener('input', () => {
+      saveDeliveryAddressObject({
+        city: document.getElementById('deliveryCity')?.value.trim() || '',
+        street: document.getElementById('deliveryStreet')?.value.trim() || '',
+        house: document.getElementById('deliveryHouse')?.value.trim() || '',
+        floor: document.getElementById('deliveryFloor')?.value.trim() || '',
+        flat: document.getElementById('deliveryFlat')?.value.trim() || ''
+      });
+    });
+  }
+});
 
       setDeliveryMode(getDeliveryMode());
       updateDeliveryUI();
