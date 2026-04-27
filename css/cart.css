@@ -236,3 +236,29 @@
     font-size: 15px;
   }
 }
+.cart-action-btn {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #18b7ff 0%, #7b61ff 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.20);
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.cart-action-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.96;
+}
+
+.cart-action-btn:active {
+  transform: translateY(0);
+}
+
+.delivery-fields .cart-action-btn {
+  margin-top: 10px;
+}
