@@ -9,6 +9,10 @@ const DELIVERY_DISTANCE_KEY = 'foodtime_delivery_distance';
 const YANDEX_API_KEY = 'f38bdd35-9ab0-407b-9484-952c1d82b551';
 const RESTAURANT_ADDRESS = 'Самара, улица Советской Армии, 125А';
 
+function isHomePage() {
+  const path = window.location.pathname.toLowerCase();
+  return path.endsWith('/index.html') || path.endsWith('/');
+}
 function injectCartHtml() {
   if (document.getElementById('cartPanel')) return;
 
@@ -45,7 +49,7 @@ function injectCartHtml() {
               placeholder="Введите адрес доставки"
             >
 
-            <button type="button" class="cart-order-btn" style="margin-top:10px;" onclick="calculateDelivery()">
+            <button type="button" class="cart-action-btn" onclick="calculateDelivery()">
               Рассчитать доставку
             </button>
 
@@ -72,12 +76,11 @@ function injectCartHtml() {
         </div>
 
         <div class="cart-total">Итого: <span id="cartTotal">0 ₽</span></div>
-        <button class="cart-order-btn" style="margin-top:12px;">Оформить</button>
+        ${isHomePage() ? '<button class="cart-action-btn" style="margin-top:12px;">Оформить заказ</button>' : ''}
       </div>
     </div>
   `);
 }
-
 function getCart() {
   try {
     return JSON.parse(localStorage.getItem(CART_KEY)) || {};
