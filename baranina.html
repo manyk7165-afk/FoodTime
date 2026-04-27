@@ -8,9 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@500;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cart.css">
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
       --text: rgba(255,255,255,.96);
@@ -22,7 +27,9 @@
       --button: linear-gradient(135deg,#18b7ff 0%,#7b61ff 100%);
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Manrope', sans-serif;
@@ -45,7 +52,8 @@
       gap: 18px;
     }
 
-    .topbar, .section-block {
+    .topbar,
+    .section-block {
       background: var(--glass);
       border: 1px solid var(--border);
       backdrop-filter: blur(22px);
@@ -83,7 +91,7 @@
       color: var(--soft);
     }
 
-    .back-link, .cart-order-btn {
+    .back-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -99,19 +107,13 @@
       cursor: pointer;
     }
 
-    .section-block { padding: 18px; }
-
-    .mini-label {
-      font-size: 11px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--soft);
-      margin-bottom: 8px;
+    .section-block {
+      padding: 18px;
     }
 
     .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 38px;
+      font-size: 42px;
       line-height: 1;
       margin-bottom: 10px;
       font-weight: 700;
@@ -148,7 +150,6 @@
     .product-card-image {
       width: 100%;
       aspect-ratio: 16 / 9;
-      height: auto;
       border-radius: 18px;
       background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.09);
@@ -212,202 +213,33 @@
       font-weight: 800;
     }
 
-    .cart-float {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 999;
+    @media (max-width: 1180px) {
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
     }
 
-    .cart-button {
-      border: 1px solid rgba(255,255,255,.14);
-      background: linear-gradient(135deg,#18b7ff 0%,#7b61ff 100%);
-      color: #fff;
-      border-radius: 18px;
-      padding: 14px 18px;
-      font-size: 18px;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 18px 34px rgba(0,0,0,0.28);
-    }
+    @media (max-width: 820px) {
+      body {
+        padding: 16px;
+      }
 
-    .cart-panel {
-      display: none;
-      margin-top: 12px;
-      width: 340px;
-      max-height: 560px;
-      overflow: auto;
-      padding: 16px;
-      border-radius: 22px;
-      background: rgba(20, 20, 30, 0.88);
-      border: 1px solid rgba(255,255,255,0.10);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-    }
+      .topbar,
+      .section-block {
+        padding: 14px;
+      }
 
-    .cart-panel.open { display: block; }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
 
-    .cart-title {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
+      .back-link {
+        width: 100%;
+      }
 
-    .cart-items {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .cart-item-name {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .cart-item-meta {
-      font-size: 13px;
-      color: rgba(255,255,255,0.72);
-      margin-top: 4px;
-    }
-
-    .cart-empty {
-      color: rgba(255,255,255,0.65);
-      font-size: 14px;
-    }
-
-    .cart-total {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 16px;
-      font-weight: 800;
-    }
-
-    .cart-comment-wrap {
-      margin-top: 14px;
-    }
-
-    .cart-comment-label {
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: rgba(255,255,255,0.92);
-    }
-
-    .cart-comment {
-      width: 100%;
-      min-height: 84px;
-      resize: vertical;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      padding: 10px 12px;
-      font-family: inherit;
-      font-size: 13px;
-      outline: none;
-    }
-
-    .cart-comment::placeholder {
-      color: rgba(255,255,255,0.42);
-    }
-       .delivery-mode-wrap {
-      margin-top: 14px;
-    }
-
-    .delivery-mode {
-      display: flex;
-      gap: 8px;
-    }
-
-    .delivery-mode-btn {
-      flex: 1;
-      min-height: 44px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .delivery-mode-btn.active {
-      background: rgba(255,255,255,0.16);
-      border-color: rgba(255,255,255,0.22);
-    }
-
-    .delivery-address-input {
-      width: 100%;
-      min-height: 46px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      padding: 0 12px;
-      font-family: inherit;
-      font-size: 13px;
-      outline: none;
-    }
-
-    .delivery-address-input::placeholder {
-      color: rgba(255,255,255,0.42);
-    }
-
-    .delivery-info {
-      margin-top: 12px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .delivery-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      font-size: 13px;
-    }
-
-    .delivery-line strong {
-      color: #fff;
-    }
-
-    .delivery-address-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-
-    .delivery-address-grid input:first-child {
-      grid-column: span 2;
-    }
-
-    @media (max-width:1180px) {
-      .product-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-    }
-
-    @media (max-width:820px) {
-      body { padding: 16px; }
-      .topbar, .section-block { padding: 14px; }
-      .product-grid { grid-template-columns: 1fr; }
-      .back-link, .cart-order-btn { width: 100%; }
-      .cart-panel { width: min(88vw, 340px); }
+      .section-title {
+        font-size: 34px;
+      }
 
       .product-card {
         min-height: auto;
@@ -417,17 +249,27 @@
       }
 
       .product-card-image {
-        aspect-ratio: 16 / 9;
-        height: auto;
         border-radius: 14px;
         margin-bottom: 12px;
       }
 
-      .product-card-title { font-size: 16px; }
-      .product-card-meta { font-size: 13px; line-height: 1.45; }
-      .product-card-price { font-size: 15px; margin-bottom: 12px; }
+      .product-card-title {
+        font-size: 16px;
+      }
 
-      .qty { gap: 8px; }
+      .product-card-meta {
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .product-card-price {
+        font-size: 15px;
+        margin-bottom: 12px;
+      }
+
+      .qty {
+        gap: 8px;
+      }
 
       .qty button {
         width: 34px;
@@ -437,16 +279,220 @@
         border-radius: 10px;
       }
 
-      .qty span { font-size: 15px; }
+      .qty span {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-title">Фуд Тайм</div>
+        <div class="brand-subtitle">premium food service</div>
+      </div>
+      <a href="index.html" class="back-link">Назад</a>
+    </div>
+
+    <section class="section-block">
+      <div class="section-title">Баранина</div>
+      <div class="section-note">Выберите позиции и добавьте их в общую корзину.</div>
+
+      <div class="product-grid">
+        <div class="product-card" data-name="Баранина мякоть" data-base-name="Баранина мякоть" data-price="600">
+          <div>
+            <div class="product-card-image">
+              <img src="img/baranina-myakot.png" alt="Баранина мякоть">
+            </div>
+            <div class="product-card-title">Баранина мякоть</div>
+            <div class="product-card-meta">250 г</div>
+            <div class="product-card-price">600 ₽</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this,-1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Каре баранина" data-base-name="Каре баранина" data-price="600">
+          <div>
+            <div class="product-card-image">
+              <img src="img/kare-baranina.png" alt="Каре баранина">
+            </div>
+            <div class="product-card-title">Каре баранина</div>
+            <div class="product-card-meta">300 г</div>
+            <div class="product-card-price">600 ₽</div>
+          </div>
+          <div class="qty">
+            <button onclick="changeQty(this,-1)">-</button>
+            <span>0</span>
+            <button onclick="changeQty(this,1)">+</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/cart.js"></script>
+</body>
+</html>
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 16px;
+      margin-top: 14px;
     }
 
-    @media (max-width:640px) {
-      .delivery-address-grid {
+    .product-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 24px;
+      box-shadow: 0 14px 30px rgba(0,0,0,.14);
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+      gap: 12px;
+      overflow: hidden;
+    }
+
+    .product-card-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .product-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .product-card-title {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .product-card-meta {
+      color: rgba(255,255,255,.72);
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .product-card-price {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
+
+    .qty {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .qty button {
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 12px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      flex: 0 0 38px;
+    }
+
+    .qty span {
+      min-width: 24px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    @media (max-width: 1180px) {
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 820px) {
+      body {
+        padding: 16px;
+      }
+
+      .topbar,
+      .section-block {
+        padding: 14px;
+      }
+
+      .product-grid {
         grid-template-columns: 1fr;
       }
 
-      .delivery-address-grid input:first-child {
-        grid-column: span 1;
+      .back-link {
+        width: 100%;
+      }
+
+      .section-title {
+        font-size: 34px;
+      }
+
+      .product-card {
+        min-height: auto;
+        padding: 12px;
+        border-radius: 18px;
+        gap: 10px;
+      }
+
+      .product-card-image {
+        border-radius: 14px;
+        margin-bottom: 12px;
+      }
+
+      .product-card-title {
+        font-size: 16px;
+      }
+
+      .product-card-meta {
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .product-card-price {
+        font-size: 15px;
+        margin-bottom: 12px;
+      }
+
+      .qty {
+        gap: 8px;
+      }
+
+      .qty button {
+        width: 34px;
+        height: 34px;
+        font-size: 20px;
+        flex: 0 0 34px;
+        border-radius: 10px;
+      }
+
+      .qty span {
+        font-size: 15px;
       }
     }
   </style>
@@ -500,487 +546,6 @@
     </section>
   </div>
 
-  <div class="cart-float">
-    <button class="cart-button" onclick="toggleCart()">🛒 <span id="cartCount">0</span></button>
-
-    <div class="cart-panel" id="cartPanel">
-      <div class="cart-title">Корзина</div>
-
-      <div class="cart-items" id="cartItems">
-        <div class="cart-empty">Пока пусто</div>
-      </div>
-
-      <div class="delivery-mode-wrap">
-        <div class="cart-comment-label">Способ получения</div>
-
-        <div class="delivery-mode">
-          <button type="button" class="delivery-mode-btn active" id="pickupBtn" onclick="setDeliveryMode('pickup')">
-            Самовывоз
-          </button>
-          <button type="button" class="delivery-mode-btn" id="deliveryBtn" onclick="setDeliveryMode('delivery')">
-            Доставка
-          </button>
-        </div>
-
-        <div class="delivery-fields" id="deliveryFields" style="display:none;">
-          <div class="cart-comment-label" style="margin-top:12px;">Адрес доставки</div>
-
-          <div class="delivery-address-grid">
-            <input type="text" id="deliveryCity" class="delivery-address-input" placeholder="Город">
-            <input type="text" id="deliveryStreet" class="delivery-address-input" placeholder="Улица">
-            <input type="text" id="deliveryHouse" class="delivery-address-input" placeholder="Дом">
-            <input type="text" id="deliveryFloor" class="delivery-address-input" placeholder="Этаж">
-            <input type="text" id="deliveryFlat" class="delivery-address-input" placeholder="Квартира">
-          </div>
-
-          <button type="button" class="cart-order-btn" style="margin-top:10px;" onclick="calculateDelivery()">
-            Рассчитать доставку
-          </button>
-
-          <div class="delivery-info">
-            <div class="delivery-line">
-              <span>Расстояние:</span>
-              <strong id="deliveryDistance">—</strong>
-            </div>
-            <div class="delivery-line">
-              <span>Доставка:</span>
-              <strong id="deliveryPrice">0 ₽</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="cart-comment-wrap">
-        <div class="cart-comment-label">Комментарий к заказу</div>
-        <textarea
-          id="orderComment"
-          class="cart-comment"
-          placeholder="Например: без лука, позвонить по приезду, добавить приборы..."
-        ></textarea>
-      </div>
-
-      <div class="cart-total">Итого: <span id="cartTotal">0 ₽</span></div>
-      <button class="cart-order-btn" style="margin-top:12px;">Оформить</button>
-    </div>
-  </div> 
-    <script>
-    const CART_KEY = 'foodtime_cart';
-    const CART_COMMENT_KEY = 'foodtime_order_comment';
-
-    const DELIVERY_MODE_KEY = 'foodtime_delivery_mode';
-    const DELIVERY_ADDRESS_KEY = 'foodtime_delivery_address';
-    const DELIVERY_PRICE_KEY = 'foodtime_delivery_price';
-    const DELIVERY_DISTANCE_KEY = 'foodtime_delivery_distance';
-
-    function getCart() {
-      try {
-        return JSON.parse(localStorage.getItem(CART_KEY)) || {};
-      } catch (e) {
-        return {};
-      }
-    }
-
-    function saveCart(cart) {
-      localStorage.setItem(CART_KEY, JSON.stringify(cart));
-    }
-
-    function getOrderComment() {
-      return localStorage.getItem(CART_COMMENT_KEY) || '';
-    }
-
-    function saveOrderComment(value) {
-      localStorage.setItem(CART_COMMENT_KEY, value || '');
-    }
-
-    function getDeliveryMode() {
-      return localStorage.getItem(DELIVERY_MODE_KEY) || 'pickup';
-    }
-
-    function saveDeliveryMode(mode) {
-      localStorage.setItem(DELIVERY_MODE_KEY, mode);
-    }
-
-    function getDeliveryAddressObject() {
-      try {
-        return JSON.parse(localStorage.getItem(DELIVERY_ADDRESS_KEY)) || {
-          city: '',
-          street: '',
-          house: '',
-          floor: '',
-          flat: ''
-        };
-      } catch (e) {
-        return {
-          city: '',
-          street: '',
-          house: '',
-          floor: '',
-          flat: ''
-        };
-      }
-    }
-
-    function saveDeliveryAddressObject(addressObj) {
-      localStorage.setItem(DELIVERY_ADDRESS_KEY, JSON.stringify(addressObj || {
-        city: '',
-        street: '',
-        house: '',
-        floor: '',
-        flat: ''
-      }));
-    }
-
-    function getDeliveryPrice() {
-      return Number(localStorage.getItem(DELIVERY_PRICE_KEY) || 0);
-    }
-
-    function saveDeliveryPrice(price) {
-      localStorage.setItem(DELIVERY_PRICE_KEY, String(price || 0));
-    }
-
-    function getDeliveryDistance() {
-      return localStorage.getItem(DELIVERY_DISTANCE_KEY) || '—';
-    }
-
-    function saveDeliveryDistance(distance) {
-      localStorage.setItem(DELIVERY_DISTANCE_KEY, distance || '—');
-    }
-
-    function getEffectiveCardName(card) {
-      const baseName = card.dataset.baseName || card.dataset.name || 'Товар';
-      return baseName;
-    }
-
-    function changeQty(button, delta) {
-      const card = button.closest('.product-card');
-      if (!card) return;
-
-      const name = getEffectiveCardName(card);
-      const price = Number(card.dataset.price || 0);
-
-      const cart = getCart();
-      const currentQty = cart[name]?.qty || 0;
-      const newQty = Math.max(0, currentQty + delta);
-
-      if (newQty === 0) {
-        delete cart[name];
-      } else {
-        cart[name] = { price, qty: newQty };
-      }
-
-      saveCart(cart);
-      updateCartUI();
-    }
-
-    function changeCartQty(name, delta) {
-      const cart = getCart();
-      if (!cart[name]) return;
-
-      const newQty = Math.max(0, (cart[name].qty || 0) + delta);
-
-      if (newQty === 0) {
-        delete cart[name];
-      } else {
-        cart[name].qty = newQty;
-      }
-
-      saveCart(cart);
-      updateCartUI();
-    }
-
-    function updateCardQtyLabel(card) {
-      const cart = getCart();
-      const qtyEl = card.querySelector('.qty span');
-      if (!qtyEl) return;
-
-      const name = getEffectiveCardName(card);
-      qtyEl.textContent = cart[name]?.qty || 0;
-    }
-
-    function updateDeliveryUI() {
-      const cityInput = document.getElementById('deliveryCity');
-      const streetInput = document.getElementById('deliveryStreet');
-      const houseInput = document.getElementById('deliveryHouse');
-      const floorInput = document.getElementById('deliveryFloor');
-      const flatInput = document.getElementById('deliveryFlat');
-
-      const distanceEl = document.getElementById('deliveryDistance');
-      const priceEl = document.getElementById('deliveryPrice');
-
-      const savedAddress = getDeliveryAddressObject();
-
-      if (cityInput && document.activeElement !== cityInput) {
-        cityInput.value = savedAddress.city || '';
-      }
-
-      if (streetInput && document.activeElement !== streetInput) {
-        streetInput.value = savedAddress.street || '';
-      }
-
-      if (houseInput && document.activeElement !== houseInput) {
-        houseInput.value = savedAddress.house || '';
-      }
-
-      if (floorInput && document.activeElement !== floorInput) {
-        floorInput.value = savedAddress.floor || '';
-      }
-
-      if (flatInput && document.activeElement !== flatInput) {
-        flatInput.value = savedAddress.flat || '';
-      }
-
-      if (distanceEl) distanceEl.textContent = getDeliveryDistance();
-      if (priceEl) priceEl.textContent = getDeliveryPrice() + ' ₽';
-    }
-
-    function setDeliveryMode(mode) {
-      const pickupBtn = document.getElementById('pickupBtn');
-      const deliveryBtn = document.getElementById('deliveryBtn');
-      const deliveryFields = document.getElementById('deliveryFields');
-
-      saveDeliveryMode(mode);
-
-      if (pickupBtn) pickupBtn.classList.toggle('active', mode === 'pickup');
-      if (deliveryBtn) deliveryBtn.classList.toggle('active', mode === 'delivery');
-      if (deliveryFields) deliveryFields.style.display = mode === 'delivery' ? 'block' : 'none';
-
-      if (mode === 'pickup') {
-        saveDeliveryPrice(0);
-        saveDeliveryDistance('—');
-        updateDeliveryUI();
-        updateCartUI();
-      } else {
-        updateDeliveryUI();
-      }
-    }
-
-    function getCartSubtotal() {
-      const cart = getCart();
-      let total = 0;
-
-      Object.values(cart).forEach(item => {
-        total += item.qty * item.price;
-      });
-
-      return total;
-    }
-
-    function getDeliveryPriceByRules(orderSum, distanceKm) {
-      if (orderSum < 1000) {
-        return { ok: false, price: 0 };
-      }
-
-      let basePrice = 300;
-
-      if (orderSum >= 3000) {
-        basePrice = 100;
-      } else if (orderSum >= 2000) {
-        basePrice = 200;
-      } else if (orderSum >= 1000) {
-        basePrice = 300;
-      }
-
-      if (distanceKm >= 10) {
-        basePrice += 50;
-      }
-
-      return { ok: true, price: basePrice };
-    }
-          async function calculateDelivery() {
-      const cityInput = document.getElementById('deliveryCity');
-      const streetInput = document.getElementById('deliveryStreet');
-      const houseInput = document.getElementById('deliveryHouse');
-      const floorInput = document.getElementById('deliveryFloor');
-      const flatInput = document.getElementById('deliveryFlat');
-
-      if (!cityInput || !streetInput || !houseInput) return;
-
-      const addressObj = {
-        city: cityInput.value.trim(),
-        street: streetInput.value.trim(),
-        house: houseInput.value.trim(),
-        floor: floorInput ? floorInput.value.trim() : '',
-        flat: flatInput ? flatInput.value.trim() : ''
-      };
-
-      saveDeliveryAddressObject(addressObj);
-
-      if (!addressObj.city || !addressObj.street || !addressObj.house) {
-        saveDeliveryDistance('—');
-        saveDeliveryPrice(0);
-        updateDeliveryUI();
-        updateCartUI();
-        return;
-      }
-
-      const orderSum = getCartSubtotal();
-
-      try {
-        const apiKey = 'f38bdd35-9ab0-407b-9484-952c1d82b551';
-        const restaurantAddress = 'Самара, улица Советской Армии, 125А';
-        const fullClientAddress = `${addressObj.city}, ${addressObj.street}, ${addressObj.house}`;
-
-        async function geocodeAddress(query) {
-          const url = `https://geocode-maps.yandex.ru/v1/?apikey=${encodeURIComponent(apiKey)}&geocode=${encodeURIComponent(query)}&lang=ru_RU&format=json`;
-
-          const response = await fetch(url);
-          const data = await response.json();
-
-          const feature = data?.response?.GeoObjectCollection?.featureMember?.[0]?.GeoObject;
-          const pos = feature?.Point?.pos;
-
-          if (!pos) return null;
-
-          const [lon, lat] = pos.split(' ').map(Number);
-          return { lat, lon };
-        }
-
-        function getDistanceKm(lat1, lon1, lat2, lon2) {
-          const toRad = deg => deg * Math.PI / 180;
-          const R = 6371;
-
-          const dLat = toRad(lat2 - lat1);
-          const dLon = toRad(lon2 - lon1);
-
-          const a =
-            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-            Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-            Math.sin(dLon / 2) * Math.sin(dLon / 2);
-
-          const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-          return R * c;
-        }
-
-        const restaurant = await geocodeAddress(restaurantAddress);
-        const client = await geocodeAddress(fullClientAddress);
-
-        if (!restaurant || !client) {
-          saveDeliveryDistance('—');
-          saveDeliveryPrice(0);
-          updateDeliveryUI();
-          updateCartUI();
-          return;
-        }
-
-        const directDistanceKm = getDistanceKm(
-          restaurant.lat,
-          restaurant.lon,
-          client.lat,
-          client.lon
-        );
-
-        const distanceKm = directDistanceKm * 1.3;
-        const result = getDeliveryPriceByRules(orderSum, distanceKm);
-
-        saveDeliveryDistance(distanceKm.toFixed(1) + ' км');
-        saveDeliveryPrice(result.price);
-
-        updateDeliveryUI();
-        updateCartUI();
-      } catch (error) {
-        saveDeliveryDistance('—');
-        saveDeliveryPrice(0);
-        updateDeliveryUI();
-        updateCartUI();
-      }
-    }
-
-    function updateCartUI() {
-      const cart = getCart();
-      const cartItems = document.getElementById('cartItems');
-      const cartCount = document.getElementById('cartCount');
-      const cartTotal = document.getElementById('cartTotal');
-      const orderComment = document.getElementById('orderComment');
-
-      let totalCount = 0;
-      let totalPrice = 0;
-
-      Object.entries(cart).forEach(([name, item]) => {
-        totalCount += item.qty;
-        totalPrice += item.qty * item.price;
-      });
-
-      const deliveryMode = getDeliveryMode();
-      const deliveryPrice = deliveryMode === 'delivery' ? getDeliveryPrice() : 0;
-      const finalPrice = totalPrice + deliveryPrice;
-
-      if (cartCount) cartCount.textContent = totalCount;
-      if (cartTotal) cartTotal.textContent = finalPrice + ' ₽';
-
-      if (orderComment && document.activeElement !== orderComment) {
-        orderComment.value = getOrderComment();
-      }
-
-      updateDeliveryUI();
-
-      if (cartItems) {
-        const entries = Object.entries(cart);
-
-        if (!entries.length) {
-          cartItems.innerHTML = '<div class="cart-empty">Пока пусто</div>';
-        } else {
-          cartItems.innerHTML = entries.map(([name, item]) => `
-            <div class="cart-item">
-              <div style="flex:1;">
-                <div class="cart-item-name">${name}</div>
-                <div class="cart-item-meta">${item.price} ₽ за шт</div>
-                <div class="qty" style="margin-top:8px;">
-                  <button onclick='changeCartQty(${JSON.stringify(name)}, -1)'>-</button>
-                  <span>${item.qty}</span>
-                  <button onclick='changeCartQty(${JSON.stringify(name)}, 1)'>+</button>
-                </div>
-              </div>
-              <div class="cart-item-name">${item.qty * item.price} ₽</div>
-            </div>
-          `).join('');
-        }
-      }
-
-      document.querySelectorAll('.product-card').forEach(card => updateCardQtyLabel(card));
-    }
-
-    function toggleCart() {
-      const panel = document.getElementById('cartPanel');
-      if (!panel) return;
-      panel.classList.toggle('open');
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.product-card').forEach(card => {
-        if (!card.dataset.baseName && card.dataset.name) {
-          card.dataset.baseName = card.dataset.name;
-        }
-      });
-
-      updateCartUI();
-
-      const orderComment = document.getElementById('orderComment');
-      if (orderComment) {
-        orderComment.value = getOrderComment();
-        orderComment.addEventListener('input', (e) => {
-          saveOrderComment(e.target.value);
-        });
-      }
-
-      ['deliveryCity', 'deliveryStreet', 'deliveryHouse', 'deliveryFloor', 'deliveryFlat'].forEach(id => {
-        const input = document.getElementById(id);
-        if (input) {
-          input.addEventListener('input', () => {
-            saveDeliveryAddressObject({
-              city: document.getElementById('deliveryCity')?.value.trim() || '',
-              street: document.getElementById('deliveryStreet')?.value.trim() || '',
-              house: document.getElementById('deliveryHouse')?.value.trim() || '',
-              floor: document.getElementById('deliveryFloor')?.value.trim() || '',
-              flat: document.getElementById('deliveryFlat')?.value.trim() || ''
-            });
-          });
-        }
-      });
-
-      setDeliveryMode(getDeliveryMode());
-      updateDeliveryUI();
-    });
-  </script>
+  <script src="js/cart.js"></script>
 </body>
 </html>
-      
