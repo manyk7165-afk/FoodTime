@@ -38,13 +38,12 @@ function injectCartHtml() {
           <div class="delivery-fields" id="deliveryFields" style="display:none;">
             <div class="cart-comment-label" style="margin-top:12px;">Адрес доставки</div>
 
-            <div class="delivery-address-grid">
-              <input type="text" id="deliveryCity" class="delivery-address-input" placeholder="Город">
-              <input type="text" id="deliveryStreet" class="delivery-address-input" placeholder="Улица">
-              <input type="text" id="deliveryHouse" class="delivery-address-input" placeholder="Дом">
-              <input type="text" id="deliveryFloor" class="delivery-address-input" placeholder="Этаж">
-              <input type="text" id="deliveryFlat" class="delivery-address-input" placeholder="Квартира">
-            </div>
+            <input
+              type="text"
+              id="deliveryAddress"
+              class="delivery-address-input"
+              placeholder="Введите адрес доставки"
+            >
 
             <button type="button" class="cart-order-btn" style="margin-top:10px;" onclick="calculateDelivery()">
               Рассчитать доставку
@@ -107,34 +106,12 @@ function saveDeliveryMode(mode) {
   localStorage.setItem(DELIVERY_MODE_KEY, mode);
 }
 
-function getDeliveryAddressObject() {
-  try {
-    return JSON.parse(localStorage.getItem(DELIVERY_ADDRESS_KEY)) || {
-      city: '',
-      street: '',
-      house: '',
-      floor: '',
-      flat: ''
-    };
-  } catch (e) {
-    return {
-      city: '',
-      street: '',
-      house: '',
-      floor: '',
-      flat: ''
-    };
-  }
+function getDeliveryAddress() {
+  return localStorage.getItem(DELIVERY_ADDRESS_KEY) || '';
 }
 
-function saveDeliveryAddressObject(addressObj) {
-  localStorage.setItem(DELIVERY_ADDRESS_KEY, JSON.stringify(addressObj || {
-    city: '',
-    street: '',
-    house: '',
-    floor: '',
-    flat: ''
-  }));
+function saveDeliveryAddress(address) {
+  localStorage.setItem(DELIVERY_ADDRESS_KEY, address || '');
 }
 
 function getDeliveryPrice() {
@@ -206,22 +183,13 @@ function updateCardQtyLabel(card) {
 }
 
 function updateDeliveryUI() {
-  const cityInput = document.getElementById('deliveryCity');
-  const streetInput = document.getElementById('deliveryStreet');
-  const houseInput = document.getElementById('deliveryHouse');
-  const floorInput = document.getElementById('deliveryFloor');
-  const flatInput = document.getElementById('deliveryFlat');
-
+  const addressInput = document.getElementById('deliveryAddress');
   const distanceEl = document.getElementById('deliveryDistance');
   const priceEl = document.getElementById('deliveryPrice');
 
-  const savedAddress = getDeliveryAddressObject();
-
-  if (cityInput && document.activeElement !== cityInput) cityInput.value = savedAddress.city || '';
-  if (streetInput && document.activeElement !== streetInput) streetInput.value = savedAddress.street || '';
-  if (houseInput && document.activeElement !== houseInput) houseInput.value = savedAddress.house || '';
-  if (floorInput && document.activeElement !== floorInput) floorInput.value = savedAddress.floor || '';
-  if (flatInput && document.activeElement !== flatInput) flatInput.value = savedAddress.flat || '';
+  if (addressInput && document.activeElement !== addressInput) {
+    addressInput.value = getDeliveryAddress();
+  }
 
   if (distanceEl) distanceEl.textContent = getDeliveryDistance();
   if (priceEl) priceEl.textContent = getDeliveryPrice() + ' ₽';
@@ -282,25 +250,13 @@ function getDeliveryPriceByRules(orderSum, distanceKm) {
 }
 
 async function calculateDelivery() {
-  const cityInput = document.getElementById('deliveryCity');
-  const streetInput = document.getElementById('deliveryStreet');
-  const houseInput = document.getElementById('deliveryHouse');
-  const floorInput = document.getElementById('deliveryFloor');
-  const flatInput = document.getElementById('deliveryFlat');
+  const addressInput = document.getElementById('deliveryAddress');
+  if (!addressInput) return;
 
-  if (!cityInput || !streetInput || !houseInput) return;
+  const address = addressInput.value.trim();
+  saveDeliveryAddress(address);
 
-  const addressObj = {
-    city: cityInput.value.trim(),
-    street: streetInput.value.trim(),
-    house: houseInput.value.trim(),
-    floor: floorInput ? floorInput.value.trim() : '',
-    flat: flatInput ? flatInput.value.trim() : ''
-  };
-
-  saveDeliveryAddressObject(addressObj);
-
-  if (!addressObj.city || !addressObj.street || !addressObj.house) {
+  if (!address) {
     saveDeliveryDistance('—');
     saveDeliveryPrice(0);
     updateDeliveryUI();
@@ -311,8 +267,6 @@ async function calculateDelivery() {
   const orderSum = getCartSubtotal();
 
   try {
-    const fullClientAddress = `${addressObj.city}, ${addressObj.street}, ${addressObj.house}`;
-
     async function geocodeAddress(query) {
       const url = `https://geocode-maps.yandex.ru/v1/?apikey=${encodeURIComponent(YANDEX_API_KEY)}&geocode=${encodeURIComponent(query)}&lang=ru_RU&format=json`;
 
@@ -345,7 +299,7 @@ async function calculateDelivery() {
     }
 
     const restaurant = await geocodeAddress(RESTAURANT_ADDRESS);
-    const client = await geocodeAddress(fullClientAddress);
+    const client = await geocodeAddress(address);
 
     if (!restaurant || !client) {
       saveDeliveryDistance('—');
@@ -449,20 +403,13 @@ function initCartSystem() {
     });
   }
 
-  ['deliveryCity', 'deliveryStreet', 'deliveryHouse', 'deliveryFloor', 'deliveryFlat'].forEach(id => {
-    const input = document.getElementById(id);
-    if (input) {
-      input.addEventListener('input', () => {
-        saveDeliveryAddressObject({
-          city: document.getElementById('deliveryCity')?.value.trim() || '',
-          street: document.getElementById('deliveryStreet')?.value.trim() || '',
-          house: document.getElementById('deliveryHouse')?.value.trim() || '',
-          floor: document.getElementById('deliveryFloor')?.value.trim() || '',
-          flat: document.getElementById('deliveryFlat')?.value.trim() || ''
-        });
-      });
-    }
-  });
+  const deliveryAddress = document.getElementById('deliveryAddress');
+  if (deliveryAddress) {
+    deliveryAddress.value = getDeliveryAddress();
+    deliveryAddress.addEventListener('input', (e) => {
+      saveDeliveryAddress(e.target.value);
+    });
+  }
 
   setDeliveryMode(getDeliveryMode());
   updateCartUI();
