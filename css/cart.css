@@ -177,16 +177,6 @@
   color: #fff;
 }
 
-.delivery-address-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.delivery-address-grid input:first-child {
-  grid-column: span 2;
-}
-
 @media (max-width: 820px) {
   .cart-panel {
     width: min(88vw, 340px);
@@ -244,13 +234,5 @@
 
   .cart-total {
     font-size: 15px;
-  }
-
-  .delivery-address-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .delivery-address-grid input:first-child {
-    grid-column: span 1;
   }
 }
