@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Сеты — Фуд Тайм</title>
+  <title>Сеты | Фуд Тайм</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Unbounded:wght@500;700&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/cart.css">
 
   <style>
     * {
@@ -17,13 +18,13 @@
     }
 
     :root {
-      --text: rgba(255,255,255,0.96);
-      --muted: rgba(255,255,255,0.74);
-      --soft: rgba(255,255,255,0.48);
-      --glass: rgba(255,255,255,0.07);
-      --border: rgba(255,255,255,0.12);
-      --shadow: 0 18px 40px rgba(0,0,0,0.24);
-      --button: linear-gradient(135deg, #18b7ff 0%, #7b61ff 100%);
+      --text: rgba(255,255,255,.96);
+      --muted: rgba(255,255,255,.74);
+      --soft: rgba(255,255,255,.48);
+      --glass: rgba(255,255,255,.07);
+      --border: rgba(255,255,255,.12);
+      --shadow: 0 18px 40px rgba(0,0,0,.24);
+      --button: linear-gradient(135deg,#18b7ff 0%,#7b61ff 100%);
     }
 
     html {
@@ -33,14 +34,14 @@
     body {
       font-family: 'Manrope', sans-serif;
       min-height: 100vh;
-      background:
-        radial-gradient(circle at 14% 22%, rgba(255, 0, 128, 0.15), transparent 22%),
-        radial-gradient(circle at 86% 14%, rgba(123, 97, 255, 0.20), transparent 24%),
-        radial-gradient(circle at 52% 75%, rgba(0, 255, 200, 0.07), transparent 26%),
-        radial-gradient(circle at 72% 58%, rgba(255, 140, 0, 0.06), transparent 18%),
-        linear-gradient(135deg, #040506 0%, #090811 24%, #140914 50%, #0a1020 76%, #040506 100%);
-      color: var(--text);
       padding: 22px;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 14% 22%, rgba(255,0,128,.15), transparent 22%),
+        radial-gradient(circle at 86% 14%, rgba(123,97,255,.20), transparent 24%),
+        radial-gradient(circle at 52% 75%, rgba(0,255,200,.07), transparent 26%),
+        radial-gradient(circle at 72% 58%, rgba(255,140,0,.06), transparent 18%),
+        linear-gradient(135deg,#040506 0%,#090811 24%,#140914 50%,#0a1020 76%,#040506 100%);
     }
 
     .page {
@@ -51,7 +52,7 @@
       gap: 18px;
     }
 
-    .hero,
+    .topbar,
     .section-block {
       background: var(--glass);
       border: 1px solid var(--border);
@@ -61,88 +62,97 @@
       box-shadow: var(--shadow);
     }
 
-    .hero {
+    .topbar {
       padding: 18px;
-    }
-
-    .hero-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .brand-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 24px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--soft);
     }
 
     .back-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 160px;
-      padding: 12px 18px;
+      min-width: 138px;
+      padding: 13px 18px;
       border-radius: 16px;
       text-decoration: none;
       color: #fff;
       font-weight: 800;
-      font-size: 14px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.10);
-    }
-
-    .mini-label {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--soft);
-      margin-bottom: 8px;
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 34px;
-      line-height: 1.02;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .section-note {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-      max-width: 820px;
+      font-size: 15px;
+      background: var(--button);
+      border: 0;
+      cursor: pointer;
     }
 
     .section-block {
       padding: 18px;
     }
 
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .section-note {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 16px;
       margin-top: 14px;
     }
 
     .product-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
       border-radius: 24px;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.14);
-      overflow: hidden;
-      min-height: 450px;
+      box-shadow: 0 14px 30px rgba(0,0,0,.14);
+      min-height: 420px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 16px;
       gap: 12px;
+      overflow: hidden;
     }
 
     .product-card-image {
       width: 100%;
       aspect-ratio: 16 / 9;
-      height: auto;
       border-radius: 18px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.09);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -212,11 +222,10 @@
       height: 38px;
       border: 0;
       border-radius: 12px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: white;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.08);
+      color: #fff;
       font-size: 22px;
-      line-height: 1;
       cursor: pointer;
       flex: 0 0 38px;
     }
@@ -227,142 +236,9 @@
       font-size: 16px;
       font-weight: 800;
     }
-
-    .cart-float {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 999;
-    }
-
-    .cart-button {
-      border: 1px solid rgba(255,255,255,0.14);
-      background: linear-gradient(135deg, #18b7ff 0%, #7b61ff 100%);
-      color: #fff;
-      border-radius: 18px;
-      padding: 14px 18px;
-      font-size: 18px;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 18px 34px rgba(0,0,0,0.28);
-    }
-
-    .cart-panel {
-      display: none;
-      margin-top: 12px;
-      width: 340px;
-      max-height: 560px;
-      overflow: auto;
-      padding: 16px;
-      border-radius: 22px;
-      background: rgba(20, 20, 30, 0.88);
-      border: 1px solid rgba(255,255,255,0.10);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
-    }
-
-    .cart-panel.open {
-      display: block;
-    }
-
-    .cart-title {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    .cart-items {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .cart-item-name {
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .cart-item-meta {
-      font-size: 13px;
-      color: rgba(255,255,255,0.72);
-      margin-top: 4px;
-    }
-
-    .cart-empty {
-      color: rgba(255,255,255,0.65);
-      font-size: 14px;
-    }
-
-    .cart-comment-wrap {
-      margin-top: 14px;
-    }
-
-    .cart-comment-label {
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: rgba(255,255,255,0.92);
-    }
-
-    .cart-comment {
-      width: 100%;
-      min-height: 84px;
-      resize: vertical;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      padding: 10px 12px;
-      font-family: inherit;
-      font-size: 13px;
-      outline: none;
-    }
-
-    .cart-comment::placeholder {
-      color: rgba(255,255,255,0.42);
-    }
-
-    .cart-total {
-      margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      font-size: 16px;
-      font-weight: 800;
-    }
-
-    .cart-order-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 138px;
-      padding: 13px 18px;
-      border-radius: 16px;
-      text-decoration: none;
-      color: white;
-      font-weight: 800;
-      font-size: 15px;
-      background: var(--button);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.20);
-      border: 0;
-      cursor: pointer;
-      width: 100%;
-    }
-
-    @media (max-width: 1180px) {
+        @media (max-width: 1180px) {
       .product-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0,1fr));
       }
     }
 
@@ -371,7 +247,7 @@
         padding: 16px;
       }
 
-      .hero,
+      .topbar,
       .section-block {
         padding: 14px;
       }
@@ -380,13 +256,12 @@
         grid-template-columns: 1fr;
       }
 
-      .cart-float {
-        right: 14px;
-        bottom: 14px;
+      .back-link {
+        width: 100%;
       }
 
-      .cart-panel {
-        width: min(88vw, 340px);
+      .section-title {
+        font-size: 34px;
       }
 
       .product-card {
@@ -397,8 +272,6 @@
       }
 
       .product-card-image {
-        aspect-ratio: 16 / 9;
-        height: auto;
         border-radius: 14px;
         margin-bottom: 12px;
       }
@@ -437,20 +310,20 @@
 </head>
 <body>
   <div class="page">
-    <section class="hero">
-      <div class="hero-top">
-        <div>
-          <div class="mini-label">Категория</div>
-          <div class="section-title">Сеты</div>
-        </div>
-
-        <a href="index.html" class="back-link">← Назад на главную</a>
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-title">Фуд Тайм</div>
+        <div class="brand-subtitle">premium food service</div>
       </div>
-    </section>
+      <a href="index.html" class="back-link">Назад</a>
+    </div>
 
     <section class="section-block">
+      <div class="section-title">Сеты</div>
+      <div class="section-note">Готовые наборы для компании, семейного ужина и большого стола.</div>
+
       <div class="product-grid">
-        <div class="product-card" data-name="Набор Большая птица" data-price="2625">
+        <div class="product-card" data-name="Набор Большая птица" data-base-name="Набор Большая птица" data-price="2625">
           <div>
             <div class="product-card-image">
               <img src="img/nabor-bolshaya-ptitsa.png" alt="Набор Большая птица">
@@ -459,6 +332,7 @@
 
             <div class="set-meta">
               <div class="set-badge">2025 г</div>
+              <div class="set-badge">2625 ₽</div>
             </div>
 
             <ul class="product-card-list">
@@ -471,13 +345,13 @@
           </div>
 
           <div class="qty">
-            <button onclick="changeQty(this, -1)">-</button>
+            <button onclick="changeQty(this,-1)">-</button>
             <span>0</span>
-            <button onclick="changeQty(this, 1)">+</button>
+            <button onclick="changeQty(this,1)">+</button>
           </div>
         </div>
 
-        <div class="product-card" data-name="Овощной набор" data-price="1330">
+        <div class="product-card" data-name="Овощной набор" data-base-name="Овощной набор" data-price="1330">
           <div>
             <div class="product-card-image">
               <img src="img/ovoshchnoy-nabor.png" alt="Овощной набор">
@@ -486,6 +360,7 @@
 
             <div class="set-meta">
               <div class="set-badge">1750 г</div>
+              <div class="set-badge">1330 ₽</div>
             </div>
 
             <ul class="product-card-list">
@@ -497,13 +372,13 @@
           </div>
 
           <div class="qty">
-            <button onclick="changeQty(this, -1)">-</button>
+            <button onclick="changeQty(this,-1)">-</button>
             <span>0</span>
-            <button onclick="changeQty(this, 1)">+</button>
+            <button onclick="changeQty(this,1)">+</button>
           </div>
         </div>
 
-        <div class="product-card" data-name="Для большой компании" data-price="2800">
+        <div class="product-card" data-name="Для большой компании" data-base-name="Для большой компании" data-price="2800">
           <div>
             <div class="product-card-image">
               <img src="img/dlya-bolshoy-kompanii.png" alt="Для большой компании">
@@ -512,6 +387,7 @@
 
             <div class="set-meta">
               <div class="set-badge">2340 г</div>
+              <div class="set-badge">2800 ₽</div>
             </div>
 
             <ul class="product-card-list">
@@ -524,13 +400,12 @@
           </div>
 
           <div class="qty">
-            <button onclick="changeQty(this, -1)">-</button>
+            <button onclick="changeQty(this,-1)">-</button>
             <span>0</span>
-            <button onclick="changeQty(this, 1)">+</button>
+            <button onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-
-        <div class="product-card" data-name="Мясное ассорти малое" data-price="1175">
+                <div class="product-card" data-name="Мясное ассорти малое" data-base-name="Мясное ассорти малое" data-price="1175">
           <div>
             <div class="product-card-image">
               <img src="img/myasnoe-assorti-maloe.png" alt="Мясное ассорти малое">
@@ -539,6 +414,7 @@
 
             <div class="set-meta">
               <div class="set-badge">1230 г</div>
+              <div class="set-badge">1175 ₽</div>
             </div>
 
             <ul class="product-card-list">
@@ -553,13 +429,13 @@
           </div>
 
           <div class="qty">
-            <button onclick="changeQty(this, -1)">-</button>
+            <button onclick="changeQty(this,-1)">-</button>
             <span>0</span>
-            <button onclick="changeQty(this, 1)">+</button>
+            <button onclick="changeQty(this,1)">+</button>
           </div>
         </div>
 
-        <div class="product-card" data-name="Мясное ассорти среднее" data-price="1250">
+        <div class="product-card" data-name="Мясное ассорти среднее" data-base-name="Мясное ассорти среднее" data-price="1250">
           <div>
             <div class="product-card-image">
               <img src="img/myasnoe-assorti-srednee.png" alt="Мясное ассорти среднее">
@@ -568,6 +444,7 @@
 
             <div class="set-meta">
               <div class="set-badge">950 г</div>
+              <div class="set-badge">1250 ₽</div>
             </div>
 
             <ul class="product-card-list">
@@ -582,13 +459,13 @@
           </div>
 
           <div class="qty">
-            <button onclick="changeQty(this, -1)">-</button>
+            <button onclick="changeQty(this,-1)">-</button>
             <span>0</span>
-            <button onclick="changeQty(this, 1)">+</button>
+            <button onclick="changeQty(this,1)">+</button>
           </div>
         </div>
 
-        <div class="product-card" data-name="Мясное ассорти большое" data-price="2235">
+        <div class="product-card" data-name="Мясное ассорти большое" data-base-name="Мясное ассорти большое" data-price="2235">
           <div>
             <div class="product-card-image">
               <img src="img/myasnoe-assorti-bolshoe.png" alt="Мясное ассорти большое">
@@ -597,6 +474,7 @@
 
             <div class="set-meta">
               <div class="set-badge">1230 г</div>
+              <div class="set-badge">2235 ₽</div>
             </div>
 
             <ul class="product-card-list">
@@ -611,171 +489,15 @@
           </div>
 
           <div class="qty">
-            <button onclick="changeQty(this, -1)">-</button>
+            <button onclick="changeQty(this,-1)">-</button>
             <span>0</span>
-            <button onclick="changeQty(this, 1)">+</button>
+            <button onclick="changeQty(this,1)">+</button>
           </div>
         </div>
       </div>
     </section>
   </div>
 
-  <div class="cart-float">
-    <button class="cart-button" onclick="toggleCart()">🛒 <span id="cartCount">0</span></button>
-
-    <div class="cart-panel" id="cartPanel">
-      <div class="cart-title">Корзина</div>
-
-      <div class="cart-items" id="cartItems">
-        <div class="cart-empty">Пока пусто</div>
-      </div>
-
-      <div class="cart-comment-wrap">
-        <div class="cart-comment-label">Комментарий к заказу</div>
-        <textarea
-          id="orderComment"
-          class="cart-comment"
-          placeholder="Например: позвонить заранее, добавить приборы..."
-        ></textarea>
-      </div>
-
-      <div class="cart-total">Итого: <span id="cartTotal">0 ₽</span></div>
-      <button class="cart-order-btn" style="margin-top:12px;">Оформить</button>
-    </div>
-  </div>
-
-  <script>
-    const CART_KEY = 'foodtime_cart';
-    const CART_COMMENT_KEY = 'foodtime_order_comment';
-
-    function getCart() {
-      try {
-        return JSON.parse(localStorage.getItem(CART_KEY)) || {};
-      } catch (e) {
-        return {};
-      }
-    }
-
-    function saveCart(cart) {
-      localStorage.setItem(CART_KEY, JSON.stringify(cart));
-    }
-
-    function getOrderComment() {
-      return localStorage.getItem(CART_COMMENT_KEY) || '';
-    }
-
-    function saveOrderComment(value) {
-      localStorage.setItem(CART_COMMENT_KEY, value || '');
-    }
-
-    function changeQty(button, delta) {
-      const card = button.closest('.product-card');
-      if (!card) return;
-
-      const name = card.dataset.name || 'Товар';
-      const price = Number(card.dataset.price || 0);
-
-      const cart = getCart();
-      const currentQty = cart[name]?.qty || 0;
-      const newQty = Math.max(0, currentQty + delta);
-
-      if (newQty === 0) {
-        delete cart[name];
-      } else {
-        cart[name] = { price, qty: newQty };
-      }
-
-      saveCart(cart);
-      updateCartUI();
-    }
-
-    function changeCartQty(name, delta) {
-      const cart = getCart();
-      if (!cart[name]) return;
-
-      const newQty = Math.max(0, (cart[name].qty || 0) + delta);
-
-      if (newQty === 0) {
-        delete cart[name];
-      } else {
-        cart[name].qty = newQty;
-      }
-
-      saveCart(cart);
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      const cart = getCart();
-      const cartItems = document.getElementById('cartItems');
-      const cartCount = document.getElementById('cartCount');
-      const cartTotal = document.getElementById('cartTotal');
-      const orderComment = document.getElementById('orderComment');
-
-      let totalCount = 0;
-      let totalPrice = 0;
-
-      Object.entries(cart).forEach(([name, item]) => {
-        totalCount += item.qty;
-        totalPrice += item.qty * item.price;
-      });
-
-      if (cartCount) cartCount.textContent = totalCount;
-      if (cartTotal) cartTotal.textContent = totalPrice + ' ₽';
-
-      if (orderComment && document.activeElement !== orderComment) {
-        orderComment.value = getOrderComment();
-      }
-
-      if (cartItems) {
-        const entries = Object.entries(cart);
-
-        if (!entries.length) {
-          cartItems.innerHTML = '<div class="cart-empty">Пока пусто</div>';
-        } else {
-          cartItems.innerHTML = entries.map(([name, item]) => `
-            <div class="cart-item">
-              <div style="flex:1;">
-                <div class="cart-item-name">${name}</div>
-                <div class="cart-item-meta">${item.price} ₽ за шт</div>
-
-                <div class="qty" style="margin-top:8px;">
-                  <button onclick='changeCartQty(${JSON.stringify(name)}, -1)'>-</button>
-                  <span>${item.qty}</span>
-                  <button onclick='changeCartQty(${JSON.stringify(name)}, 1)'>+</button>
-                </div>
-              </div>
-
-              <div class="cart-item-name">${item.qty * item.price} ₽</div>
-            </div>
-          `).join('');
-        }
-      }
-
-      document.querySelectorAll('.product-card').forEach(card => {
-        const qtyEl = card.querySelector('.qty span');
-        const name = card.dataset.name || 'Товар';
-        if (qtyEl) qtyEl.textContent = cart[name]?.qty || 0;
-      });
-    }
-
-    function toggleCart() {
-      const panel = document.getElementById('cartPanel');
-      if (!panel) return;
-      panel.classList.toggle('open');
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      updateCartUI();
-
-      const orderComment = document.getElementById('orderComment');
-      if (orderComment) {
-        orderComment.value = getOrderComment();
-        orderComment.addEventListener('input', (e) => {
-          saveOrderComment(e.target.value);
-        });
-      }
-    });
-  </script>
+  <script src="js/cart.js"></script>
 </body>
 </html>
