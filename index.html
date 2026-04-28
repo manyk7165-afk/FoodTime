@@ -74,11 +74,11 @@
     }
 
     .bottom-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 16px;
-    }
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
 
     .brand-box,
     .main-box,
@@ -178,44 +178,78 @@
       color: var(--soft);
       margin-bottom: 8px;
     }
-        .contact-mini {
-      width: 100%;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 20px;
-      padding: 16px;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.15);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 100%;
-    }
+.contact-mini {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  gap: 14px;
+}
 
-    .contact-title,
-    .service-title,
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      line-height: 1.02;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
+.contact-title,
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  line-height: 1.02;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
 
-    .contact-phone {
-      font-size: 18px;
-      font-weight: 800;
-      line-height: 1.35;
-      margin-bottom: 10px;
-    }
+.contact-phone {
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
 
-    .contact-note,
-    .service-note,
-    .section-note {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
-      margin-bottom: 12px;
-    }
+.contact-note,
+.section-note {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.contact-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-schedule-line {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.09);
+}
+
+.contact-schedule-line strong {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.82);
+}
+
+.contact-schedule-line span {
+  font-size: 15px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.97);
+}
 
     .photo-box {
       min-height: 220px;
@@ -670,16 +704,29 @@
             </div>
           </div>
 
-          <div class="contact-mini">
-            <div>
-              <div class="mini-label">Связь</div>
-              <div class="contact-title">На связи<br>с вами</div>
-              <div class="contact-phone">+7 927 712-62-64</div>
-              <div class="contact-note">Для оформления заказа и быстрой обратной связи.</div>
-            </div>
+         <div class="contact-mini">
+  <div class="contact-info-block">
+    <div>
+      <div class="mini-label">Связь и график</div>
+      <div class="contact-title">Связь<br>и работа</div>
+      <div class="contact-phone">+7 927 712-62-64</div>
+      <div class="contact-note">Для оформления заказа и быстрой обратной связи.</div>
+    </div>
 
-            <a href="tel:+79277126264" class="contact-action">Позвонить</a>
-          </div>
+    <div class="contact-schedule">
+      <div class="contact-schedule-line">
+        <strong>Будние</strong>
+        <span>10:30 — 21:00</span>
+      </div>
+      <div class="contact-schedule-line">
+        <strong>Выходные</strong>
+        <span>12:00 — 23:00</span>
+      </div>
+    </div>
+  </div>
+
+  <a href="tel:+79277126264" class="contact-action">Позвонить</a>
+</div>
         </div>
       </div>
 
@@ -692,25 +739,7 @@
           </div>
         </div>
 
-        <div class="service-box">
-          <div>
-            <div class="mini-label">Режим работы</div>
-            <div class="service-title">График<br>сервиса</div>
-            <div class="service-note">Мы ценим комфорт каждого гостя и сопровождаем каждый заказ от выбора блюд до подтверждения деталей.</div>
-          </div>
-
-          <div class="schedule-lines">
-            <div class="schedule-line">
-              <strong>Будние</strong>
-              <span>10:30 — 21:00</span>
-            </div>
-            <div class="schedule-line">
-              <strong>Выходные</strong>
-              <span>12:00 — 23:00</span>
-            </div>
-          </div>
-        </div>
-      </div>
+        
     </section>
 
     <div class="category-shell">
