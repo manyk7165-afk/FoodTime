@@ -73,7 +73,7 @@
       align-items: stretch;
     }
 
-    .bottom-row {
+   .bottom-row {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
@@ -170,6 +170,88 @@
       border: 0;
       cursor: pointer;
     }
+    .contact-mini {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 100%;
+}
+
+.contact-row {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  flex: 1;
+}
+
+.contact-box {
+  flex: 1;
+  min-width: 0;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.contact-box-title {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.58);
+  margin-bottom: 6px;
+}
+
+.contact-box-value {
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.35;
+  color: #fff;
+}
+
+.contact-box-value.small {
+  font-size: 14px;
+}
+
+.contact-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 138px;
+  padding: 13px 18px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: white;
+  font-weight: 800;
+  font-size: 15px;
+  background: var(--button);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.20);
+  border: 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+@media (max-width: 820px) {
+  .contact-mini {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-row {
+    flex-direction: column;
+  }
+
+  .contact-action {
+    width: 100%;
+    justify-content: center;
+  }
+}
 
     .mini-label {
       font-size: 11px;
@@ -704,31 +786,22 @@
             </div>
           </div>
 
-         <div class="contact-mini">
-  <div class="contact-info-block">
-    <div>
-      <div class="mini-label">Связь и график</div>
-      <div class="contact-title">Связь<br>и работа</div>
-      <div class="contact-phone">+7 927 712-62-64</div>
-      <div class="contact-note">Для оформления заказа и быстрой обратной связи.</div>
+        <div class="contact-mini">
+  <div class="contact-row">
+    <div class="contact-box">
+      <div class="contact-box-title">График</div>
+      <div class="contact-box-value small">Будни: 10:30 — 21:00</div>
+      <div class="contact-box-value small">Выходные: 12:00 — 23:00</div>
     </div>
 
-    <div class="contact-schedule">
-      <div class="contact-schedule-line">
-        <strong>Будние</strong>
-        <span>10:30 — 21:00</span>
-      </div>
-      <div class="contact-schedule-line">
-        <strong>Выходные</strong>
-        <span>12:00 — 23:00</span>
-      </div>
+    <div class="contact-box">
+      <div class="contact-box-title">Телефон</div>
+      <div class="contact-box-value">+7 927 712-62-64</div>
     </div>
   </div>
 
   <a href="tel:+79277126264" class="contact-action">Позвонить</a>
-</div>
         </div>
-      </div>
 
       <div class="bottom-row">
         <div class="photo-box">
