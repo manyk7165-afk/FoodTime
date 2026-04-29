@@ -44,7 +44,7 @@
     }
 
     .page {
-      max-width: 1380px;
+      max-width: 1280px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -68,8 +68,8 @@
 
     .hero-top {
       display: grid;
-      grid-template-columns: 250px 1fr;
-      gap: 16px;
+      grid-template-columns: 210px 1fr;
+      gap: 14px;
       align-items: stretch;
     }
 
@@ -85,17 +85,17 @@
     }
 
     .hero-brand {
-      min-height: 360px;
+      min-height: 320px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 24px;
+      padding: 20px;
     }
 
     .hero-brand-title {
       font-family: 'Unbounded', sans-serif;
-      font-size: 36px;
+      font-size: 32px;
       line-height: 1.04;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -111,11 +111,11 @@
     }
 
     .hero-main {
-      min-height: 360px;
-      padding: 18px;
+      min-height: 320px;
+      padding: 14px;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr 0.85fr;
-      gap: 16px;
+      grid-template-columns: 1.15fr 0.75fr 0.85fr;
+      gap: 14px;
       align-items: stretch;
     }
 
@@ -125,7 +125,7 @@
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
       border-radius: 20px;
-      padding: 20px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
       min-height: 100%;
@@ -146,7 +146,7 @@
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
+      font-size: 28px;
       line-height: 1.02;
       font-weight: 700;
       margin-bottom: 10px;
@@ -154,8 +154,8 @@
     }
 
     .hero-about-text {
-      font-size: 17px;
-      line-height: 1.72;
+      font-size: 16px;
+      line-height: 1.7;
       color: rgba(255,255,255,0.87);
     }
 
@@ -163,7 +163,7 @@
       color: rgba(255,255,255,0.72);
       font-size: 13px;
       line-height: 1.55;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .hero-about-btn,
@@ -179,14 +179,10 @@
       font-size: 18px;
       background: var(--button);
       box-shadow: 0 12px 24px rgba(0,0,0,0.20);
+      width: 100%;
     }
 
-    .hero-about-btn {
-      width: fit-content;
-      min-width: 150px;
-      padding: 0 22px;
-    }
-        .schedule-stack {
+    .schedule-stack {
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -215,8 +211,14 @@
       color: #fff;
     }
 
+    .hero-contact-text {
+      color: rgba(255,255,255,0.70);
+      font-size: 14px;
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+
     .hero-phone {
-      margin-top: 8px;
       margin-bottom: 14px;
       font-size: 18px;
       font-weight: 800;
@@ -224,11 +226,6 @@
       color: #4ea3ff;
       text-decoration: none;
       word-break: break-word;
-    }
-
-    .hero-call-btn {
-      width: 100%;
-      margin-top: auto;
     }
 
     .hero-bottom {
@@ -239,7 +236,7 @@
     }
 
     .hero-photo-card {
-      min-height: 340px;
+      min-height: 320px;
       overflow: hidden;
       position: relative;
     }
@@ -248,7 +245,7 @@
       position: relative;
       width: 100%;
       height: 100%;
-      min-height: 340px;
+      min-height: 320px;
     }
 
     .slider {
@@ -287,8 +284,7 @@
       line-height: 1.02;
       font-weight: 700;
     }
-
-    .category-shell {
+        .category-shell {
       padding: 12px 14px;
       display: flex;
       align-items: center;
@@ -357,13 +353,6 @@
       font-weight: 700;
     }
 
-    .section-note {
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
-      margin-bottom: 12px;
-    }
-
     .hot-grid {
       display: grid;
       gap: 16px;
@@ -390,36 +379,15 @@
       font-size: 20px;
       font-weight: 800;
     }
-        .product-grid,
-    .daily-menu-grid {
+
+    .product-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
       margin-top: 14px;
     }
 
-    .daily-menu-subgrid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .daily-menu-group-card {
-      grid-column: 1 / -1;
-      background: rgba(255,255,255,.04);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 24px;
-      padding: 16px;
-    }
-
-    .daily-menu-group-title {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 14px;
-    }
-
-    .product-card,
-    .daily-menu-card {
+    .product-card {
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.10);
       border-radius: 24px;
@@ -442,8 +410,7 @@
       margin-top: auto;
     }
 
-    .product-card-image,
-    .daily-menu-card-image {
+    .product-card-image {
       width: 100%;
       aspect-ratio: 16 / 9;
       min-height: 160px;
@@ -458,8 +425,7 @@
       position: relative;
     }
 
-    .product-card-image img,
-    .daily-menu-card-image img {
+    .product-card-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -467,16 +433,14 @@
       display: block;
     }
 
-    .product-card-title,
-    .daily-menu-card-title {
+    .product-card-title {
       font-size: 18px;
       font-weight: 800;
       line-height: 1.2;
       margin-bottom: 6px;
     }
 
-    .product-card-meta,
-    .daily-menu-card-meta {
+    .product-card-meta {
       color: rgba(255,255,255,0.72);
       font-size: 14px;
       margin-bottom: 8px;
@@ -484,8 +448,7 @@
       white-space: pre-line;
     }
 
-    .product-card-price,
-    .daily-menu-card-price {
+    .product-card-price {
       color: var(--muted);
       font-size: 16px;
       margin-bottom: 14px;
@@ -540,8 +503,7 @@
       background: var(--chip-active);
       border-color: rgba(255,255,255,0.22);
     }
-
-    .option-check {
+        .option-check {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -555,23 +517,21 @@
       height: 16px;
       accent-color: #7b61ff;
     }
-       @media (max-width: 900px) {
-  .hero-top {
-    grid-template-columns: 1fr;
-  }
 
-  .hero-main {
-    grid-template-columns: 1fr;
-  }
-}
+    @media (max-width: 1200px) {
+      .hero-top {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main {
+        grid-template-columns: 1fr;
+      }
 
       .hot-grid-6 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .product-grid,
-      .daily-menu-grid,
-      .daily-menu-subgrid {
+      .product-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
@@ -584,10 +544,6 @@
       .hero,
       .section-block {
         padding: 14px;
-      }
-
-      .hero-top {
-        grid-template-columns: 1fr;
       }
 
       .hero-brand,
@@ -621,10 +577,6 @@
         line-height: 1.6;
       }
 
-      .hero-about-btn {
-        width: 100%;
-      }
-
       .hero-photo-card,
       .hero-photo-inner {
         min-height: 220px;
@@ -644,39 +596,32 @@
       }
 
       .hot-grid-6,
-      .product-grid,
-      .daily-menu-grid,
-      .daily-menu-subgrid {
+      .product-grid {
         grid-template-columns: 1fr;
       }
 
-      .product-card,
-      .daily-menu-card {
+      .product-card {
         min-height: auto;
         padding: 12px;
         border-radius: 18px;
         gap: 10px;
       }
 
-      .product-card-image,
-      .daily-menu-card-image {
+      .product-card-image {
         border-radius: 14px;
         margin-bottom: 12px;
       }
 
-      .product-card-title,
-      .daily-menu-card-title {
+      .product-card-title {
         font-size: 16px;
       }
 
-      .product-card-meta,
-      .daily-menu-card-meta {
+      .product-card-meta {
         font-size: 13px;
         line-height: 1.45;
       }
 
-      .product-card-price,
-      .daily-menu-card-price {
+      .product-card-price {
         font-size: 15px;
         margin-bottom: 12px;
       }
@@ -714,6 +659,7 @@
         <div class="hero-main">
           <div class="hero-about">
             <div>
+              <div class="hero-mini-label">Описание</div>
               <div class="hero-about-text">
                 Мы ценим комфорт каждого гостя. Заказы принимаются ежедневно, а команда внимательно сопровождает оформление от выбора блюд до подтверждения деталей.
               </div>
@@ -725,8 +671,7 @@
           </div>
 
           <div class="hero-schedule">
-            <div class="hero-title">График<br>сервиса</div>
-            <div class="hero-note">
+            <div class="hero-mini-label">График работы</div>
 
             <div class="schedule-stack">
               <div class="schedule-item">
@@ -742,11 +687,11 @@
           </div>
 
           <div class="hero-contact">
-            <div class="hero-title">На связи<br>с вами</div>
+            <div class="hero-mini-label">Связь</div>
+            <div class="hero-title">На связи</div>
 
+            <div class="hero-contact-text">Номер для связи и быстрого оформления заказа.</div>
             <a href="tel:+79277126264" class="hero-phone">+7 927 712-62-64</a>
-
-
             <a href="tel:+79277126264" class="hero-call-btn">Позвонить</a>
           </div>
         </div>
@@ -773,7 +718,6 @@
       <div class="category-bar" id="categoryBar">
         <a href="#hot" class="category-link">Горячее</a>
         <a href="#grill-side" class="category-link">К шашлыку</a>
-        <a href="#daily-menu" class="category-link">Меню дня</a>
         <a href="#salads" class="category-link">Салаты</a>
         <a href="#street-food" class="category-link">Уличная классика</a>
         <a href="#burgers" class="category-link">Бургеры</a>
@@ -782,7 +726,8 @@
 
       <button class="category-arrow right" aria-label="Прокрутить вправо" onclick="scrollCategories(1)">&#10095;</button>
     </div>
-        <section class="section-block" id="hot">
+
+    <section class="section-block" id="hot">
       <div class="section-title">Горячие</div>
 
       <div class="hot-grid hot-grid-6">
@@ -858,40 +803,9 @@
             </div>
           </div>
         </div>
-
-        <div class="product-card variant-card" data-base-name="Огурцы и помидоры свежие со сметаной" data-name="Огурцы и помидоры свежие со сметаной" data-price="180">
-          <div class="product-card-main">
-            <div class="product-card-image">
-              <img src="img/ogurtsy-i-pomidory-svezhie.PNG" alt="Огурцы и помидоры свежие">
-            </div>
-            <div class="product-card-title">Огурцы и помидоры свежие</div>
-
-            <div class="variant-group">
-              <button class="variant-btn active" data-name="Огурцы и помидоры свежие со сметаной" data-meta="С луком и растительным маслом · 110 г · сметана" data-price="180" onclick="selectVariant(this)">Сметана</button>
-              <button class="variant-btn" data-name="Огурцы и помидоры свежие с майонезом" data-meta="С луком и растительным маслом · 110 г · майонез" data-price="180" onclick="selectVariant(this)">Майонез</button>
-            </div>
-
-            <div class="product-card-meta variant-meta">С луком и растительным маслом · 110 г · сметана</div>
-            <div class="product-card-price variant-price">180 ₽</div>
-          </div>
-          <div class="product-card-bottom">
-            <div class="qty">
-              <button onclick="changeQty(this, -1)">-</button>
-              <span>0</span>
-              <button onclick="changeQty(this, 1)">+</button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
-
-    <section class="section-block" id="daily-menu">
-      <div class="section-title" id="dailyMenuDay">Меню дня</div>
-      <div class="section-note">Актуальное меню на сегодня.</div>
-      <div class="daily-menu-grid" id="dailyMenuGrid"></div>
-    </section>
-
-    <section class="section-block" id="salads">
+        <section class="section-block" id="salads">
       <div class="section-title">Салаты</div>
 
       <div class="product-grid">
@@ -956,7 +870,8 @@
         </div>
       </div>
     </section>
-        <section class="section-block" id="street-food">
+
+    <section class="section-block" id="street-food">
       <div class="section-title">Уличная классика</div>
 
       <div class="product-grid">
@@ -1004,24 +919,6 @@
             <div class="product-card-title">Хот-дог</div>
             <div class="product-card-price">300 ₽</div>
             <div class="product-card-meta">(булочка, сосиска халяль, морковь по-корейски, соленый огурец, кетчуп, дижонская горчица, жареный лук)</div>
-          </div>
-          <div class="product-card-bottom">
-            <div class="qty">
-              <button onclick="changeQty(this, -1)">-</button>
-              <span>0</span>
-              <button onclick="changeQty(this, 1)">+</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-name="Сэндвич с курицей" data-base-name="Сэндвич с курицей" data-price="380">
-          <div class="product-card-main">
-            <div class="product-card-image">
-              <img src="img/sendvich-s-kuritsey.png" alt="Сэндвич с курицей">
-            </div>
-            <div class="product-card-title">Сэндвич с курицей</div>
-            <div class="product-card-price">380 ₽</div>
-            <div class="product-card-meta">(хлеб HARRY'S, курица, творожный сыр, томат, красный лук, айсберг)</div>
           </div>
           <div class="product-card-bottom">
             <div class="qty">
@@ -1176,148 +1073,12 @@
       if (metaEl) metaEl.textContent = button.dataset.meta || '';
       if (priceEl) priceEl.textContent = `${button.dataset.price} ₽`;
     }
-
-    const dailyMenus = {
-      1: {
-        title: 'День 1 · Понедельник',
-        items: [
-          { type: 'single', name: 'Щи со свежей капустой и говядиной', meta: 'Суп · 350 мл', price: 200, image: 'img/shchi-so-svezhey-kapustoy-i-govyadinoy.png' },
-          { type: 'single', name: 'Котлеты куриные', meta: 'Второе · 180 г', price: 200, image: 'img/kotlety-kurinye.png' },
-          { type: 'group', title: 'Гарнир', items: [
-            { name: 'Картофельное пюре', meta: '150 г', price: 70, image: 'img/kartofelnoe-pyure.png' },
-            { name: 'Гречка отварная', meta: '130 г', price: 65, image: 'img/grechka-otvarnaya.png' },
-            { name: 'Макароны', meta: '120 г', price: 65, image: 'img/makarony.png' }
-          ]},
-          { type: 'single', name: 'Витаминный', meta: 'Салат · 100 г', price: 70, image: 'img/vitaminnyy.png' },
-          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70, image: 'img/kompot-iz-sukhofruktov.png' }
-        ]
-      },
-      2: {
-        title: 'День 2 · Вторник',
-        items: [
-          { type: 'single', name: 'Суп гороховый с копчёностями', meta: 'Суп · 350 мл', price: 200, image: 'img/sup-gorokhovyy-s-kopchenostyami.png' },
-          { type: 'single', name: 'Паста сливочная с курицей и грибами', meta: 'Второе', price: 210, image: 'img/pasta-slivochnaya-s-kuritsey-i-gribami.png' },
-          { type: 'single', name: 'Греческий', meta: 'Салат · 200 г', price: 180, image: 'img/grecheskiy.png' },
-          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70, image: 'img/kompot-iz-sukhofruktov.png' }
-        ]
-      },
-      3: {
-        title: 'День 3 · Среда',
-        items: [
-          { type: 'single', name: 'Суп куриный с вермишелью', meta: 'Суп · 350 мл', price: 160, image: 'img/sup-kurinyy-s-vermishelyu.png' },
-          { type: 'single', name: 'Лагман жареный (говядина)', meta: 'Второе · 400 г', price: 380, image: 'img/lagman-zharenyy-govyadina.png' },
-          { type: 'single', name: 'Огурцы и помидоры свежие с луком и растительным маслом', meta: 'Салат · 100 г', price: 120, image: 'img/ogurtsy-i-pomidory-s-lukom-i-rastitelnym-maslom.png' },
-          { type: 'single', name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70, image: 'img/klyukvennyy-mors.png' }
-        ]
-      },
-      4: {
-        title: 'День 4 · Четверг',
-        items: [
-          { type: 'single', name: 'Солянка', meta: 'Суп · 250 мл', price: 210, image: 'img/solyanka.png' },
-          { type: 'single', name: 'Куриный шашлычок с овощами', meta: 'Второе · 200 г', price: 250, image: 'img/kurinyy-shashlychok-s-ovoshchami.png' },
-          { type: 'single', name: 'Морковь по-корейски', meta: 'Салат · 70 г', price: 70, image: 'img/morkov-po-koreyski.png' },
-          { type: 'single', name: 'Клюквенный морс', meta: 'Напиток · 300 мл', price: 70, image: 'img/klyukvennyy-mors.png' }
-        ]
-      },
-      5: {
-        title: 'День 5 · Пятница',
-        items: [
-          { type: 'single', name: 'Сливочный с курицей и грибами', meta: 'Суп · 350 мл', price: 200, image: 'img/slivochnyy-s-kuritsey-i-gribami.png' },
-          { type: 'single', name: 'Рубленые куриные котлеты с помидорами и сыром', meta: 'Второе · 230 г', price: 240, image: 'img/rublenye-kurinye-kotlety-s-pomidorami-i-syrom.png' },
-          { type: 'group', title: 'Гарнир', items: [
-            { name: 'Картофельное пюре', meta: '150 г', price: 70, image: 'img/kartofelnoe-pyure.png' },
-            { name: 'Гречка отварная', meta: '130 г', price: 65, image: 'img/grechka-otvarnaya.png' },
-            { name: 'Макароны', meta: '120 г', price: 65, image: 'img/makarony.png' }
-          ]},
-          { type: 'single', name: 'Цезарь с курицей', meta: 'Салат · 270 г', price: 170, image: 'img/tsezar-s-kuritsey.png' },
-          { type: 'single', name: 'Компот из сухофруктов', meta: 'Напиток · 300 мл', price: 70, image: 'img/kompot-iz-sukhofruktov.png' }
-        ]
-      }
-    };
-
-    function renderDailyMenu() {
-      const dayEl = document.getElementById('dailyMenuDay');
-      const gridEl = document.getElementById('dailyMenuGrid');
-      const sectionEl = document.getElementById('daily-menu');
-      if (!dayEl || !gridEl || !sectionEl) return;
-
-      const day = new Date().getDay();
-
-      if (day === 0 || day === 6) {
-        sectionEl.style.display = 'none';
-        return;
-      }
-
-      const menu = dailyMenus[day];
-      if (!menu) {
-        sectionEl.style.display = 'none';
-        return;
-      }
-
-      dayEl.textContent = menu.title;
-
-      gridEl.innerHTML = menu.items.map(item => {
-        if (item.type === 'group') {
-          return `
-            <div class="daily-menu-group-card">
-              <div class="daily-menu-group-title">${item.title}</div>
-              <div class="daily-menu-subgrid">
-                ${item.items.map(subItem => `
-                  <div class="daily-menu-card" data-name="${subItem.name}" data-base-name="${subItem.name}" data-price="${subItem.price}">
-                    <div>
-                      <div class="daily-menu-card-image">
-                        <img src="${subItem.image}" alt="${subItem.name}">
-                      </div>
-                      <div class="daily-menu-card-title">${subItem.name}</div>
-                      <div class="daily-menu-card-meta">${subItem.meta}</div>
-                      <div class="daily-menu-card-price">${subItem.price} ₽</div>
-                    </div>
-                    <div class="qty">
-                      <button onclick="changeQty(this,-1)">-</button>
-                      <span>0</span>
-                      <button onclick="changeQty(this,1)">+</button>
-                    </div>
-                  </div>
-                `).join('')}
-              </div>
-            </div>
-          `;
-        }
-
-        return `
-          <div class="daily-menu-card" data-name="${item.name}" data-base-name="${item.name}" data-price="${item.price}">
-            <div>
-              <div class="daily-menu-card-image">
-                <img src="${item.image}" alt="${item.name}">
-              </div>
-              <div class="daily-menu-card-title">${item.name}</div>
-              <div class="daily-menu-card-meta">${item.meta}</div>
-              <div class="daily-menu-card-price">${item.price} ₽</div>
-            </div>
-            <div class="qty">
-              <button onclick="changeQty(this,-1)">-</button>
-              <span>0</span>
-              <button onclick="changeQty(this,1)">+</button>
-            </div>
-          </div>
-        `;
-      }).join('');
-
-      if (typeof updateCartUI === 'function') {
-        updateCartUI();
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      renderDailyMenu();
-    });
   </script>
 
   <script src="js/cart.js"></script>
 </body>
 </html>
-    
-    
+
     
     
     
