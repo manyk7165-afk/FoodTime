@@ -68,9 +68,15 @@
 
     .hero-top {
       display: grid;
-      grid-template-columns: 240px 1fr 320px 300px;
+      grid-template-columns: 260px 1fr;
       gap: 16px;
       align-items: stretch;
+    }
+
+    .hero-right-wrap {
+      display: grid;
+      grid-template-columns: 1.15fr 0.9fr 0.9fr;
+      gap: 16px;
     }
 
     .hero-bottom {
@@ -115,43 +121,18 @@
       color: rgba(255,255,255,0.50);
     }
 
-    .hero-about {
+    .hero-about,
+    .hero-schedule,
+    .hero-contact {
       min-height: 340px;
       padding: 22px;
       display: flex;
       flex-direction: column;
+    }
+
+    .hero-about {
       justify-content: center;
       gap: 18px;
-    }
-
-    .hero-about-text {
-      font-size: 17px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.86);
-    }
-
-    .hero-about-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 150px;
-      width: fit-content;
-      padding: 14px 22px;
-      border-radius: 18px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 800;
-      font-size: 18px;
-      background: linear-gradient(135deg,#2db7ff 0%,#7b61ff 100%);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.20);
-    }
-
-    .hero-schedule,
-    .hero-contact {
-      min-height: 340px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
     }
 
     .hero-mini-label {
@@ -171,6 +152,12 @@
       color: #fff;
     }
 
+    .hero-about-text {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.86);
+    }
+
     .hero-note {
       color: rgba(255,255,255,0.72);
       font-size: 13px;
@@ -178,10 +165,26 @@
       margin-bottom: 16px;
     }
 
+    .hero-about-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 150px;
+      width: fit-content;
+      padding: 14px 22px;
+      border-radius: 18px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 800;
+      font-size: 18px;
+      background: linear-gradient(135deg,#2db7ff 0%,#7b61ff 100%);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.20);
+    }
+
     .schedule-stack {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       margin-top: auto;
     }
 
@@ -215,10 +218,6 @@
       line-height: 1.45;
       color: #4ea3ff;
       text-decoration: none;
-    }
-
-    .hero-contact .hero-note {
-      margin-bottom: 18px;
     }
 
     .hero-call-btn {
@@ -286,7 +285,8 @@
       line-height: 1.02;
       font-weight: 700;
     }
-        .category-shell {
+
+    .category-shell {
       padding: 12px 14px;
       display: flex;
       align-items: center;
@@ -489,7 +489,8 @@
       font-size: 16px;
       margin-bottom: 14px;
     }
-        .qty {
+
+    .qty {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -556,7 +557,11 @@
 
     @media (max-width: 1280px) {
       .hero-top {
-        grid-template-columns: 220px 1fr;
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right-wrap {
+        grid-template-columns: 1fr 1fr 1fr;
       }
     }
 
@@ -573,8 +578,8 @@
     }
 
     @media (max-width: 980px) {
-      .hero-top {
-        grid-template-columns: 1fr 1fr;
+      .hero-right-wrap {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -588,31 +593,26 @@
         padding: 14px;
       }
 
-      .hero-top {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-bottom {
-        grid-template-columns: 1fr;
-      }
-
       .hero-brand,
       .hero-about,
       .hero-schedule,
       .hero-contact {
         min-height: auto;
+        padding: 18px;
       }
 
       .hero-brand-title {
         font-size: 28px;
       }
 
-      .hero-title {
+      .hero-title,
+      .section-title {
         font-size: 26px;
       }
 
       .hero-about-text {
         font-size: 15px;
+        line-height: 1.6;
       }
 
       .hero-about-btn {
@@ -697,60 +697,102 @@
   <div class="page">
 
     <section class="hero">
+
       <div class="hero-top">
+
         <div class="hero-card hero-brand">
+
           <div>
+
             <div class="hero-brand-title">ФУД<br>ТАЙМ</div>
+
             <div class="hero-brand-subtitle">premium food service</div>
+
           </div>
+
         </div>
 
-        <div class="hero-card hero-about">
-          <div>
-            <div class="hero-mini-label">Описание</div>
-            <div class="hero-about-text">
-              Мы ценим комфорт каждого гостя. Заказы принимаются ежедневно, а команда внимательно сопровождает оформление от выбора блюд до подтверждения деталей.
-            </div>
-          </div>
+        <div class="hero-right-wrap">
 
-          <div>
-            <a href="#" class="hero-about-btn">VK</a>
-          </div>
-        </div>
+          <div class="hero-card hero-about">
 
-        <div class="hero-card hero-schedule">
-          <div class="hero-mini-label">Режим работы</div>
-          <div class="hero-title">График<br>сервиса</div>
-          <div class="hero-note">
-            Мы внимательно сопровождаем каждый заказ от выбора блюд до подтверждения деталей.
-          </div>
+            <div>
 
-          <div class="schedule-stack">
-            <div class="schedule-item">
-              <strong>Будние</strong>
-              <span>10:30 — 21:00</span>
+              <div class="hero-mini-label">Описание</div>
+
+              <div class="hero-about-text">
+
+                Мы ценим комфорт каждого гостя. Заказы принимаются ежедневно, а команда внимательно сопровождает оформление от выбора блюд до подтверждения деталей.
+
+              </div>
+
             </div>
 
-            <div class="schedule-item">
-              <strong>Выходные</strong>
-              <span>12:00 — 23:00</span>
+            <div>
+
+              <a href="#" class="hero-about-btn">VK</a>
+
             </div>
-          </div>
-        </div>
 
-        <div class="hero-card hero-contact">
-          <div class="hero-mini-label">Связь</div>
-          <div class="hero-title">На связи<br>с вами</div>
-
-          <a href="tel:+79277126264" class="hero-phone">+7 927 712-62-64</a>
-
-          <div class="hero-note">
-            Для оформления заказа и быстрой обратной связи.
           </div>
 
-          <a href="tel:+79277126264" class="hero-call-btn">Позвонить</a>
+          <div class="hero-card hero-schedule">
+
+            <div class="hero-mini-label">Режим работы</div>
+
+            <div class="hero-title">График<br>сервиса</div>
+
+            <div class="hero-note">
+
+              Мы внимательно сопровождаем каждый заказ от выбора блюд до подтверждения деталей.
+
+            </div>
+
+            <div class="schedule-stack">
+
+              <div class="schedule-item">
+
+                <strong>Будние</strong>
+
+                <span>10:30 — 21:00</span>
+
+              </div>
+
+              <div class="schedule-item">
+
+                <strong>Выходные</strong>
+
+                <span>12:00 — 23:00</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="hero-card hero-contact">
+
+            <div class="hero-mini-label">Связь</div>
+
+            <div class="hero-title">На связи<br>с вами</div>
+
+            <a href="tel:+79277126264" class="hero-phone">+7 927 712-62-64</a>
+
+            <div class="hero-note">
+
+              Для оформления заказа и быстрой обратной связи.
+
+            </div>
+
+            <a href="tel:+79277126264" class="hero-call-btn">Позвонить</a>
+
+          </div>
+
         </div>
+
       </div>
+
+
 
       <div class="hero-bottom">
         <div class="hero-card hero-photo-card">
