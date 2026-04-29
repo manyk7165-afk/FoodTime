@@ -44,7 +44,7 @@
     }
 
     .page {
-      max-width: 1280px;
+      max-width: 1380px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -63,7 +63,7 @@
     }
 
     .hero {
-      padding: 16px;
+      padding: 14px;
     }
 
     .hero-top {
@@ -73,9 +73,21 @@
       align-items: stretch;
     }
 
-    .hero-brand,
-    .hero-main,
-    .hero-photo-card {
+    .hero-right-wrap {
+      display: grid;
+      grid-template-columns: 1.05fr 0.72fr 0.8fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .hero-card {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.10);
       backdrop-filter: blur(22px);
@@ -85,7 +97,7 @@
     }
 
     .hero-brand {
-      min-height: 320px;
+      min-height: 280px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -95,56 +107,37 @@
 
     .hero-brand-title {
       font-family: 'Unbounded', sans-serif;
-      font-size: 32px;
-      line-height: 1.04;
+      font-size: 30px;
+      line-height: 1.05;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #fff;
     }
 
     .hero-brand-subtitle {
-      margin-top: 16px;
-      font-size: 11px;
-      letter-spacing: 0.22em;
+      margin-top: 14px;
+      font-size: 10px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.50);
-    }
-
-    .hero-main {
-      min-height: 320px;
-      padding: 14px;
-      display: grid;
-      grid-template-columns: 1.15fr 0.75fr 0.85fr;
-      gap: 14px;
-      align-items: stretch;
     }
 
     .hero-about,
     .hero-schedule,
     .hero-contact {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 20px;
-      padding: 18px;
+      min-height: 280px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
-      min-height: 100%;
     }
 
     .hero-about {
-      justify-content: center;
-      gap: 18px;
+      justify-content: space-between;
+      gap: 16px;
     }
 
-    .hero-mini-label {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.50);
-      margin-bottom: 8px;
-    }
-
-    .hero-title {
+    .hero-title,
+    .section-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: 28px;
       line-height: 1.02;
@@ -155,11 +148,12 @@
 
     .hero-about-text {
       font-size: 16px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.87);
+      line-height: 1.65;
+      color: rgba(255,255,255,0.86);
     }
 
-    .hero-note {
+    .hero-note,
+    .section-note {
       color: rgba(255,255,255,0.72);
       font-size: 13px;
       line-height: 1.55;
@@ -171,72 +165,61 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 56px;
+      width: 100%;
+      min-height: 54px;
       border-radius: 18px;
       text-decoration: none;
       color: #fff;
       font-weight: 800;
-      font-size: 18px;
+      font-size: 17px;
       background: var(--button);
       box-shadow: 0 12px 24px rgba(0,0,0,0.20);
-      width: 100%;
     }
 
-    .schedule-stack {
+    .hero-schedule {
+      justify-content: space-between;
+    }
+
+    .hero-schedule-time {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       margin-top: auto;
     }
 
-    .schedule-item {
+    .hero-time-box {
       padding: 14px 16px;
       border-radius: 16px;
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .schedule-item strong {
-      display: block;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.78);
-      margin-bottom: 6px;
-    }
-
-    .schedule-item span {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 800;
+      line-height: 1.4;
       color: #fff;
     }
 
-    .hero-contact-text {
-      color: rgba(255,255,255,0.70);
-      font-size: 14px;
-      line-height: 1.55;
-      margin-bottom: 12px;
+    .hero-contact {
+      justify-content: space-between;
+    }
+
+    .hero-contact-top {
+      display: flex;
+      flex-direction: column;
     }
 
     .hero-phone {
-      margin-bottom: 14px;
+      display: inline-block;
+      margin-top: 6px;
+      margin-bottom: 12px;
       font-size: 18px;
       font-weight: 800;
       line-height: 1.45;
       color: #4ea3ff;
       text-decoration: none;
-      word-break: break-word;
-    }
-
-    .hero-bottom {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 16px;
     }
 
     .hero-photo-card {
-      min-height: 320px;
+      min-height: 300px;
       overflow: hidden;
       position: relative;
     }
@@ -245,10 +228,9 @@
       position: relative;
       width: 100%;
       height: 100%;
-      min-height: 320px;
+      min-height: 300px;
     }
-
-    .slider {
+        .slider {
       position: relative;
       width: 100%;
       height: 100%;
@@ -284,7 +266,8 @@
       line-height: 1.02;
       font-weight: 700;
     }
-        .category-shell {
+
+    .category-shell {
       padding: 12px 14px;
       display: flex;
       align-items: center;
@@ -346,11 +329,7 @@
     }
 
     .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      line-height: 1.02;
-      margin-bottom: 10px;
-      font-weight: 700;
+      margin-bottom: 12px;
     }
 
     .hot-grid {
@@ -453,8 +432,7 @@
       font-size: 16px;
       margin-bottom: 14px;
     }
-
-    .qty {
+        .qty {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -503,7 +481,8 @@
       background: var(--chip-active);
       border-color: rgba(255,255,255,0.22);
     }
-        .option-check {
+
+    .option-check {
       display: flex;
       align-items: center;
       gap: 8px;
@@ -518,15 +497,17 @@
       accent-color: #7b61ff;
     }
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1100px) {
       .hero-top {
-        grid-template-columns: 1fr;
+        grid-template-columns: 200px 1fr;
       }
 
-      .hero-main {
+      .hero-right-wrap {
         grid-template-columns: 1fr;
       }
+    }
 
+    @media (max-width: 1180px) {
       .hot-grid-6 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -546,16 +527,11 @@
         padding: 14px;
       }
 
-      .hero-brand,
-      .hero-main {
-        min-height: auto;
-      }
-
-      .hero-main {
-        padding: 14px;
+      .hero-top {
         grid-template-columns: 1fr;
       }
 
+      .hero-brand,
       .hero-about,
       .hero-schedule,
       .hero-contact {
@@ -569,12 +545,19 @@
 
       .hero-title,
       .section-title {
-        font-size: 26px;
+        font-size: 25px;
       }
 
-      .hero-about-text {
+      .hero-about-text,
+      .hero-note,
+      .hero-phone,
+      .hero-time-box {
         font-size: 15px;
-        line-height: 1.6;
+      }
+
+      .hero-about-btn,
+      .hero-call-btn {
+        width: 100%;
       }
 
       .hero-photo-card,
@@ -649,56 +632,48 @@
 
     <section class="hero">
       <div class="hero-top">
-        <div class="hero-brand">
+        <div class="hero-card hero-brand">
           <div>
             <div class="hero-brand-title">ФУД<br>ТАЙМ</div>
             <div class="hero-brand-subtitle">premium food service</div>
           </div>
         </div>
 
-        <div class="hero-main">
-          <div class="hero-about">
-            <div>
-              <div class="hero-mini-label">Описание</div>
-              <div class="hero-about-text">
-                Мы ценим комфорт каждого гостя. Заказы принимаются ежедневно, а команда внимательно сопровождает оформление от выбора блюд до подтверждения деталей.
-              </div>
+        <div class="hero-right-wrap">
+          <div class="hero-card hero-about">
+            <div class="hero-title">Вкусно, быстро, с заботой</div>
+            <div class="hero-about-text">
+              Мы ценим комфорт каждого гостя. Заказы принимаются ежедневно, а команда внимательно сопровождает оформление от выбора блюд до подтверждения деталей.
             </div>
 
-            <div>
-              <a href="#" class="hero-about-btn">VK</a>
+            <a href="#" class="hero-about-btn">VK</a>
+          </div>
+
+          <div class="hero-card hero-schedule">
+            <div class="hero-title">График работы</div>
+
+            <div class="hero-schedule-time">
+              <div class="hero-time-box">Будние: 10:30 — 21:00</div>
+              <div class="hero-time-box">Выходные: 12:00 — 23:00</div>
             </div>
           </div>
 
-          <div class="hero-schedule">
-            <div class="hero-mini-label">График работы</div>
-
-            <div class="schedule-stack">
-              <div class="schedule-item">
-                <strong>Будние</strong>
-                <span>10:30 — 21:00</span>
+          <div class="hero-card hero-contact">
+            <div class="hero-contact-top">
+              <div class="hero-title">Связь</div>
+              <div class="hero-note">
+                Для оформления заказа, уточнения доставки и быстрой обратной связи.
               </div>
-
-              <div class="schedule-item">
-                <strong>Выходные</strong>
-                <span>12:00 — 23:00</span>
-              </div>
+              <a href="tel:+79277126264" class="hero-phone">+7 927 712-62-64</a>
             </div>
-          </div>
 
-          <div class="hero-contact">
-            <div class="hero-mini-label">Связь</div>
-            <div class="hero-title">На связи</div>
-
-            <div class="hero-contact-text">Номер для связи и быстрого оформления заказа.</div>
-            <a href="tel:+79277126264" class="hero-phone">+7 927 712-62-64</a>
             <a href="tel:+79277126264" class="hero-call-btn">Позвонить</a>
           </div>
         </div>
       </div>
 
       <div class="hero-bottom">
-        <div class="hero-photo-card">
+        <div class="hero-card hero-photo-card">
           <div class="hero-photo-inner">
             <div class="slider" id="heroSlider">
               <div class="slide active" style="background-image:url('img/sety-dlya-kompanii.png');"></div>
@@ -711,8 +686,7 @@
         </div>
       </div>
     </section>
-
-    <div class="category-shell" id="category-shell">
+        <div class="category-shell" id="category-shell">
       <button class="category-arrow left" aria-label="Прокрутить влево" onclick="scrollCategories(-1)">&#10094;</button>
 
       <div class="category-bar" id="categoryBar">
@@ -803,6 +777,147 @@
             </div>
           </div>
         </div>
+
+        <div class="product-card variant-card" data-base-name="Огурцы и помидоры свежие со сметаной" data-name="Огурцы и помидоры свежие со сметаной" data-price="180">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/ogurtsy-i-pomidory-svezhie.PNG" alt="Огурцы и помидоры свежие">
+            </div>
+            <div class="product-card-title">Огурцы и помидоры свежие</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active" data-name="Огурцы и помидоры свежие со сметаной" data-meta="С луком и растительным маслом · 110 г · сметана" data-price="180" onclick="selectVariant(this)">Сметана</button>
+              <button class="variant-btn" data-name="Огурцы и помидоры свежие с майонезом" data-meta="С луком и растительным маслом · 110 г · майонез" data-price="180" onclick="selectVariant(this)">Майонез</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">С луком и растительным маслом · 110 г · сметана</div>
+            <div class="product-card-price variant-price">180 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+        <div class="category-shell" id="category-shell">
+      <button class="category-arrow left" aria-label="Прокрутить влево" onclick="scrollCategories(-1)">&#10094;</button>
+
+      <div class="category-bar" id="categoryBar">
+        <a href="#hot" class="category-link">Горячее</a>
+        <a href="#grill-side" class="category-link">К шашлыку</a>
+        <a href="#salads" class="category-link">Салаты</a>
+        <a href="#street-food" class="category-link">Уличная классика</a>
+        <a href="#burgers" class="category-link">Бургеры</a>
+        <a href="#addons" class="category-link">Добавки</a>
+      </div>
+
+      <button class="category-arrow right" aria-label="Прокрутить вправо" onclick="scrollCategories(1)">&#10095;</button>
+    </div>
+
+    <section class="section-block" id="hot">
+      <div class="section-title">Горячие</div>
+
+      <div class="hot-grid hot-grid-6">
+        <a class="hot-pill" href="svinina.html">Свинина</a>
+        <a class="hot-pill" href="kurica.html">Курица</a>
+        <a class="hot-pill" href="ryba.html">Рыба</a>
+        <a class="hot-pill" href="lyulya-kebab.html">Люля-кебаб</a>
+        <a class="hot-pill" href="baranina.html">Баранина</a>
+        <a class="hot-pill" href="sety.html">Сеты</a>
+      </div>
+    </section>
+
+    <section class="section-block" id="grill-side">
+      <div class="section-title">К шашлыку</div>
+
+      <div class="product-grid">
+        <div class="product-card" data-name="Шампиньоны" data-base-name="Шампиньоны" data-price="220">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/shampinony.PNG" alt="Шампиньоны">
+            </div>
+            <div class="product-card-title">Шампиньоны</div>
+            <div class="product-card-meta">200 г</div>
+            <div class="product-card-price">220 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Картошка" data-base-name="Картошка" data-price="150">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/kartoshka.PNG" alt="Картошка">
+            </div>
+            <div class="product-card-title">Картошка</div>
+            <div class="product-card-meta">230 г</div>
+            <div class="product-card-price">150 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card variant-card" data-base-name="Овощи гриль" data-price="350" data-name="Овощи гриль">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/ovoshchi-gril.PNG" alt="Овощи гриль">
+            </div>
+            <div class="product-card-title">Овощи гриль</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active" data-name="Овощи гриль" data-meta="Обычные · 300 г" data-price="350" onclick="selectVariant(this)">300 г · 350 ₽</button>
+              <button class="variant-btn" data-name="Овощи гриль XL" data-meta="XL · 400 г" data-price="500" onclick="selectVariant(this)">400 г · 500 ₽</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">Обычные · 300 г</div>
+            <div class="product-card-price variant-price">350 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card variant-card" data-base-name="Огурцы и помидоры свежие со сметаной" data-name="Огурцы и помидоры свежие со сметаной" data-price="180">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/ogurtsy-i-pomidory-svezhie.PNG" alt="Огурцы и помидоры свежие">
+            </div>
+            <div class="product-card-title">Огурцы и помидоры свежие</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active" data-name="Огурцы и помидоры свежие со сметаной" data-meta="С луком и растительным маслом · 110 г · сметана" data-price="180" onclick="selectVariant(this)">Сметана</button>
+              <button class="variant-btn" data-name="Огурцы и помидоры свежие с майонезом" data-meta="С луком и растительным маслом · 110 г · майонез" data-price="180" onclick="selectVariant(this)">Майонез</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">С луком и растительным маслом · 110 г · сметана</div>
+            <div class="product-card-price variant-price">180 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
         <section class="section-block" id="salads">
@@ -859,6 +974,42 @@
             <div class="product-card-title">Цезарь с курицей</div>
             <div class="product-card-price">260 ₽</div>
             <div class="product-card-meta">270 г</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Цезарь с креветками" data-base-name="Цезарь с креветками" data-price="290">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/tsezar-s-krevetkami.png" alt="Цезарь с креветками">
+            </div>
+            <div class="product-card-title">Цезарь с креветками</div>
+            <div class="product-card-price">290 ₽</div>
+            <div class="product-card-meta">250 г</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-name="Огурцы и помидоры с болгарским перцем" data-base-name="Огурцы и помидоры с болгарским перцем" data-price="210">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/ogurtsy-i-pomidory-s-bolgarskim-pertsem.png" alt="Огурцы и помидоры с болгарским перцем">
+            </div>
+            <div class="product-card-title">Огурцы и помидоры с болгарским перцем</div>
+            <div class="product-card-price">210 ₽</div>
+            <div class="product-card-meta">С луком и майонезом, 260 г</div>
           </div>
           <div class="product-card-bottom">
             <div class="qty">
@@ -928,10 +1079,27 @@
             </div>
           </div>
         </div>
+
+        <div class="product-card" data-name="Сэндвич с курицей" data-base-name="Сэндвич с курицей" data-price="380">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/sendvich-s-kuritsey.png" alt="Сэндвич с курицей">
+            </div>
+            <div class="product-card-title">Сэндвич с курицей</div>
+            <div class="product-card-price">380 ₽</div>
+            <div class="product-card-meta">(хлеб HARRY'S, курица, творожный сыр, томат, красный лук, айсберг)</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-
-    <section class="section-block" id="burgers">
+        <section class="section-block" id="burgers">
       <div class="section-title">Бургеры</div>
 
       <div class="product-grid">
@@ -1034,6 +1202,78 @@
             </div>
           </div>
         </div>
+
+        <div class="product-card variant-card" data-base-name="Матнакаш на мангале" data-price="80" data-name="Матнакаш на мангале">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/matnakash-na-mangale.png" alt="Матнакаш на мангале">
+            </div>
+            <div class="product-card-title">Матнакаш на мангале</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active" data-name="Матнакаш на мангале" data-meta="Целый" data-price="80" onclick="selectVariant(this)">Целый · 80 ₽</button>
+              <button class="variant-btn" data-name="Половина матнакаша" data-meta="Половина" data-price="40" onclick="selectVariant(this)">Половина · 40 ₽</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">Целый</div>
+            <div class="product-card-price variant-price">80 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card variant-card" data-base-name="Соус белый чесночный 50 мл" data-price="70" data-name="Соус белый чесночный 50 мл">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/sous-belyy-chesnochnyy.png" alt="Соус белый чесночный">
+            </div>
+            <div class="product-card-title">Соус белый чесночный</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active" data-name="Соус белый чесночный 50 мл" data-meta="50 мл" data-price="70" onclick="selectVariant(this)">50 мл · 70 ₽</button>
+              <button class="variant-btn" data-name="Соус белый чесночный 100 мл" data-meta="100 мл" data-price="100" onclick="selectVariant(this)">100 мл · 100 ₽</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">50 мл</div>
+            <div class="product-card-price variant-price">70 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card variant-card" data-base-name="Соус красный кавказский 50 мл" data-price="70" data-name="Соус красный кавказский 50 мл">
+          <div class="product-card-main">
+            <div class="product-card-image">
+              <img src="img/sous-krasnyy-kavkazskiy.png" alt="Соус красный кавказский">
+            </div>
+            <div class="product-card-title">Соус красный кавказский</div>
+
+            <div class="variant-group">
+              <button class="variant-btn active" data-name="Соус красный кавказский 50 мл" data-meta="50 мл" data-price="70" onclick="selectVariant(this)">50 мл · 70 ₽</button>
+              <button class="variant-btn" data-name="Соус красный кавказский 100 мл" data-meta="100 мл" data-price="100" onclick="selectVariant(this)">100 мл · 100 ₽</button>
+            </div>
+
+            <div class="product-card-meta variant-meta">50 мл</div>
+            <div class="product-card-price variant-price">70 ₽</div>
+          </div>
+          <div class="product-card-bottom">
+            <div class="qty">
+              <button onclick="changeQty(this, -1)">-</button>
+              <span>0</span>
+              <button onclick="changeQty(this, 1)">+</button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -1078,7 +1318,7 @@
   <script src="js/cart.js"></script>
 </body>
 </html>
-
+    
     
     
     
