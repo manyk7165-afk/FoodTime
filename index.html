@@ -68,25 +68,14 @@
 
     .hero-top {
       display: grid;
-      grid-template-columns: 260px 1fr;
+      grid-template-columns: 250px 1fr;
       gap: 16px;
       align-items: stretch;
     }
 
-    .hero-right-wrap {
-      display: grid;
-      grid-template-columns: 1.15fr 0.9fr 0.9fr;
-      gap: 16px;
-    }
-
-    .hero-bottom {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .hero-card {
+    .hero-brand,
+    .hero-main,
+    .hero-photo-card {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.10);
       backdrop-filter: blur(22px);
@@ -96,18 +85,18 @@
     }
 
     .hero-brand {
-      min-height: 340px;
+      min-height: 360px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 22px;
+      padding: 24px;
     }
 
     .hero-brand-title {
       font-family: 'Unbounded', sans-serif;
-      font-size: 34px;
-      line-height: 1.05;
+      font-size: 36px;
+      line-height: 1.04;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #fff;
@@ -121,13 +110,25 @@
       color: rgba(255,255,255,0.50);
     }
 
+    .hero-main {
+      min-height: 360px;
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr 0.85fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
     .hero-about,
     .hero-schedule,
     .hero-contact {
-      min-height: 340px;
-      padding: 22px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
+      min-height: 100%;
     }
 
     .hero-about {
@@ -154,8 +155,8 @@
 
     .hero-about-text {
       font-size: 17px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.86);
+      line-height: 1.72;
+      color: rgba(255,255,255,0.87);
     }
 
     .hero-note {
@@ -165,23 +166,27 @@
       margin-bottom: 16px;
     }
 
-    .hero-about-btn {
+    .hero-about-btn,
+    .hero-call-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 150px;
-      width: fit-content;
-      padding: 14px 22px;
+      min-height: 56px;
       border-radius: 18px;
       text-decoration: none;
       color: #fff;
       font-weight: 800;
       font-size: 18px;
-      background: linear-gradient(135deg,#2db7ff 0%,#7b61ff 100%);
+      background: var(--button);
       box-shadow: 0 12px 24px rgba(0,0,0,0.20);
     }
 
-    .schedule-stack {
+    .hero-about-btn {
+      width: fit-content;
+      min-width: 150px;
+      padding: 0 22px;
+    }
+        .schedule-stack {
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -218,26 +223,23 @@
       line-height: 1.45;
       color: #4ea3ff;
       text-decoration: none;
+      word-break: break-word;
     }
 
     .hero-call-btn {
-      margin-top: auto;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       width: 100%;
-      min-height: 56px;
-      border-radius: 18px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 800;
-      font-size: 18px;
-      background: linear-gradient(135deg,#2db7ff 0%,#7b61ff 100%);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.20);
+      margin-top: auto;
+    }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 16px;
     }
 
     .hero-photo-card {
-      min-height: 320px;
+      min-height: 340px;
       overflow: hidden;
       position: relative;
     }
@@ -246,7 +248,7 @@
       position: relative;
       width: 100%;
       height: 100%;
-      min-height: 320px;
+      min-height: 340px;
     }
 
     .slider {
@@ -388,8 +390,7 @@
       font-size: 20px;
       font-weight: 800;
     }
-
-    .product-grid,
+        .product-grid,
     .daily-menu-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -554,18 +555,15 @@
       height: 16px;
       accent-color: #7b61ff;
     }
-
-    @media (max-width: 1280px) {
+        @media (max-width: 1280px) {
       .hero-top {
+        grid-template-columns: 220px 1fr;
+      }
+
+      .hero-main {
         grid-template-columns: 1fr;
       }
 
-      .hero-right-wrap {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 1180px) {
       .hot-grid-6 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -574,12 +572,6 @@
       .daily-menu-grid,
       .daily-menu-subgrid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    @media (max-width: 980px) {
-      .hero-right-wrap {
-        grid-template-columns: 1fr;
       }
     }
 
@@ -593,7 +585,20 @@
         padding: 14px;
       }
 
+      .hero-top {
+        grid-template-columns: 1fr;
+      }
+
       .hero-brand,
+      .hero-main {
+        min-height: auto;
+      }
+
+      .hero-main {
+        padding: 14px;
+        grid-template-columns: 1fr;
+      }
+
       .hero-about,
       .hero-schedule,
       .hero-contact {
@@ -694,19 +699,19 @@
   </style>
 </head>
 <body>
-    <div class="page">
+  <div class="page">
 
     <section class="hero">
       <div class="hero-top">
-        <div class="hero-card hero-brand">
+        <div class="hero-brand">
           <div>
             <div class="hero-brand-title">ФУД<br>ТАЙМ</div>
             <div class="hero-brand-subtitle">premium food service</div>
           </div>
         </div>
 
-        <div class="hero-right-wrap">
-          <div class="hero-card hero-about">
+        <div class="hero-main">
+          <div class="hero-about">
             <div>
               <div class="hero-mini-label">Описание</div>
               <div class="hero-about-text">
@@ -719,7 +724,7 @@
             </div>
           </div>
 
-          <div class="hero-card hero-schedule">
+          <div class="hero-schedule">
             <div class="hero-mini-label">Режим работы</div>
             <div class="hero-title">График<br>сервиса</div>
             <div class="hero-note">
@@ -739,7 +744,7 @@
             </div>
           </div>
 
-          <div class="hero-card hero-contact">
+          <div class="hero-contact">
             <div class="hero-mini-label">Связь</div>
             <div class="hero-title">На связи<br>с вами</div>
 
@@ -755,7 +760,7 @@
       </div>
 
       <div class="hero-bottom">
-        <div class="hero-card hero-photo-card">
+        <div class="hero-photo-card">
           <div class="hero-photo-inner">
             <div class="slider" id="heroSlider">
               <div class="slide active" style="background-image:url('img/sety-dlya-kompanii.png');"></div>
@@ -784,8 +789,7 @@
 
       <button class="category-arrow right" aria-label="Прокрутить вправо" onclick="scrollCategories(1)">&#10095;</button>
     </div>
-
-    <section class="section-block" id="hot">
+        <section class="section-block" id="hot">
       <div class="section-title">Горячие</div>
 
       <div class="hot-grid hot-grid-6">
@@ -893,7 +897,8 @@
       <div class="section-note">Актуальное меню на сегодня.</div>
       <div class="daily-menu-grid" id="dailyMenuGrid"></div>
     </section>
-        <section class="section-block" id="salads">
+
+    <section class="section-block" id="salads">
       <div class="section-title">Салаты</div>
 
       <div class="product-grid">
@@ -956,46 +961,9 @@
             </div>
           </div>
         </div>
-
-        <div class="product-card" data-name="Цезарь с креветками" data-base-name="Цезарь с креветками" data-price="290">
-          <div class="product-card-main">
-            <div class="product-card-image">
-              <img src="img/tsezar-s-krevetkami.png" alt="Цезарь с креветками">
-            </div>
-            <div class="product-card-title">Цезарь с креветками</div>
-            <div class="product-card-price">290 ₽</div>
-            <div class="product-card-meta">250 г</div>
-          </div>
-          <div class="product-card-bottom">
-            <div class="qty">
-              <button onclick="changeQty(this, -1)">-</button>
-              <span>0</span>
-              <button onclick="changeQty(this, 1)">+</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card" data-name="Огурцы и помидоры с болгарским перцем" data-base-name="Огурцы и помидоры с болгарским перцем" data-price="210">
-          <div class="product-card-main">
-            <div class="product-card-image">
-              <img src="img/ogurtsy-i-pomidory-s-bolgarskim-pertsem.png" alt="Огурцы и помидоры с болгарским перцем">
-            </div>
-            <div class="product-card-title">Огурцы и помидоры с болгарским перцем</div>
-            <div class="product-card-price">210 ₽</div>
-            <div class="product-card-meta">С луком и майонезом, 260 г</div>
-          </div>
-          <div class="product-card-bottom">
-            <div class="qty">
-              <button onclick="changeQty(this, -1)">-</button>
-              <span>0</span>
-              <button onclick="changeQty(this, 1)">+</button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
-
-    <section class="section-block" id="street-food">
+        <section class="section-block" id="street-food">
       <div class="section-title">Уличная классика</div>
 
       <div class="product-grid">
@@ -1072,7 +1040,8 @@
         </div>
       </div>
     </section>
-        <section class="section-block" id="burgers">
+
+    <section class="section-block" id="burgers">
       <div class="section-title">Бургеры</div>
 
       <div class="product-grid">
@@ -1166,78 +1135,6 @@
             <div class="product-card-title">Тонкий лаваш</div>
             <div class="product-card-meta">150 г</div>
             <div class="product-card-price">50 ₽</div>
-          </div>
-          <div class="product-card-bottom">
-            <div class="qty">
-              <button onclick="changeQty(this, -1)">-</button>
-              <span>0</span>
-              <button onclick="changeQty(this, 1)">+</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card variant-card" data-base-name="Матнакаш на мангале" data-price="80" data-name="Матнакаш на мангале">
-          <div class="product-card-main">
-            <div class="product-card-image">
-              <img src="img/matnakash-na-mangale.png" alt="Матнакаш на мангале">
-            </div>
-            <div class="product-card-title">Матнакаш на мангале</div>
-
-            <div class="variant-group">
-              <button class="variant-btn active" data-name="Матнакаш на мангале" data-meta="Целый" data-price="80" onclick="selectVariant(this)">Целый · 80 ₽</button>
-              <button class="variant-btn" data-name="Половина матнакаша" data-meta="Половина" data-price="40" onclick="selectVariant(this)">Половина · 40 ₽</button>
-            </div>
-
-            <div class="product-card-meta variant-meta">Целый</div>
-            <div class="product-card-price variant-price">80 ₽</div>
-          </div>
-          <div class="product-card-bottom">
-            <div class="qty">
-              <button onclick="changeQty(this, -1)">-</button>
-              <span>0</span>
-              <button onclick="changeQty(this, 1)">+</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card variant-card" data-base-name="Соус белый чесночный 50 мл" data-price="70" data-name="Соус белый чесночный 50 мл">
-          <div class="product-card-main">
-            <div class="product-card-image">
-              <img src="img/sous-belyy-chesnochnyy.png" alt="Соус белый чесночный">
-            </div>
-            <div class="product-card-title">Соус белый чесночный</div>
-
-            <div class="variant-group">
-              <button class="variant-btn active" data-name="Соус белый чесночный 50 мл" data-meta="50 мл" data-price="70" onclick="selectVariant(this)">50 мл · 70 ₽</button>
-              <button class="variant-btn" data-name="Соус белый чесночный 100 мл" data-meta="100 мл" data-price="100" onclick="selectVariant(this)">100 мл · 100 ₽</button>
-            </div>
-
-            <div class="product-card-meta variant-meta">50 мл</div>
-            <div class="product-card-price variant-price">70 ₽</div>
-          </div>
-          <div class="product-card-bottom">
-            <div class="qty">
-              <button onclick="changeQty(this, -1)">-</button>
-              <span>0</span>
-              <button onclick="changeQty(this, 1)">+</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card variant-card" data-base-name="Соус красный кавказский 50 мл" data-price="70" data-name="Соус красный кавказский 50 мл">
-          <div class="product-card-main">
-            <div class="product-card-image">
-              <img src="img/sous-krasnyy-kavkazskiy.png" alt="Соус красный кавказский">
-            </div>
-            <div class="product-card-title">Соус красный кавказский</div>
-
-            <div class="variant-group">
-              <button class="variant-btn active" data-name="Соус красный кавказский 50 мл" data-meta="50 мл" data-price="70" onclick="selectVariant(this)">50 мл · 70 ₽</button>
-              <button class="variant-btn" data-name="Соус красный кавказский 100 мл" data-meta="100 мл" data-price="100" onclick="selectVariant(this)">100 мл · 100 ₽</button>
-            </div>
-
-            <div class="product-card-meta variant-meta">50 мл</div>
-            <div class="product-card-price variant-price">70 ₽</div>
           </div>
           <div class="product-card-bottom">
             <div class="qty">
